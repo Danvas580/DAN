@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DAN TECH Admin Panel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #ffffff;
+      color: #333;
+      padding: 40px 20px;
+    }
+
+    header {
+      background: #007bff;
+      color: white;
+      padding: 20px 30px;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    .section {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      flex: 1 1 250px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    ul.log-list {
+      list-style: none;
+      margin-top: 10px;
+    }
+
+    ul.log-list li {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .btn-logout {
+      margin-top: 20px;
+      background: #dc3545;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-logout:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+      .card-grid {
+        flex-direction: column;
+      }
+    }
+  </style>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="performance-mode">
+
+<header>
+  <h1>DAN TECH Admin Panel</h1>
+  <p>System Oversight & Management Dashboard</p>
+</header>
+
+<div class="section">
+  <h2>Dashboard Insights</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>👨‍💼 Active Staff</h3>
+      <p id="active-staff-count">Loading...</p>
+    </div>
+    <div class="card">
+      <h3>📝 Tasks Today</h3>
+      <p id="task-count">Loading...</p>
+    </div>
+    <div class="card">
+      <h3>🕒 Current Shift Activity</h3>
+      <p id="shift-status">Fetching data...</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Recent Activity Log</h2>
+  <ul class="log-list" id="activity-log">
+    <li>Loading recent activities...</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Admin Tools</h2>
+  <div class="card-grid">
+    <div class="card"><h3>📁 Document Center</h3><p>Access shared files and policies.</p></div>
+    <div class="card"><h3>🛠️ Staff Management</h3><p>Update roles, teams, or availability.</p></div>
+    <div class="card"><h3>📊 Reports Generator</h3><p>Download performance and activity reports.</p></div>
+  </div>
+</div>
+
+<div style="text-align:center;">
+  <button class="btn-logout" onclick="logout()">Logout</button>
+</div>
+
+<script>
+  // Dummy dynamic data simulation
+  document.getElementById('active-staff-count').textContent = '12 Online';
+  document.getElementById('task-count').textContent = '36 Tasks';
+  document.getElementById('shift-status').textContent = '7 Staff On Shift';
+
+  const recentActivities = [
+    "🔄 John updated task list",
+    "🟢 Sarah started her shift",
+    "💬 Message sent by Admin",
+    "📁 Document uploaded: safety-guidelines.pdf",
+    "📢 Announcement posted: Weekend Training"
+  ];
+
+  const logList = document.getElementById('activity-log');
+  logList.innerHTML = '';
+  recentActivities.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    logList.appendChild(li);
+  });
+
+  function logout() {
+    alert("You have been logged out.");
+    window.location.href = "dashboard.html";
+  }
+</script>
+
+    <script src="update-styles.js"></script>
+</body>
+</html>
+

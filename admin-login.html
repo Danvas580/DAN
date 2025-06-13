@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DAN TECH Admin Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      /* Modern Tech Color Palette */
+      --primary: #0ea5e9;
+      --primary-dark: #0369a1;
+      --primary-glow: rgba(14, 165, 233, 0.15);
+      --secondary: #6366f1;
+      --secondary-dark: #4338ca;
+      --accent: #10b981;
+      --dark: #0f172a;
+      --dark-blue: #1e293b;
+      --light: #f8fafc;
+      --error: #ef4444;
+      --success: #22c55e;
+      
+      /* Glass Effect Colors */
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.05);
+      
+      /* Gradients */
+      --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      --gradient-dark: linear-gradient(135deg, var(--dark-blue) 0%, var(--dark) 100%);
+      
+      /* Effects */
+      --glow-primary: 0 0 20px var(--primary-glow);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+      --shadow-glow: 0 0 20px var(--primary-glow);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--dark);
+      color: var(--light);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Tech Grid Background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(90deg, var(--glass-border) 1px, transparent 1px),
+        linear-gradient(0deg, var(--glass-border) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.1;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Ambient Light Effect */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 0%, 
+        var(--primary-glow) 0%, 
+        transparent 50%);
+      opacity: 0.4;
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    .split-layout {
+      display: flex;
+      width: 100%;
+      min-height: 100vh;
+    }
+    
+    .brand-section {
+      background: var(--gradient-dark);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--light);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-primary);
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .brand-content {
+      max-width: 500px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .brand-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: var(--glow-primary);
+    }
+    
+    .brand-tagline {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      font-weight: 300;
+      opacity: 0.9;
+    }
+    
+    .brand-features {
+      margin-top: 40px;
+      text-align: left;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 8px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      transition: var(--transition);
+    }
+
+    .feature-item:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-glow);
+      transform: translateX(5px);
+    }
+    
+    .feature-icon {
+      margin-right: 15px;
+      color: var(--primary);
+    }
+    
+    .login-section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .login-container {
+      width: 100%;
+      max-width: 420px;
+      padding: 40px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
+    }
+
+    .login-container:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .login-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .login-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 10px;
+    }
+    
+    .login-subtitle {
+      color: var(--light);
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--light);
+      font-weight: 500;
+    }
+    
+    .form-input-wrapper {
+      position: relative;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--light);
+      font-size: 1rem;
+      transition: var(--transition);
+      outline: none;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .form-input:focus {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .form-input::placeholder {
+      color: rgba(248, 250, 252, 0.5);
+    }
+    
+    .icon-left {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary);
+      transition: var(--transition);
+    }
+    
+    .has-icon-left {
+      padding-left: 42px;
+    }
+    
+    .password-toggle {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary);
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .password-toggle:hover {
+      color: var(--secondary);
+    }
+    
+    .login-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+    }
+    
+    .remember-me {
+      display: flex;
+      align-items: center;
+      color: var(--light);
+      opacity: 0.8;
+    }
+    
+    .remember-me input {
+      margin-right: 8px;
+    }
+    
+    .forgot-password {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    
+    .forgot-password:hover {
+      color: var(--secondary);
+      text-shadow: var(--glow-primary);
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: var(--gradient-primary);
+      color: var(--light);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: 0.5s;
+    }
+
+    .login-button:hover::before {
+      left: 100%;
+    }
+
+    .login-button:hover {
+      box-shadow: var(--shadow-glow);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .split-layout {
+        flex-direction: column;
+      }
+      
+      .brand-section {
+        display: none;
+      }
+      
+      .login-section {
+        padding: 20px;
+        min-height: 100vh;
+      }
+      
+      .login-container {
+        max-width: 100%;
+      }
+    }
+  </style>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="performance-mode">
+  <div class="split-layout">
+    <section class="brand-section">
+      <div class="brand-content">
+        <h1 class="brand-logo">DAN TECH</h1>
+        <p class="brand-tagline">Empowering Digital Excellence Through Advanced Administration</p>
+        <div class="brand-features">
+          <div class="feature-item">
+            <i class="fas fa-shield-alt feature-icon"></i>
+            <span>Secure Admin Access Control</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-chart-line feature-icon"></i>
+            <span>Real-time Analytics Dashboard</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-users-cog feature-icon"></i>
+            <span>User Management System</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-tasks feature-icon"></i>
+            <span>Service Operations Control</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="login-section">
+      <div class="login-container">
+        <div class="login-header">
+          <h2 class="login-title">Admin Portal</h2>
+          <p class="login-subtitle">Enter your credentials to access the dashboard</p>
+        </div>
+
+        <form id="loginForm" action="admin-login.php" method="POST">
+          <div class="form-group">
+            <label class="form-label" for="username">Username</label>
+            <div class="form-input-wrapper">
+              <i class="fas fa-user icon-left"></i>
+              <input type="text" id="username" name="username" class="form-input has-icon-left" placeholder="Enter your username" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <div class="form-input-wrapper">
+              <i class="fas fa-lock icon-left"></i>
+              <input type="password" id="password" name="password" class="form-input has-icon-left" placeholder="Enter your password" required>
+              <button type="button" class="password-toggle" onclick="togglePassword()">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="login-options">
+            <label class="remember-me">
+              <input type="checkbox" name="remember" id="remember">
+              Remember me
+            </label>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="login-button">
+            Sign In
+          </button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const passwordInput = document.getElementById('password');
+      const toggleButton = document.querySelector('.password-toggle i');
+      
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleButton.classList.remove('fa-eye');
+        toggleButton.classList.add('fa-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        toggleButton.classList.remove('fa-eye-slash');
+        toggleButton.classList.add('fa-eye');
+      }
+    }
+
+    // Form submission handling
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      // Add your form submission logic here
+      // You can make an AJAX call to your backend or handle the form submission as needed
+      
+      this.submit();
+    });
+  </script>
+    <script src="update-styles.js"></script>
+</body>
+</html>
+

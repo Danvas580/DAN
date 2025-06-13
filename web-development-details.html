@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DAN TECH - Professional web development services including custom design, e-commerce solutions, and digital marketing">
+    <meta name="keywords" content="web development, custom websites, responsive design, SEO, e-commerce">
+    <meta name="theme-color" content="#121212">
+    <title>DAN TECH - Professional Web Development Solutions</title>
+    
+    <!-- DNS Prefetch and Preconnect -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
+    <!-- Critical Font Loading -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    
+    <!-- Async CSS Loading -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <!-- Fallback for No JavaScript -->
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+    
+    <!-- Critical CSS Inlined -->
+    <style>
+        /* Force dark theme */
+        html.dark-theme {
+            background-color: #030711 !important;
+        }
+
+        html.dark-theme body {
+            background-color: #030711 !important;
+        }
+
+        :root {
+            /* Enhanced color palette with deeper tech colors */
+            --primary: #00ff88;
+            --primary-dark: #00cc6a;
+            --primary-light: #33ff9d;
+            --primary-glow: rgba(0, 255, 136, 0.2);
+            --secondary: #0ef;
+            --secondary-dark: #00b3cc;
+            --secondary-glow: rgba(0, 238, 255, 0.2);
+            --accent: #f0f;
+            --accent-glow: rgba(255, 0, 255, 0.2);
+            --background: #030711;
+            --surface: #0a0f1a;
+            --surface-light: #111827;
+            --surface-dark: #050a14;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.85);
+            --text-muted: rgba(255, 255, 255, 0.6);
+            
+            /* Enhanced UI elements */
+            --card-bg: rgba(10, 15, 26, 0.85);
+            --card-hover: rgba(17, 24, 39, 0.95);
+            --border: rgba(255, 255, 255, 0.1);
+            --border-hover: rgba(255, 255, 255, 0.2);
+            --input-bg: rgba(10, 15, 26, 0.8);
+            --input-border: rgba(255, 255, 255, 0.1);
+            --input-focus: rgba(0, 255, 136, 0.3);
+            
+            /* Enhanced Neon Effects */
+            --neon-primary: 0 0 10px rgba(0, 255, 136, 0.7),
+                            0 0 20px rgba(0, 255, 136, 0.5),
+                            0 0 30px rgba(0, 255, 136, 0.3);
+            --neon-secondary: 0 0 10px rgba(0, 238, 255, 0.7),
+                              0 0 20px rgba(0, 238, 255, 0.5),
+                              0 0 30px rgba(0, 238, 255, 0.3);
+            
+            /* Refined shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.35);
+            
+            /* Layout constants */
+            --max-width: 1200px;
+            --header-height: 80px;
+            
+            /* Spacing scale */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            
+            /* Animation variables */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--background) !important;
+        }
+
+        body {
+            font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--background) !important;
+            background: linear-gradient(135deg, var(--background), var(--surface-dark)) !important;
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: var(--content-width);
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Critical Header Styles */
+        header {
+            background: rgba(10, 15, 26, 0.95) !important;
+            padding: var(--space-4) 0;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        nav {
+            height: 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Critical Hero Section Styles */
+        .hero {
+            margin-top: 4rem;
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(79, 70, 229, 0.1), transparent);
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+            text-shadow: var(--neon-primary);
+        }
+
+        /* Loading Animation - Critical */
+        .loading-animation {
+            position: fixed;
+            inset: 0;
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+    </style>
+
+    <!-- Deferred Non-Critical CSS -->
+    <link rel="preload" as="style" href="styles.css" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+</head>
+<body class="dark-tech-theme">
+    <div class="tech-background"></div>
+    <div class="tech-grid"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- Loading Animation -->
+    <div class="loading-animation">
+        <div class="loading-logo"></div>
+    </div>
+
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-code"></i>
+                DAN TECH
+            </a>
+            <button class="mobile-menu" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#tech-stack">Tech Stack</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <h1>Professional Web Development Solutions</h1>
+            <p>Custom web solutions tailored to your business needs. From responsive websites to complex web applications.</p>
+            <a href="#contact" class="btn">
+                <span>Get Started</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
+
+        <section id="services" class="container">
+            <div class="services-grid">
+                <article class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Custom Web Development</h3>
+                    <p>Tailored web solutions built with modern technologies and best practices. Responsive, fast, and user-friendly.</p>
+                    <a href="#contact" class="btn">Learn More</a>
+                </article>
+
+                <article class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-Commerce Solutions</h3>
+                    <p>Complete online store solutions with secure payment integration, inventory management, and order tracking.</p>
+                    <a href="#contact" class="btn">Learn More</a>
+                </article>
+
+                <article class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Progressive Web Apps</h3>
+                    <p>Fast, reliable, and engaging web applications that work offline and feel like native apps.</p>
+                    <a href="#contact" class="btn">Learn More</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="tech-stack" class="tech-stack">
+            <div class="container">
+                <h2 class="section-title">Our Tech Stack</h2>
+                <div class="tech-grid">
+                    <div class="tech-category">
+                        <h3>Frontend</h3>
+                        <ul>
+                            <li>HTML5 & CSS3</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>React.js</li>
+                            <li>Vue.js</li>
+                            <li>Next.js</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h3>Backend</h3>
+                        <ul>
+                            <li>Node.js</li>
+                            <li>Python</li>
+                            <li>PHP</li>
+                            <li>MongoDB</li>
+                            <li>MySQL</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-category">
+                        <h3>Tools & DevOps</h3>
+                        <ul>
+                            <li>Git & GitHub</li>
+                            <li>Docker</li>
+                            <li>AWS</li>
+                            <li>CI/CD</li>
+                            <li>Webpack</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2024 DAN TECH. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Optimized JavaScript -->
+    <script>
+        // Use requestIdleCallback for non-critical operations
+        const requestIdleCallback = window.requestIdleCallback || function(cb) {
+            const start = Date.now();
+            return setTimeout(function() {
+                cb({
+                    didTimeout: false,
+                    timeRemaining: function() {
+                        return Math.max(0, 50 - (Date.now() - start));
+                    }
+                });
+            }, 1);
+        };
+
+        // Efficient DOM queries - store references
+        const header = document.querySelector('header');
+        const mobileMenuBtn = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        const loadingAnimation = document.querySelector('.loading-animation');
+        const scrollProgressBar = document.querySelector('.scroll-progress-bar');
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const animateOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    animateOnScroll.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, observerOptions);
+
+        // Efficient scroll handling with throttle
+        let lastScrollPosition = window.pageYOffset;
+        let ticking = false;
+
+        function updateScrollProgress() {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollProgressBar.style.width = scrolled + '%';
+        }
+
+        function handleScroll() {
+            const currentScrollPosition = window.pageYOffset;
+
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    // Header show/hide logic
+                    if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 100) {
+                        header.classList.add('hidden');
+                    } else {
+                        header.classList.remove('hidden');
+                    }
+                    lastScrollPosition = currentScrollPosition;
+                    
+                    // Update scroll progress
+                    updateScrollProgress();
+                    
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Remove loading animation
+            requestIdleCallback(() => {
+                loadingAnimation.classList.add('loaded');
+                setTimeout(() => loadingAnimation.style.display = 'none', 500);
+            });
+
+            // Setup animations
+            document.querySelectorAll('.service-card, .tech-category').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                animateOnScroll.observe(el);
+            });
+
+            // Mobile menu handling
+            mobileMenuBtn?.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Efficient event listeners
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                if (!scrollTimeout) {
+                    scrollTimeout = setTimeout(() => {
+                        handleScroll();
+                        scrollTimeout = null;
+                    }, 16); // ~60fps
+                }
+            }, { passive: true });
+
+            // Handle initial scroll position
+            updateScrollProgress();
+        });
+
+        // Preload images
+        requestIdleCallback(() => {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

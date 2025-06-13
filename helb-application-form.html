@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HELB Loan Application Form - Apply for Higher Education Loans Board Funding">
+  <title>HELB Application Form - Higher Education Loans Board</title>
+  
+  <!-- Preload critical assets -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
+    /* Modern CSS Reset and Variables */
+    :root {
+      /* Enhanced color palette */
+      --primary: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --primary-light: #60a5fa;
+      --secondary: #6366f1;
+      --accent: #8b5cf6;
+      --background: #0f172a;
+      --surface: #1e293b;
+      --surface-light: #334155;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --success: #22c55e;
+      --warning: #eab308;
+      --error: #ef4444;
+      
+      /* Enhanced UI elements */
+      --card-bg: rgba(30, 41, 59, 0.8);
+      --card-hover: rgba(51, 65, 85, 0.9);
+      --border: rgba(148, 163, 184, 0.1);
+      --border-hover: rgba(148, 163, 184, 0.2);
+      --input-bg: rgba(15, 23, 42, 0.6);
+      --input-border: rgba(148, 163, 184, 0.2);
+      --input-focus: rgba(59, 130, 246, 0.5);
+      
+      /* Refined shadows */
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+      --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+      --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+      --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.2);
+      
+      /* Modern radius scale */
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+      
+      /* Layout constants */
+      --max-width: 1200px;
+      --form-width: 800px;
+      --header-height: 80px;
+      
+      /* Animation variables */
+      --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+      
+      /* Spacing scale */
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      
+      /* Typography scale */
+      --font-xs: 0.75rem;
+      --font-sm: 0.875rem;
+      --font-base: 1rem;
+      --font-lg: 1.125rem;
+      --font-xl: 1.25rem;
+      --font-2xl: 1.5rem;
+      --font-3xl: 1.875rem;
+      --font-4xl: 2.25rem;
+    }
+
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      height: 100%;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, var(--background), var(--surface));
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100%;
+      overflow-x: hidden;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+      will-change: transform;
+    }
+
+    /* Enhanced Background Effects */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: -1;
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+    }
+
+    /* Container */
+    .container {
+      max-width: var(--form-width);
+      margin: var(--space-8) auto;
+      padding: 0 var(--space-4);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Form Header */
+    .form-header {
+      background: linear-gradient(135deg, var(--card-bg), var(--surface-light));
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+      padding: var(--space-8);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(
+        circle at top right,
+        var(--primary-light) 0%,
+        transparent 70%
+      );
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .form-title {
+      font-size: var(--font-3xl);
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary-light), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: var(--space-4);
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-subtitle {
+      color: var(--text-secondary);
+      font-size: var(--font-lg);
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Form Container */
+    .form-container {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Form Section */
+    .form-section {
+      margin-bottom: var(--space-8);
+      padding: var(--space-6);
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      transition: all var(--transition-normal);
+    }
+
+    .form-section:hover {
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-md);
+    }
+
+    .section-title {
+      font-size: var(--font-xl);
+      font-weight: 600;
+      color: var(--primary-light);
+      margin-bottom: var(--space-4);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    /* Form Groups */
+    .form-group {
+      margin-bottom: var(--space-6);
+    }
+    
+    .form-label {
+      display: block;
+      font-size: var(--font-sm);
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-2);
+    }
+
+    /* Enhanced Form Inputs */
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: var(--space-3) var(--space-4);
+      font-size: var(--font-base);
+      color: var(--text-primary);
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: var(--radius-md);
+      transition: all var(--transition-normal);
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--input-focus);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* Form Grid */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-4);
+    }
+
+    /* File Upload */
+    .file-upload {
+      position: relative;
+      padding: var(--space-8);
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: all var(--transition-normal);
+      cursor: pointer;
+    }
+
+    .file-upload:hover {
+      border-color: var(--primary-light);
+      background: var(--input-bg);
+    }
+
+    .file-upload input[type="file"] {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .upload-icon {
+      font-size: var(--font-2xl);
+      color: var(--primary);
+      margin-bottom: var(--space-2);
+    }
+
+    /* Form Actions */
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: var(--space-8);
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    
+    /* Enhanced Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-3) var(--space-6);
+      font-size: var(--font-base);
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      gap: var(--space-2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+
+    .btn:hover::before {
+      opacity: 1;
+    }
+
+    .btn--primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn--primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn--secondary {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .btn--secondary:hover {
+      background: rgba(59, 130, 246, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Progress Indicator */
+    .progress-bar {
+      height: 4px;
+      background: var(--surface-light);
+      border-radius: var(--radius-full);
+      margin: var(--space-8) 0;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width var(--transition-normal);
+    }
+
+    /* Validation Styles */
+    .form-input.is-valid,
+    .form-select.is-valid,
+    .form-textarea.is-valid {
+      border-color: var(--success);
+    }
+
+    .form-input.is-invalid,
+    .form-select.is-invalid,
+    .form-textarea.is-invalid {
+      border-color: var(--error);
+    }
+
+    .validation-message {
+      font-size: var(--font-sm);
+      margin-top: var(--space-1);
+    }
+
+    .validation-message.error {
+      color: var(--error);
+    }
+
+    .validation-message.success {
+      color: var(--success);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        margin: var(--space-4);
+        padding: 0;
+      }
+
+      .form-header {
+        padding: var(--space-6);
+      }
+
+      .form-container {
+        padding: var(--space-4);
+      }
+
+      .form-section {
+        padding: var(--space-4);
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-actions {
+        flex-direction: column;
+        gap: var(--space-4);
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-header">
+      <h1 class="form-title">HELB Loan Application Form</h1>
+      <p class="form-subtitle">Complete the form below to apply for HELB funding. All fields marked with * are required.</p>
+      </div>
+      
+      <div class="form-container">
+      <form id="helb-application-form" novalidate>
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        
+        <!-- Personal Information -->
+        <section class="form-section" id="personal-info">
+          <h2 class="section-title">
+                    <i class="fas fa-user"></i>
+            Personal Information
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="first-name">First Name *</label>
+              <input type="text" id="first-name" class="form-input" required>
+                  </div>
+            <div class="form-group">
+              <label class="form-label" for="last-name">Last Name *</label>
+              <input type="text" id="last-name" class="form-input" required>
+                </div>
+            <div class="form-group">
+              <label class="form-label" for="id-number">ID/Passport Number *</label>
+              <input type="text" id="id-number" class="form-input" required>
+              </div>
+                <div class="form-group">
+              <label class="form-label" for="dob">Date of Birth *</label>
+              <input type="date" id="dob" class="form-input" required>
+                  </div>
+                </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="form-section" id="contact-info">
+          <h2 class="section-title">
+                <i class="fas fa-envelope"></i>
+            Contact Information
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address *</label>
+              <input type="email" id="email" class="form-input" required>
+              </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number *</label>
+              <input type="tel" id="phone" class="form-input" required>
+              </div>
+            <div class="form-group">
+              <label class="form-label" for="address">Physical Address *</label>
+              <textarea id="address" class="form-textarea" required></textarea>
+              </div>
+            </div>
+        </section>
+
+        <!-- Academic Information -->
+        <section class="form-section" id="academic-info">
+          <h2 class="section-title">
+                <i class="fas fa-graduation-cap"></i>
+            Academic Information
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="institution">Institution Name *</label>
+              <input type="text" id="institution" class="form-input" required>
+              </div>
+            <div class="form-group">
+              <label class="form-label" for="course">Course of Study *</label>
+              <input type="text" id="course" class="form-input" required>
+              </div>
+            <div class="form-group">
+              <label class="form-label" for="year-of-study">Year of Study *</label>
+              <select id="year-of-study" class="form-select" required>
+                <option value="">Select Year</option>
+                <option value="1">First Year</option>
+                <option value="2">Second Year</option>
+                <option value="3">Third Year</option>
+                <option value="4">Fourth Year</option>
+              </select>
+              </div>
+            <div class="form-group">
+              <label class="form-label" for="admission-number">Admission Number *</label>
+              <input type="text" id="admission-number" class="form-input" required>
+              </div>
+            </div>
+        </section>
+
+        <!-- Financial Information -->
+        <section class="form-section" id="financial-info">
+          <h2 class="section-title">
+            <i class="fas fa-money-bill-wave"></i>
+            Financial Information
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="loan-amount">Requested Loan Amount *</label>
+              <input type="number" id="loan-amount" class="form-input" required>
+              </div>
+            <div class="form-group">
+              <label class="form-label" for="family-income">Annual Family Income *</label>
+              <input type="number" id="family-income" class="form-input" required>
+              </div>
+            </div>
+        </section>
+
+        <!-- Document Upload -->
+        <section class="form-section" id="documents">
+          <h2 class="section-title">
+            <i class="fas fa-file-upload"></i>
+            Required Documents
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">ID/Passport Copy *</label>
+              <div class="file-upload">
+                <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                <p>Drag and drop your file here or click to browse</p>
+                <input type="file" accept=".pdf,.jpg,.png" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Academic Transcripts *</label>
+              <div class="file-upload">
+                <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                <p>Drag and drop your file here or click to browse</p>
+                <input type="file" accept=".pdf" required>
+              </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <button type="button" class="btn btn--secondary">
+            <i class="fas fa-save"></i>
+            Save Draft
+          </button>
+          <button type="submit" class="btn btn--primary">
+            <i class="fas fa-paper-plane"></i>
+            Submit Application
+          </button>
+          </div>
+        </form>
+    </div>
+  </div>
+  
+  <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('helb-application-form');
+            const progressBar = document.querySelector('.progress-fill');
+            const formSections = document.querySelectorAll('.form-section');
+            const requiredFields = form.querySelectorAll('[required]');
+            let currentSection = 0;
+            
+            // Initialize form sections
+            formSections.forEach((section, index) => {
+                if (index !== 0) {
+                    section.style.display = 'none';
+                }
+            });
+            
+            // Add navigation buttons
+            formSections.forEach((section, index) => {
+                const nav = document.createElement('div');
+                nav.className = 'form-navigation';
+                nav.style.marginTop = '2rem';
+                nav.style.display = 'flex';
+                nav.style.justifyContent = 'space-between';
+                nav.style.gap = '1rem';
+                
+                if (index > 0) {
+                    const prevButton = document.createElement('button');
+                    prevButton.type = 'button';
+                    prevButton.className = 'btn btn--secondary';
+                    prevButton.innerHTML = '<i class="fas fa-arrow-left"></i> Previous';
+                    prevButton.onclick = () => navigateSection(index - 1);
+                    nav.appendChild(prevButton);
+                }
+                
+                if (index < formSections.length - 1) {
+                    const nextButton = document.createElement('button');
+                    nextButton.type = 'button';
+                    nextButton.className = 'btn btn--primary';
+                    nextButton.innerHTML = 'Next <i class="fas fa-arrow-right"></i>';
+                    nextButton.onclick = () => validateAndNavigate(index + 1);
+                    nav.appendChild(nextButton);
+                }
+                
+                section.appendChild(nav);
+            });
+      
+                  // Navigation functions
+            function navigateSection(index) {
+                formSections[currentSection].style.display = 'none';
+                formSections[index].style.display = 'block';
+                currentSection = index;
+                
+                // Smooth scroll to top of section
+                formSections[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // Animate section entrance
+                formSections[index].style.opacity = '0';
+                formSections[index].style.transform = 'translateY(20px)';
+                requestAnimationFrame(() => {
+                    formSections[index].style.opacity = '1';
+                    formSections[index].style.transform = 'translateY(0)';
+                });
+                
+                updateProgress();
+            }
+            
+            function validateAndNavigate(index) {
+                const currentFields = formSections[currentSection].querySelectorAll('[required]');
+                let isValid = true;
+                
+                currentFields.forEach(field => {
+                    if (!validateField(field)) {
+          isValid = false;
+                    }
+                });
+                
+                if (isValid) {
+                    navigateSection(index);
+        } else {
+                    // Shake animation for invalid section
+                    formSections[currentSection].style.animation = 'shake 0.5s ease-in-out';
+                    setTimeout(() => {
+                        formSections[currentSection].style.animation = '';
+                    }, 500);
+                }
+            }
+            
+            // Update progress bar
+            function updateProgress() {
+                const totalRequired = requiredFields.length;
+                let completed = 0;
+                
+                requiredFields.forEach(field => {
+                    if (field.value.trim() !== '') {
+                        completed++;
+                    }
+                });
+                
+                const progress = (completed / totalRequired) * 100;
+                progressBar.style.width = `${progress}%`;
+                
+                // Update progress color based on completion
+                if (progress === 100) {
+                    progressBar.style.background = 'linear-gradient(90deg, var(--success), var(--primary))';
+                } else if (progress > 50) {
+                    progressBar.style.background = 'linear-gradient(90deg, var(--primary), var(--accent))';
+                }
+            }
+            
+            // Add shake animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    25% { transform: translateX(-10px); }
+                    75% { transform: translateX(10px); }
+                }
+            `;
+            document.head.appendChild(style);
+      
+      // Form validation
+      function validateField(field) {
+        const isValid = field.checkValidity();
+        field.classList.toggle('is-valid', isValid);
+        field.classList.toggle('is-invalid', !isValid);
+        
+        // Remove existing validation message
+        const existingMessage = field.parentNode.querySelector('.validation-message');
+        if (existingMessage) {
+          existingMessage.remove();
+        }
+        
+        // Add new validation message if invalid
+        if (!isValid) {
+          const message = document.createElement('div');
+          message.className = 'validation-message error';
+          message.textContent = field.validationMessage;
+          field.parentNode.appendChild(message);
+        }
+        
+        return isValid;
+      }
+      
+      // Handle file uploads
+      document.querySelectorAll('.file-upload input[type="file"]').forEach(input => {
+        input.addEventListener('change', (e) => {
+          const fileName = e.target.files[0]?.name;
+          const fileUpload = e.target.closest('.file-upload');
+          const text = fileUpload.querySelector('p');
+          
+          if (fileName) {
+            text.textContent = `Selected file: ${fileName}`;
+            fileUpload.classList.add('has-file');
+          } else {
+            text.textContent = 'Drag and drop your file here or click to browse';
+            fileUpload.classList.remove('has-file');
+          }
+        });
+      });
+      
+                  // Handle form submission
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                let isValid = true;
+                requiredFields.forEach(field => {
+                    if (!validateField(field)) {
+                        isValid = false;
+                    }
+                });
+                
+                if (isValid) {
+                    // Show loading state
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    const originalText = submitButton.innerHTML;
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+                    
+                    try {
+                        // Simulate API call (replace with actual API call)
+                        await new Promise(resolve => setTimeout(resolve, 2000));
+                        
+                        // Show success message with animation
+                        const successOverlay = document.createElement('div');
+                        successOverlay.className = 'success-overlay';
+                        successOverlay.innerHTML = `
+                            <div class="success-content">
+                                <i class="fas fa-check-circle"></i>
+                                <h3>Application Submitted Successfully!</h3>
+                                <p>Your application has been received. You will receive a confirmation email shortly.</p>
+                                <button class="btn btn--primary" onclick="window.location.href='helb-details.html'">
+                                    <i class="fas fa-home"></i> Return to Dashboard
+                                </button>
+                            </div>
+                        `;
+                        document.body.appendChild(successOverlay);
+                        
+                        // Add success overlay styles
+                        const overlayStyles = document.createElement('style');
+                        overlayStyles.textContent = `
+                            .success-overlay {
+                                position: fixed;
+                                top: 0;
+                                left: 0;
+                                right: 0;
+                                bottom: 0;
+                                background: rgba(15, 23, 42, 0.9);
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                z-index: 1000;
+                                opacity: 0;
+                                transition: opacity 0.3s ease;
+                            }
+                            
+                            .success-content {
+                                background: var(--card-bg);
+                                padding: 2rem;
+                                border-radius: var(--radius-lg);
+                                text-align: center;
+                                transform: translateY(20px);
+                                transition: transform 0.3s ease;
+                                max-width: 90%;
+                                width: 400px;
+                            }
+                            
+                            .success-content i {
+                                font-size: 4rem;
+                                color: var(--success);
+                                margin-bottom: 1rem;
+                            }
+                            
+                            .success-content h3 {
+                                color: var(--text-primary);
+                                margin-bottom: 1rem;
+                            }
+                            
+                            .success-content p {
+                                color: var(--text-secondary);
+                                margin-bottom: 2rem;
+                            }
+                        `;
+                        document.head.appendChild(overlayStyles);
+                        
+                        // Animate overlay entrance
+                        requestAnimationFrame(() => {
+                            successOverlay.style.opacity = '1';
+                            successOverlay.querySelector('.success-content').style.transform = 'translateY(0)';
+                        });
+                        
+                    } catch (error) {
+                        // Show error message
+                        const errorMessage = document.createElement('div');
+                        errorMessage.className = 'validation-message error';
+                        errorMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i> An error occurred. Please try again.';
+                        form.insertBefore(errorMessage, form.firstChild);
+                        
+                        // Reset submit button
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = originalText;
+                        
+                        // Remove error message after 5 seconds
+                        setTimeout(() => {
+                            errorMessage.remove();
+                        }, 5000);
+                    }
+                } else {
+                    // Scroll to first invalid field with smooth animation
+                    const firstInvalid = form.querySelector('.is-invalid');
+                    if (firstInvalid) {
+                        firstInvalid.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center'
+                        });
+                        
+                        // Highlight invalid field
+                        firstInvalid.style.animation = 'shake 0.5s ease-in-out';
+                        setTimeout(() => {
+                            firstInvalid.style.animation = '';
+                        }, 500);
+                    }
+                }
+      });
+      
+      // Update progress as user fills form
+      requiredFields.forEach(field => {
+        field.addEventListener('input', updateProgress);
+      });
+      
+      // Initialize form
+      updateProgress();
+      
+      // Add animation on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+      
+      formSections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'all 0.5s ease';
+        observer.observe(section);
+      });
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Online Cyber Services - DANTECH</title>
+  <meta name="description" content="DAN TECH's Online Cyber Services: KUCCPS, KRA, HELB, and more. Apply and pay online, fast and secure." />
+  <meta name="author" content="DANTECH" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    :root {
+      /* Modern Tech Color Palette */
+      --primary: #0ea5e9;
+      --primary-dark: #0369a1;
+      --primary-glow: rgba(14, 165, 233, 0.15);
+      --secondary: #6366f1;
+      --secondary-dark: #4338ca;
+      --accent: #10b981;
+      --danger: #ef4444;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      
+      /* Neutral Colors */
+      --light: #f8fafc;
+      --dark: #0f172a;
+      --dark-blue: #1e293b;
+      
+      /* Glass Effect Colors */
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.05);
+      
+      /* Gradients */
+      --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      --gradient-dark: linear-gradient(135deg, var(--dark-blue) 0%, var(--dark) 100%);
+      
+      /* Effects */
+      --glow-primary: 0 0 20px var(--primary-glow);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+      --shadow: 0 4px 6px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+      --shadow-glow: 0 0 20px var(--primary-glow);
+      
+      /* Border Radius */
+      --radius-sm: 8px;
+      --radius: 12px;
+      --radius-lg: 16px;
+    }
+
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--dark);
+      color: var(--light);
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Tech Grid Background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(90deg, var(--glass-border) 1px, transparent 1px),
+        linear-gradient(0deg, var(--glass-border) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.1;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Ambient Light Effect */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 0%, 
+        var(--primary-glow) 0%, 
+        transparent 50%);
+      opacity: 0.4;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 1rem 2rem;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: var(--glow-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .book-btn {
+      background: var(--gradient-primary);
+      color: var(--light);
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .book-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px var(--primary-glow);
+    }
+
+    .hero {
+      margin-top: 5rem;
+      padding: 4rem 2rem;
+      text-align: center;
+      background: var(--gradient-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, 
+        var(--primary-glow) 0%, 
+        transparent 70%);
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .hero h2 {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(2rem, 8vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: var(--glow-primary);
+    }
+
+    .services {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .services h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 3rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: var(--glow-primary);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .service-item {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 0;
+    }
+
+    .service-item:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .service-item:hover::before {
+      opacity: 0.05;
+    }
+
+    .service-info {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      text-shadow: var(--glow-primary);
+    }
+
+    .service-info p {
+      color: var(--light);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-info a {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      margin-right: 0.5rem;
+      background: var(--gradient-primary);
+      color: var(--light);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .service-info a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px var(--primary-glow);
+    }
+
+    /* Modal Styles */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(26, 26, 46, 0.9);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background: linear-gradient(170deg, #1a1a2e 0%, #16213e 100%);
+      border: 1px solid rgba(255, 71, 87, 0.2);
+      border-radius: 12px;
+      padding: 2rem;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+      transform: translateY(-20px);
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 30px rgba(255, 71, 87, 0.15);
+    }
+
+    .modal.active .modal-content {
+      transform: translateY(0);
+    }
+
+    #modal-title {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(255, 71, 87, 0.3);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      color: #ffffff;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+      text-shadow: 0 0 10px rgba(255, 71, 87, 0.2);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 71, 87, 0.3);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+      border-color: #ff4757;
+      box-shadow: 0 0 20px rgba(255, 71, 87, 0.2);
+      outline: none;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .close-btn,
+    .submit-btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex: 1;
+    }
+
+    .close-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    .close-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .submit-btn {
+      background: linear-gradient(45deg, #ff4757, #ff6b81);
+      border: none;
+      color: #ffffff;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(255, 71, 87, 0.4);
+    }
+
+    .paystack-btn {
+      background: linear-gradient(45deg, #fbb034, #ffdd00);
+      color: #1a1a2e;
+    }
+
+    .payment-message {
+      background: rgba(255, 71, 87, 0.1);
+      border: 1px solid rgba(255, 71, 87, 0.3);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1rem;
+      color: #ffffff;
+      white-space: pre-line;
+    }
+
+    footer {
+      background: var(--dark-blue);
+      border-top: 1px solid var(--glass-border);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-social {
+      margin-bottom: 1rem;
+    }
+
+    .footer-social a {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin: 0 0.5rem;
+      transition: var(--transition);
+    }
+
+    .footer-social a:hover {
+      color: var(--secondary);
+      text-shadow: var(--glow-primary);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .hero {
+        margin-top: 7rem;
+        padding: 2rem 1rem;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .services {
+        padding: 2rem 1rem;
+      }
+
+      .service-grid {
+        gap: 1rem;
+      }
+
+      .service-item {
+        padding: 1.5rem;
+      }
+
+      .modal-content {
+        padding: 1.5rem;
+      }
+
+      .modal-actions {
+        flex-direction: column;
+      }
+
+      .close-btn,
+      .submit-btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.2rem;
+      }
+
+      .book-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+
+      .services h2 {
+        font-size: 1.5rem;
+      }
+
+      .service-info h3 {
+        font-size: 1.2rem;
+      }
+
+      .modal-content {
+        padding: 1.5rem;
+      }
+    }
+
+    /* Enhanced Select Styling */
+    .input-icon-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .input-icon-wrapper .input-icon {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ff4757;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .form-select {
+      width: 100%;
+      padding: 14px 40px 14px 15px;
+      background: linear-gradient(180deg, rgba(26, 26, 46, 0.95) 0%, rgba(26, 26, 46, 0.98) 100%);
+      border: 2px solid rgba(255, 71, 87, 0.4);
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 1rem;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .form-select:hover {
+      border-color: rgba(255, 71, 87, 0.6);
+      box-shadow: 0 0 15px rgba(255, 71, 87, 0.2);
+    }
+
+    .form-select:focus {
+      border-color: #ff4757;
+      box-shadow: 0 0 20px rgba(255, 71, 87, 0.3);
+      outline: none;
+    }
+
+    .form-select option {
+      background: #1a1a2e;
+      color: #ffffff;
+      padding: 12px;
+      font-size: 1rem;
+    }
+
+    .form-select option:checked {
+      background: linear-gradient(90deg, #ff4757, #ff6b81);
+      color: #ffffff;
+    }
+
+    .form-select option[disabled] {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .form-select:focus + .input-icon {
+      transform: translateY(-50%) rotate(180deg);
+      color: #ff4757;
+    }
+
+    /* Booking Form Styles */
+    .booking-container {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-lg);
+      padding: 2.5rem;
+      max-width: 600px;
+      margin: 2rem auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .booking-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: var(--gradient-primary);
+    }
+
+    .booking-title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--light);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .booking-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--gradient-primary);
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
+    .service-selector {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--glass-border);
+      transition: var(--transition);
+    }
+
+    .service-selector:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .service-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .service-option {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .service-option:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .service-option.selected {
+      background: rgba(14, 165, 233, 0.15);
+      border-color: var(--primary);
+      box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gradient-primary);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--light);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .service-info {
+      flex: 1;
+    }
+
+    .service-name {
+      font-weight: 600;
+      color: var(--light);
+      margin-bottom: 0.25rem;
+    }
+
+    .service-description {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .payment-summary {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-top: 2rem;
+      border: 1px solid var(--glass-border);
+    }
+
+    .summary-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .summary-header i {
+      font-size: 1.2rem;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .summary-item:last-child {
+      border-bottom: none;
+    }
+
+    .summary-label {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .summary-value {
+      color: var(--light);
+      font-weight: 600;
+    }
+
+    .amount-value {
+      font-family: 'Space Mono', monospace;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+
+    .booking-actions {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .booking-actions button {
+      flex: 1;
+      padding: 1rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    .proceed-btn {
+      background: var(--gradient-primary);
+      color: var(--light);
+      border: none;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .proceed-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px var(--primary-glow);
+    }
+
+    .cancel-btn {
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .cancel-btn:hover {
+      background: rgba(239, 68, 68, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Form Input Styles */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      color: var(--light);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      color: var(--light);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--primary-glow);
+    }
+
+    .form-input::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Service Icons */
+    .service-icon.helb { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+    .service-icon.kra { background: linear-gradient(135deg, #10b981, #059669); }
+    .service-icon.kuccps { background: linear-gradient(135deg, #f59e0b, #d97706); }
+    .service-icon.nemis { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+  </style>
+</head>
+<body class="performance-mode">
+
+<header>
+  <h1><i class="fa fa-globe"></i> DANTECH Online Cyber Services</h1>
+  <button class="book-btn" onclick="openModal()">Book for Application</button>
+</header>
+
+<section class="hero">
+  <div class="typing-text" aria-live="polite" aria-atomic="true"></div>
+  <h2>Fast, Secure &amp; Reliable Online Cyber Services</h2>
+</section>
+
+<section class="services" aria-label="Online Cyber Services">
+  <h2>Our Online Cyber Services</h2>
+  <div class="service-grid">
+    <article class="service-item" tabindex="0" aria-label="KUCCPS Applications">
+      <img src="kuccps.png" alt="KUCCPS Applications" loading="lazy" />
+      <div class="service-info">
+        <h3>KUCCPS Applications</h3>
+        <p>Apply for placement to universities and colleges through KUCCPS.</p>
+        <a href="kuccps-details.html">View Details</a>
+        <a href="request-application-kuccps.html">Request</a>
+      </div>
+    </article>
+    <article class="service-item" tabindex="0" aria-label="HELB Loan Application">
+      <img src="helb.png" alt="HELB Loan Application" loading="lazy" />
+      <div class="service-info">
+        <h3>HELB Loan Application</h3>
+        <p>Apply for the HELB student loan for your education needs.</p>
+        <a href="helb-details.html">View Details</a>
+        <a href="request-application-helb.html">Request</a>
+      </div>
+    </article>
+    <article class="service-item" tabindex="0" aria-label="KRA Services">
+      <img src="kra.png" alt="KRA Services" loading="lazy" />
+      <div class="service-info">
+        <h3>KRA Services</h3>
+        <p>Access and apply for KRA services such as Tax PIN and registration.</p>
+        <a href="kra-details.html">View Details</a>
+        <a href="file-kra-returns.html">File My KRA Returns</a>
+        <a href="request-application-kra.html">Request New Pin</a>
+      </div>
+    </article>
+    <article class="service-item" tabindex="0" aria-label="Other Cyber Services">
+      <img src="other-services.png" alt="Other Cyber Services" loading="lazy" />
+      <div class="service-info">
+        <h3>Other Cyber Services</h3>
+        <p>Explore other online services available for students and professionals.</p>
+        <a href="other-services-details.html">View Details</a>
+        <a href="request-application-other-services.html">Request</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-social">
+    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+  </div>
+  <p>&copy; 2025 DANTECH. All rights reserved.</p>
+</footer>
+
+<!-- Modal -->
+<div id="applicationModal" class="modal" tabindex="-1" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <h3 id="modal-title">Book an Application</h3>
+    <div class="booking-container">
+      <h2 class="booking-title">Book an Application</h2>
+      
+      <div class="form-group">
+        <label class="form-label" for="name">Full Name</label>
+        <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="service-selector">
+        <h3 class="summary-header">
+          <i class="fas fa-list-check"></i>
+          Select Service
+        </h3>
+        
+        <div class="service-options">
+          <div class="service-option" data-service="helb" onclick="selectService(this, 'HELB')">
+            <div class="service-icon helb">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="service-info">
+              <div class="service-name">HELB Loan Application</div>
+              <div class="service-description">Higher Education Loans Board application processing</div>
+            </div>
+          </div>
+
+          <div class="service-option" data-service="kra" onclick="selectService(this, 'KRA')">
+            <div class="service-icon kra">
+              <i class="fas fa-receipt"></i>
+            </div>
+            <div class="service-info">
+              <div class="service-name">KRA PIN Registration</div>
+              <div class="service-description">Kenya Revenue Authority PIN application</div>
+            </div>
+          </div>
+
+          <div class="service-option" data-service="kuccps" onclick="selectService(this, 'KUCCPS')">
+            <div class="service-icon kuccps">
+              <i class="fas fa-university"></i>
+            </div>
+            <div class="service-info">
+              <div class="service-name">KUCCPS Application</div>
+              <div class="service-description">University/College placement application</div>
+            </div>
+          </div>
+
+          <div class="service-option" data-service="nemis" onclick="selectService(this, 'NEMIS')">
+            <div class="service-icon nemis">
+              <i class="fas fa-id-card"></i>
+            </div>
+            <div class="service-info">
+              <div class="service-name">NEMIS Registration</div>
+              <div class="service-description">National Education Management System</div>
+            </div>
+          </div>
+
+          <div class="service-option" data-service="other" onclick="selectService(this, 'Other Service')">
+            <div class="service-icon" style="background: linear-gradient(135deg, #ff4757, #1d4ed8);">
+              <i class="fas fa-ellipsis-h"></i>
+            </div>
+            <div class="service-info">
+              <div class="service-name">Other Service</div>
+              <div class="service-description">Specify a different service you need</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" id="otherServiceGroup" style="display: none; margin-top: 1rem;">
+        <label class="form-label" for="otherService">Please specify the service</label>
+        <input type="text" id="otherService" class="form-input" placeholder="Describe the service you need">
+        <label class="form-label" for="otherAmount" style="margin-top:0.5rem;">Enter Amount (KES)</label>
+        <input type="number" id="otherAmount" class="form-input" placeholder="Enter amount" min="1" style="display:none;">
+      </div>
+
+      <div class="payment-summary">
+        <h3 class="summary-header">
+          <i class="fas fa-receipt"></i>
+          Payment Summary
+        </h3>
+        
+        <div class="summary-item">
+          <span class="summary-label">Name</span>
+          <span class="summary-value" id="summaryName">-</span>
+        </div>
+        
+        <div class="summary-item">
+          <span class="summary-label">Service</span>
+          <span class="summary-value" id="summaryService">-</span>
+        </div>
+        
+        <div class="summary-item">
+          <span class="summary-label">Amount</span>
+          <span class="summary-value amount-value" id="summaryAmount">KES 500</span>
+        </div>
+      </div>
+
+      <div class="booking-actions">
+        <button class="cancel-btn" onclick="cancelBooking()">
+          <i class="fas fa-times"></i>
+          Cancel
+        </button>
+        <button class="proceed-btn" id="payButton" onclick="proceedToPayment()">
+          <i class="fas fa-lock"></i>
+          Proceed to Payment
+        </button>
+      </div>
+    </div>
+
+    <!-- Hidden input for service selection -->
+    <input type="hidden" id="service" name="service">
+  </div>
+</div>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+  // Modal open/close
+  function openModal() {
+    const modal = document.getElementById("applicationModal");
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    setTimeout(() => document.getElementById("name").focus(), 200);
+  }
+  function closeModal() {
+    const modal = document.getElementById("applicationModal");
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    document.getElementById("name").value = "";
+    document.getElementById("summaryName").textContent = "-";
+    document.getElementById("summaryService").textContent = "-";
+    document.getElementById("summaryAmount").textContent = "KES 500";
+    document.getElementById("payButton").style.display = "none";
+  }
+  document.getElementById("applicationModal").addEventListener("click", function(e){
+    if(e.target === this) closeModal();
+  });
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape") closeModal();
+  });
+
+  function selectService(element, serviceName) {
+    // Remove selected class from all options
+    document.querySelectorAll('.service-option').forEach(opt => {
+      opt.classList.remove('selected');
+    });
+    
+    // Add selected class to clicked option
+    element.classList.add('selected');
+    
+    // Update summary
+    const name = document.getElementById('name').value || '-';
+    document.getElementById('summaryName').textContent = name;
+    document.getElementById('summaryService').textContent = serviceName;
+    document.getElementById('service').value = serviceName;
+
+    // Show/hide other service input and amount
+    const otherServiceGroup = document.getElementById('otherServiceGroup');
+    const otherAmount = document.getElementById('otherAmount');
+    let amount = 500;
+    if (serviceName === 'HELB') amount = 400;
+    else if (serviceName === 'KRA') amount = 100;
+    else if (serviceName === 'KUCCPS') amount = 300;
+    else if (serviceName === 'Other Service') {
+      otherServiceGroup.style.display = 'block';
+      document.getElementById('otherService').setAttribute('required', 'required');
+      otherAmount.style.display = 'block';
+      otherAmount.value = '';
+      amount = '';
+    } else {
+      otherServiceGroup.style.display = 'none';
+      document.getElementById('otherService').removeAttribute('required');
+      otherAmount.style.display = 'none';
+    }
+    document.getElementById('summaryAmount').textContent = amount ? `KES ${amount}` : 'KES -';
+    otherAmount && otherAmount.addEventListener('input', function() {
+      document.getElementById('summaryAmount').textContent = this.value ? `KES ${this.value}` : 'KES -';
+    });
+
+    // Smooth scroll to payment summary
+    document.querySelector('.payment-summary').scrollIntoView({ 
+      behavior: 'smooth', 
+      block: 'nearest' 
+    });
+  }
+
+  function updateSummaryName() {
+    const name = document.getElementById('name').value || '-';
+    document.getElementById('summaryName').textContent = name;
+  }
+
+  function cancelBooking() {
+    // Reset form with animation
+    const name = document.getElementById('name');
+    const serviceOptions = document.querySelectorAll('.service-option');
+    const summaryName = document.getElementById('summaryName');
+    const summaryService = document.getElementById('summaryService');
+    const service = document.getElementById('service');
+
+    // Add fade-out animation
+    name.style.transition = 'opacity 0.3s ease';
+    name.style.opacity = '0';
+    
+    serviceOptions.forEach(opt => {
+      opt.style.transition = 'opacity 0.3s ease';
+      opt.style.opacity = '0';
+    });
+
+    setTimeout(() => {
+      // Reset values
+      name.value = '';
+      serviceOptions.forEach(opt => opt.classList.remove('selected'));
+      summaryName.textContent = '-';
+      summaryService.textContent = '-';
+      service.value = '';
+
+      // Fade back in
+      name.style.opacity = '1';
+      serviceOptions.forEach(opt => opt.style.opacity = '1');
+    }, 300);
+
+    // Smooth scroll to top of form
+    document.querySelector('.booking-container').scrollIntoView({ 
+      behavior: 'smooth', 
+      block: 'start' 
+    });
+  }
+
+  function proceedToPayment() {
+    const name = document.getElementById('name').value;
+    const service = document.getElementById('service').value;
+    let amount = 500;
+    if (service === 'HELB') amount = 400;
+    else if (service === 'KRA') amount = 100;
+    else if (service === 'KUCCPS') amount = 300;
+    else if (service === 'Other Service') {
+      amount = parseInt(document.getElementById('otherAmount').value, 10);
+      if (!amount || amount < 1) {
+        showError('Please enter a valid amount for Other Service');
+        document.getElementById('otherAmount').focus();
+        return;
+      }
+    }
+    if (!name || !service) {
+      showError('Please fill in your name and select a service');
+      return;
+    }
+
+    // Add loading state to button
+    const button = document.getElementById('payButton');
+    button.disabled = true;
+    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+
+    try {
+      const handler = PaystackPop.setup({
+        key: 'pk_live_103b93a6c53f52ff3eff4eff8611d39d330fe834',
+        email: name.replace(/\s/g, '') + '@DanTech.com',
+        amount: amount * 100, // Convert to kobo
+        currency: "KES",
+        ref: 'DANTECH_' + Math.floor(Math.random() * 1000000000),
+        metadata: {
+          custom_fields: [
+            {
+              display_name: "Customer Name",
+              variable_name: "customer_name",
+              value: name
+            },
+            {
+              display_name: "Service Type",
+              variable_name: "service_type",
+              value: service
+            }
+          ]
+        },
+        callback: function(response) {
+          showSuccess('Payment successful!');
+          showPaymentSuccess(response.reference);
+          button.disabled = false;
+          button.innerHTML = '<i class="fas fa-lock"></i> Proceed to Payment';
+          setTimeout(() => { window.location.href = 'index.html'; }, 2000);
+        },
+        onClose: function() {
+          showError('Payment was cancelled');
+          button.disabled = false;
+          button.innerHTML = '<i class="fas fa-lock"></i> Proceed to Payment';
+        }
+      });
+      handler.openIframe();
+    } catch (error) {
+      console.error('Payment error:', error);
+      showError('Failed to initialize payment. Please try again.');
+      button.disabled = false;
+      button.innerHTML = '<i class="fas fa-lock"></i> Proceed to Payment';
+    }
+  }
+
+  // Add event listeners
+  document.getElementById('name').addEventListener('input', updateSummaryName);
+
+  // Typing effect in hero
+  const typingText = document.querySelector('.typing-text');
+  const phrases = [
+    "Innovate. Learn. Transform.",
+    "Empowering Digital Futures.",
+    "Your Tech Journey Starts Here.",
+    "Skill Up with DANTECH.",
+    "Solutions for Tomorrow."
+  ];
+  let phraseIndex = 0, letterIndex = 0, deleting = false;
+  const typingSpeed = 80;
+  function typeEffect() {
+    const currentPhrase = phrases[phraseIndex];
+    if (!deleting) {
+      typingText.textContent = currentPhrase.slice(0, letterIndex + 1);
+      letterIndex++;
+      if (letterIndex === currentPhrase.length) {
+        deleting = true;
+        setTimeout(typeEffect, 1500);
+        return;
+      }
+    } else {
+      typingText.textContent = currentPhrase.slice(0, letterIndex - 1);
+      letterIndex--;
+      if (letterIndex === 0) {
+        deleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+      }
+    }
+    setTimeout(typeEffect, deleting ? typingSpeed / 2 : typingSpeed);
+  }
+  typeEffect();
+
+  // 3D tilt effect on service cards
+  document.querySelectorAll('.service-item').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * 8;
+      const rotateY = ((x - centerX) / centerX) * 8;
+      card.style.transform = `perspective(700px) rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+    });
+    card.addEventListener('mouseleave', () => card.style.transform = 'none');
+    card.addEventListener('focus', () => card.style.transform = 'scale(1.05)');
+    card.addEventListener('blur', () => card.style.transform = 'none');
+  });
+
+  // Add smooth hover effects to service options
+  document.querySelectorAll('.service-option').forEach(option => {
+    option.addEventListener('mouseenter', () => {
+      option.style.transform = 'translateY(-5px)';
+    });
+    
+    option.addEventListener('mouseleave', () => {
+      option.style.transform = 'translateY(0)';
+    });
+  });
+
+  // Add error class styles
+  const style = document.createElement('style');
+  style.textContent = `
+    .form-input.error {
+      border-color: var(--danger) !important;
+      animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+    }
+
+    .service-selector.error {
+      border-color: var(--danger) !important;
+      animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+    }
+
+    @keyframes shake {
+      10%, 90% { transform: translate3d(-1px, 0, 0); }
+      20%, 80% { transform: translate3d(2px, 0, 0); }
+      30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+      40%, 60% { transform: translate3d(4px, 0, 0); }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+    <script src="update-styles.js"></script>
+</body>
+</html>
+

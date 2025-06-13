@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Enroll in DAN TECH's professional technology courses. Complete your registration to start your journey in tech education.">
+  <title>Course Enrollment - DAN TECH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+  <link rel="stylesheet" href="dark-theme.css">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --primary-light: #818cf8;
+      --secondary: #9ca3af;
+      --success: #10b981;
+      --info: #3b82f6;
+      --dark: #121212;
+      --light: #1f2937;
+      --white: #ffffff;
+      --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      --transition: all 0.3s ease;
+      --card-bg: rgba(255, 255, 255, 0.05);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--dark), #1a1a1a);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* Scroll Progress */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 1001;
+    }
+
+    .scroll-progress-bar {
+      height: 100%;
+      background: var(--primary);
+      width: 0%;
+      transition: width 0.2s ease-out;
+    }
+
+    /* Header */
+    header {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 15px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header.scrolled {
+      padding: 10px 0;
+      background: rgba(18, 18, 18, 0.95);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-text {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--primary);
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-icon {
+      color: var(--primary);
+      font-size: 28px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 24px;
+      color: var(--primary);
+    }
+
+    /* Page Content */
+    .page-container {
+      max-width: 1200px;
+      margin: 100px auto 60px;
+      padding: 0 20px;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .page-header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 32px;
+      color: var(--dark);
+      margin-bottom: 15px;
+    }
+
+    .page-header p {
+      color: var(--secondary);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Enrollment Form */
+    .enrollment-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+
+    .form-image {
+      background: linear-gradient(rgba(79, 70, 229, 0.4), rgba(67, 56, 202, 0.6)), url('/api/placeholder/600/800') center/cover no-repeat;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: var(--white);
+    }
+
+    .form-image h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .form-image p {
+      margin-bottom: 20px;
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    .key-features {
+      list-style: none;
+    }
+
+    .key-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+
+    .key-features li i {
+      color: var(--primary-light);
+    }
+
+    .testimonial-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: auto;
+    }
+
+    .testimonial-quote {
+      font-style: italic;
+      margin-bottom: 15px;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .testimonial-author img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .enrollment-form {
+      padding: 40px;
+    }
+
+    .enrollment-form h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      margin-bottom: 25px;
+      color: var(--dark);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--dark);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      transition: var(--transition);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 98, 204, 0.1);
+    }
+
+    .form-select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      background-size: 16px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .checkbox-input {
+      margin-top: 5px;
+    }
+
+    .checkbox-label {
+      font-size: 14px;
+      color: var(--secondary);
+    }
+
+    .checkbox-label a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .checkbox-label a:hover {
+      text-decoration: underline;
+    }
+
+    .submit-btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 12px 30px;
+      border: 2px solid var(--primary);
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
+    }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--secondary);
+    }
+
+    .form-footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Success Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background-color: var(--white);
+      width: 90%;
+      max-width: 500px;
+      border-radius: 10px;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      transform: translateY(-20px);
+      transition: transform 0.3s;
+    }
+
+    .modal.active .modal-content {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 24px;
+      color: var(--secondary);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover {
+      color: var(--dark);
+    }
+
+    .success-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background-color: #d4edda;
+      border-radius: 50%;
+      color: #28a745;
+      font-size: 40px;
+      margin: 0 auto 20px;
+    }
+
+    .modal-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+
+    .modal-text {
+      color: var(--secondary);
+      margin-bottom: 25px;
+    }
+
+    .modal-btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 12px 30px;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .modal-btn:hover {
+      background-color: var(--primary-dark);
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: var(--light);
+      padding: 60px 0 0;
+      margin-top: auto;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-column h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 2px;
+      background-color: var(--primary);
+      bottom: 0;
+      left: 0;
+    }
+
+    .footer-column p {
+      margin-bottom: 20px;
+      opacity: 0.8;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: var(--light);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: var(--transition);
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--primary-light);
+      padding-left: 5px;
+    }
+
+    .contact-info {
+      list-style: none;
+    }
+
+    .contact-info li {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .contact-info i {
+      color: var(--primary-light);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background-color: rgba(255,255,255,0.1);
+      color: var(--white);
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background-color: var(--primary);
+    }
+
+    .copyright {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 40px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .enrollment-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-image {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        background-color: var(--white);
+        width: 100%;
+        height: calc(100vh - 70px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 40px;
+        transition: var(--transition);
+      }
+      
+      .nav-links.active {
+        left: 0;
+      }
+      
+      .enrollment-form {
+        padding: 30px;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .page-header h1 {
+        font-size: 28px;
+      }
+      
+      .form-image {
+        padding: 25px;
+      }
+      
+      .enrollment-form {
+        padding: 25px;
+      }
+      
+      .form-image h2 {
+        font-size: 24px;
+      }
+    }
+
+    /* Enhanced Form Styling */
+    .form-control {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--white);
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.25);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease, height 0.6s ease;
+    }
+
+    .btn-primary:active::after {
+      width: 300px;
+      height: 300px;
+      opacity: 0;
+    }
+
+    /* Touch Optimization */
+    @media (pointer: coarse) {
+      .btn-primary:hover {
+        transform: none;
+      }
+    }
+
+    /* Loading Animation */
+    .loading-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--dark);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .loading-animation.loaded {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loading-logo {
+      width: 50px;
+      height: 50px;
+      border: 3px solid var(--primary);
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="performance-mode">
+  <!-- Scroll Progress -->
+  <div class="scroll-progress">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Loading Animation -->
+  <div class="loading-animation">
+    <div class="loading-logo"></div>
+  </div>
+
+  <header id="header">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <i class="fas fa-laptop-code logo-icon"></i>
+        <span class="logo-text">DAN TECH</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#courses">Courses</a></li>
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="index.html#testimonials">Testimonials</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-container">
+    <div class="page-header">
+      <h1>Course Enrollment</h1>
+      <p>Start your journey to success with DAN TECH</p>
+    </div>
+
+    <div class="enrollment-container">
+      <div class="form-image">
+        <div>
+          <h2>Why Choose DAN TECH?</h2>
+          <p>Join thousands of students who have transformed their careers with our industry-recognized technology training programs.</p>
+          
+          <ul class="key-features">
+            <li><i class="fas fa-check-circle"></i> Hands-on, project-based learning</li>
+            <li><i class="fas fa-check-circle"></i> Industry-experienced instructors</li>
+            <li><i class="fas fa-check-circle"></i> Flexible learning schedules</li>
+            <li><i class="fas fa-check-circle"></i> Career guidance and job placement support</li>
+            <li><i class="fas fa-check-circle"></i> State-of-the-art learning facilities</li>
+            <li><i class="fas fa-check-circle"></i> Industry-recognized certifications</li>
+          </ul>
+        </div>
+        
+        <div class="testimonial-box">
+          <p class="testimonial-quote">"Enrolling at DAN TECH was the best career decision I've made. The practical skills I gained helped me land my dream job in tech!"</p>
+          <div class="testimonial-author">
+            <img src="sarah.png" alt="Sarah Johnson">
+            <span>Sarah Johnson, Software Developer</span>
+          </div>
+        </div>
+      </div>
+      <div class="enrollment-form">
+        <h2>Complete Your Enrollment</h2>
+
+        <form id="enrollmentForm" action="submit-enrollment.php" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName" class="form-label">Full Name*</label>
+              <input type="text" id="fullName" name="fullName" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address*</label>
+              <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone Number*</label>
+            <input type="tel" id="phone" name="phone" class="form-input" required>
+          </div>
+
+          <div class="form-group">
+            <label for="course" class="form-label">Select Course*</label>
+            <div class="input-icon-wrapper">
+              <select id="course" name="course" class="form-select" required>
+                <option value="" disabled selected>Choose your course</option>
+                <option value="computer-packages">💻 Professional Computer Packages</option>
+                <option value="business-applications">🏢 Business Applications</option>
+                <option value="programming">⌨️ Modern Programming Fundamentals</option>
+                <option value="web-development">🌐 Full-Stack Web Development</option>
+                <option value="app-development">📱 Mobile App Development</option>
+                <option value="ethical-hacking">🔒 Ethical Hacking & Penetration Testing</option>
+                <option value="graphic-design">🎨 Professional Graphic Design</option>
+                <option value="digital-marketing">📈 Digital Marketing Strategy</option>
+                <option value="cyber-security">🛡️ Advanced Cyber Security</option>
+                <option value="networking">🌍 Network Engineering</option>
+              </select>
+              <i class="fas fa-graduation-cap input-icon"></i>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="startDate" class="form-label">Preferred Start Date</label>
+              <input type="date" id="startDate" name="startDate" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="schedule" class="form-label">Preferred Schedule</label>
+              <select id="schedule" name="schedule" class="form-select" required>
+                <option value="" disabled selected>Select schedule</option>
+                <option value="weekday-morning">Weekday Mornings</option>
+                <option value="weekday-evening">Weekday Evenings</option>
+                <option value="weekend">Weekend Classes</option>
+                <option value="flexible">Flexible/Online</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Additional Information</label>
+            <textarea id="message" name="message" class="form-input" rows="4" placeholder="Any questions or special requirements?"></textarea>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="terms" name="terms" class="checkbox-input" required>
+            <label for="terms" class="checkbox-label">
+              I agree to the <a href="terms.html">Terms & Conditions</a> and <a href="privacy.html">Privacy Policy</a>*
+            </label>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="marketing" name="marketing" class="checkbox-input">
+            <label for="marketing" class="checkbox-label">
+              I would like to receive updates about courses, promotions, and events
+            </label>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="successModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+      <div class="success-icon">
+        <i class="fas fa-check"></i>
+      </div>
+      <h3 class="modal-title">Application Submitted!</h3>
+      <p class="modal-text">Thank you for enrolling with DAN TECH. One of our education advisors will contact you within 24 hours to confirm your registration and provide next steps.</p>
+      <a href="index.html" class="modal-btn">Return to Homepage</a>
+    </div>
+  </div>
+
+  <footer id="contact">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>About DAN TECH</h3>
+        <p>DAN TECH is a premier technology learning center dedicated to providing industry-relevant education and hands-on training to build the digital workforce of tomorrow.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#courses">Our Courses</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#testimonials">Testimonials</a></li>
+          <li><a href="index.html#contact">Contact Us</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Our Courses</h3>
+        <ul class="footer-links">
+          <li><a href="computer-learning-hub.html#courses">Computer Packages</a></li>
+          <li><a href="computer-learning-hub.html#courses">Web Development</a></li>
+          <li><a href="computer-learning-hub.html#courses">Programming</a></li>
+          <li><a href="computer-learning-hub.html#courses">Mobile App Development</a></li>
+          <li><a href="computer-learning-hub.html#courses#">Cyber Security</a></li>
+          <li><a href="computer-learning-hub.html#courses">Digital Marketing</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> 123 Tech Avenue, Innovation District</li>
+          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+          <li><i class="fas fa-envelope"></i> info@DAN TECHlearning.com</li>
+          <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2025 DAN TECH Learning Center. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking a link
+    const navItems = document.querySelectorAll('.nav-links a');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Form validation and submission
+    const enrollmentForm = document.getElementById('enrollmentForm');
+    const successModal = document.getElementById('successModal');
+    const modalClose = document.getElementById('modalClose');
+    
+    enrollmentForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Simple form validation
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const course = document.getElementById('course').value;
+      const terms = document.getElementById('terms').checked;
+      
+      if (firstName && lastName && email && phone && course && terms) {
+        // In a real application, you would send this data to your server here
+        console.log('Form submitted successfully');
+        
+        // Display success modal
+        successModal.classList.add('active');
+        
+        // Reset form
+        enrollmentForm.reset();
+      }
+    });
+    
+    // Close modal
+    modalClose.addEventListener('click', () => {
+      successModal.classList.remove('active');
+    });
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+      if (e.target === successModal) {
+        successModal.classList.remove('active');
+      }
+    });
+    
+    // Pre-fill course selection if coming from a specific course page
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const courseParam = urlParams.get('course');
+      
+      if (courseParam) {
+        const courseSelect = document.getElementById('course');
+        const courseOptions = Array.from(courseSelect.options);
+        
+        const matchingOption = courseOptions.find(option => option.value === courseParam);
+        
+        if (matchingOption) {
+          courseSelect.value = matchingOption.value;
+        }
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Scroll Progress
+      const scrollProgress = document.querySelector('.scroll-progress-bar');
+      window.addEventListener('scroll', () => {
+        const winScroll = document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        scrollProgress.style.width = `${scrolled}%`;
+      }, { passive: true });
+
+      // Header Scroll Effect
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }, { passive: true });
+
+      // Form Animations
+      const formElements = document.querySelectorAll('.form-group');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      formElements.forEach(el => observer.observe(el));
+
+      // Loading Animation
+      setTimeout(() => {
+        document.querySelector('.loading-animation').classList.add('loaded');
+      }, 500);
+
+      // Memory Management
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+        }, 250);
+      }, { passive: true });
+
+      // Form Validation Enhancement
+      const form = document.querySelector('form');
+      const inputs = form.querySelectorAll('input, select, textarea');
+
+      inputs.forEach(input => {
+        input.addEventListener('invalid', (e) => {
+          e.preventDefault();
+          input.classList.add('error');
+        });
+
+        input.addEventListener('input', () => {
+          if (input.validity.valid) {
+            input.classList.remove('error');
+          }
+        });
+      });
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (form.checkValidity()) {
+          const submitBtn = form.querySelector('[type="submit"]');
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+          
+          // Simulate form submission (replace with actual submission)
+          setTimeout(() => {
+            window.location.href = 'thank-you.html';
+          }, 1500);
+        } else {
+          const firstInvalid = form.querySelector(':invalid');
+          firstInvalid?.focus();
+        }
+      });
+    });
+  </script>
+  <script src="dark-theme.js"></script>
+</body>
+</html>
+

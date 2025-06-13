@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Request DAN TECH professional cyber services including certificate verification, e-Government solutions, business registration, and digital marketing.">
+    <title>Request Application - DAN TECH Solutions</title>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Force dark theme */
+        html.dark-theme {
+            background-color: #030711 !important;
+        }
+
+        html.dark-theme body {
+            background-color: #030711 !important;
+        }
+
+        /* Modern CSS Reset and Variables */
+        :root {
+            /* Enhanced color palette with deeper tech colors */
+            --primary: #00ff88;
+            --primary-dark: #00cc6a;
+            --primary-light: #33ff9d;
+            --primary-glow: rgba(0, 255, 136, 0.2);
+            --secondary: #0ef;
+            --secondary-dark: #00b3cc;
+            --secondary-glow: rgba(0, 238, 255, 0.2);
+            --accent: #f0f;
+            --accent-glow: rgba(255, 0, 255, 0.2);
+            --background: #030711;
+            --surface: #0a0f1a;
+            --surface-light: #111827;
+            --surface-dark: #050a14;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.85);
+            --text-muted: rgba(255, 255, 255, 0.6);
+            --success: #22c55e;
+            --warning: #eab308;
+            --error: #ef4444;
+            
+            /* Enhanced UI elements */
+            --card-bg: rgba(10, 15, 26, 0.85);
+            --card-hover: rgba(17, 24, 39, 0.95);
+            --border: rgba(255, 255, 255, 0.1);
+            --border-hover: rgba(255, 255, 255, 0.2);
+            --input-bg: rgba(10, 15, 26, 0.8);
+            --input-border: rgba(255, 255, 255, 0.1);
+            --input-focus: rgba(0, 255, 136, 0.3);
+            
+            /* Enhanced Neon Effects */
+            --neon-primary: 0 0 10px rgba(0, 255, 136, 0.7),
+                            0 0 20px rgba(0, 255, 136, 0.5),
+                            0 0 30px rgba(0, 255, 136, 0.3);
+            --neon-secondary: 0 0 10px rgba(0, 238, 255, 0.7),
+            /* Neon Effects */
+            --neon-primary: 0 0 10px rgba(0, 255, 136, 0.5),
+                            0 0 20px rgba(0, 255, 136, 0.3),
+                            0 0 30px rgba(0, 255, 136, 0.1);
+            --neon-secondary: 0 0 10px rgba(0, 238, 255, 0.5),
+                              0 0 20px rgba(0, 238, 255, 0.3),
+                              0 0 30px rgba(0, 238, 255, 0.1);
+            
+            /* Refined shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.35);
+            
+            /* Layout constants */
+            --max-width: 1200px;
+            --header-height: 80px;
+            
+            /* Spacing scale */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            
+            /* Animation variables */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--header-height) + 20px);
+            -webkit-overflow-scrolling: touch;
+            background-color: var(--background) !important;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--background) !important;
+            background: linear-gradient(135deg, var(--background), var(--surface-dark)) !important;
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Force dark background for all sections */
+        .container, 
+        header, 
+        .page-header, 
+        .card, 
+        .service-card, 
+        footer,
+        .form-group,
+        input,
+        textarea,
+        select {
+            background-color: var(--card-bg) !important;
+        }
+
+        /* Enhanced Background Effects */
+        .tech-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--background) !important;
+            background: 
+                linear-gradient(135deg, var(--background), var(--surface-dark)),
+                radial-gradient(circle at 20% 20%, var(--primary-glow) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, var(--secondary-glow) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .tech-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-4);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--card-bg);
+            padding: var(--space-4) 0;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transform: translateZ(0);
+            will-change: transform;
+            transition: transform var(--transition-normal);
+        }
+
+        header.header-hidden {
+            transform: translateY(-100%);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            transition: color var(--transition-normal);
+            text-shadow: var(--neon-primary);
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 1.75rem;
+            text-shadow: var(--neon-primary);
+        }
+
+        .logo:hover {
+            color: var(--primary-light);
+            text-shadow: var(--neon-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--space-6);
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all var(--transition-normal);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width var(--transition-normal);
+            box-shadow: var(--neon-primary);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            text-shadow: var(--neon-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(3, 7, 17, 0.9), rgba(10, 15, 26, 0.95));
+            padding: var(--space-4) 0 var(--space-6) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at top right, var(--primary-glow), transparent 70%),
+                radial-gradient(circle at bottom left, var(--secondary-glow), transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-header h1 {
+            font-size: clamp(1.25rem, 3vw, 2rem);
+            font-weight: 700;
+            margin-bottom: var(--space-2);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            text-shadow: var(--neon-primary);
+        }
+
+        .page-header p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            background: var(--card-bg);
+            padding: var(--space-4) 0;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breadcrumbs-list {
+            display: flex;
+            list-style: none;
+            gap: var(--space-2);
+            align-items: center;
+        }
+
+        .breadcrumbs-list li {
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumbs-list li:not(:last-child):after {
+            content: '/';
+            margin-left: var(--space-2);
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+
+        .breadcrumbs-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+        }
+
+        .breadcrumbs-list a:hover {
+            color: var(--primary-light);
+        }
+
+        .breadcrumbs-list .active {
+            color: var(--text-primary);
+        }
+
+        /* Application Form Section */
+        .application-section {
+            padding: var(--space-12) 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--space-12);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title h2 {
+            color: var(--text-primary);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            text-shadow: var(--neon-secondary);
+        }
+
+        .section-title h2 i {
+            color: var(--primary);
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.125rem;
+        }
+
+        /* Form Container */
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: var(--space-8);
+            border-radius: 1rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards 0.3s;
+        }
+
+        .form-container h3 {
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-2);
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            text-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .form-container h3 i {
+            color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-6);
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.6s ease-out forwards;
+            animation-delay: calc(var(--index, 0) * 0.1s + 0.4s);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-2);
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: var(--space-4);
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all var(--transition-normal);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--input-focus);
+            outline: none;
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.75rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
+
+        .form-checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-2);
+        }
+
+        .form-checkbox {
+            appearance: none;
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 2px solid var(--input-border);
+            border-radius: 0.25rem;
+            background: var(--input-bg);
+            cursor: pointer;
+            position: relative;
+            transition: all var(--transition-normal);
+        }
+
+        .form-checkbox:checked {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .form-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0.5rem;
+            height: 0.5rem;
+            background: var(--text-primary);
+            border-radius: 0.125rem;
+        }
+
+        .form-checkbox:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--input-focus);
+        }
+
+        .form-checkbox-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            user-select: none;
+        }
+
+        .required::after {
+            content: '*';
+            color: var(--error);
+            margin-left: var(--space-1);
+        }
+
+        /* Button Styles */
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-4);
+            margin-top: var(--space-8);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-3) var(--space-6);
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--text-primary);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn i {
+            font-size: 1.125rem;
+            transition: transform var(--transition-normal);
+        }
+
+        .btn:hover i {
+            transform: translateX(4px);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg), var(--neon-primary);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Service Highlights */
+        .service-highlights {
+            margin-top: var(--space-12);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards 0.6s;
+        }
+
+        .service-highlights h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: var(--space-8);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-2);
+            text-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .service-highlights h3 i {
+            color: var(--primary);
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-6);
+        }
+
+        .highlight-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: var(--space-6);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            text-align: center;
+            transition: all var(--transition-normal);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .highlight-card:nth-child(1) { animation: fadeInUp 0.6s ease-out forwards 0.8s; }
+        .highlight-card:nth-child(2) { animation: fadeInUp 0.6s ease-out forwards 1s; }
+        .highlight-card:nth-child(3) { animation: fadeInUp 0.6s ease-out forwards 1.2s; }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-xl), var(--neon-primary);
+        }
+
+        .highlight-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: left 0.7s;
+        }
+
+        .highlight-card:hover .highlight-icon::before {
+            left: 100%;
+        }
+
+        .highlight-icon i {
+            font-size: 1.75rem;
+            color: var(--text-primary);
+        }
+
+        .highlight-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--space-2);
+            color: var(--text-primary);
+        }
+
+        .highlight-text {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface);
+            color: var(--text-primary);
+            padding: var(--space-12) 0 var(--space-4);
+            margin-top: var(--space-12);
+            border-top: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 90% 10%, rgba(59, 130, 246, 0.1), transparent 40%),
+                radial-gradient(circle at 10% 90%, rgba(139, 92, 246, 0.1), transparent 40%);
+            pointer-events: none;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-8);
+            position: relative;
+            margin-bottom: var(--space-8);
+        }
+
+        .footer-column h4 {
+            font-size: 1.125rem;
+            margin-bottom: var(--space-4);
+            color: var(--text-primary);
+            position: relative;
+            padding-bottom: var(--space-2);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-column p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-4);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+
+        .footer-column ul li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .footer-column ul li i {
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .footer-column a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color var(--transition-normal);
+            font-size: 0.875rem;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-light);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--space-3);
+            margin-top: var(--space-4);
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            transition: all var(--transition-normal);
+            color: var(--text-primary);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .social-links a i {
+            font-size: 1.125rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--space-4);
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            position: relative;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .highlights-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .form-container {
+                padding: var(--space-4);
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-buttons {
+                flex-direction: column;
+                gap: var(--space-3);
+            }
+
+            .form-buttons .btn {
+                width: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-column h4::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Smooth anchor scrolling */
+        a[href^="#"] {
+            scroll-behavior: smooth;
+            transition: color var(--transition-normal);
+        }
+
+        /* Enhanced scroll animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 20px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale3d(0.95, 0.95, 1);
+            }
+            to {
+                opacity: 1;
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        /* Add scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            z-index: 1000;
+        }
+
+        /* Optimize header for smooth scrolling */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transform: translateZ(0);
+            will-change: transform;
+            transition: transform var(--transition-normal);
+        }
+
+        header.header-hidden {
+            transform: translateY(-100%);
+        }
+
+        /* Enhanced form animations */
+        .form-group {
+            opacity: 0;
+            transform: translate3d(0, 20px, 0);
+            transition: all var(--transition-normal);
+        }
+
+        .form-group.visible {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+
+        /* Smooth highlight card animations */
+        .highlight-card {
+            transition: transform var(--transition-normal), 
+                      box-shadow var(--transition-normal),
+                      border-color var(--transition-normal);
+            transform: translate3d(0, 0, 0);
+        }
+
+        .highlight-card:hover {
+            transform: translate3d(0, -5px, 0);
+        }
+
+        /* Enhanced Headings */
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-primary);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: var(--neon-primary);
+            margin-bottom: var(--space-6);
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: var(--neon-secondary);
+            margin-bottom: var(--space-4);
+        }
+
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 2rem);
+            color: var(--primary-light);
+            text-shadow: 0 0 10px var(--primary-glow);
+            margin-bottom: var(--space-3);
+        }
+
+        /* Enhanced Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: var(--space-6);
+            transition: all var(--transition-normal);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card:hover {
+            background: var(--card-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl), var(--neon-primary);
+        }
+
+        /* Enhanced Buttons */
+        .btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--text-primary);
+            border: none;
+            border-radius: 8px;
+            padding: var(--space-3) var(--space-6);
+            font-weight: 600;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg), var(--neon-primary);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Enhanced Form Elements */
+        input, textarea, select {
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            padding: var(--space-3) var(--space-4);
+            color: var(--text-primary);
+            transition: all var(--transition-normal);
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px var(--input-focus);
+            outline: none;
+        }
+
+        /* Enhanced Navigation */
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-normal);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            text-shadow: var(--neon-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width var(--transition-normal);
+            box-shadow: var(--neon-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark-tech-theme">
+    <div class="tech-background"></div>
+    <div class="tech-grid"></div>
+    
+    <!-- Add scroll progress indicator -->
+    <div class="scroll-progress"></div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-shield-alt"></i> DAN TECH
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Our Services</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>
+                <i class="fas fa-paper-plane"></i>
+                Request Application
+            </h1>
+            <p>Complete the form below to request our professional cyber services tailored to your specific needs.</p>
+        </div>
+    </section>
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ul class="breadcrumbs-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li class="active">Request Application</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Application Form Section -->
+    <section class="application-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>
+                    <i class="fas fa-file-alt"></i>
+                    Apply for Our Services
+                </h2>
+                <p>Please fill out the form below with your information and service requirements. Our team will review your application and contact you within 24 hours.</p>
+            </div>
+
+            <div class="form-container">
+                <form id="applicationForm" action="https://formspree.io/f/xrbkpajr" method="POST">
+                    <!-- Personal Information -->
+                    <h3>
+                        <i class="fas fa-user"></i>
+                        Personal Information
+                    </h3>
+                    <div class="form-group" style="--index: 1;">
+                        <label for="fullName" class="form-label required">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group" style="--index: 2;">
+                        <label for="email" class="form-label required">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
+                    </div>
+
+                    <div class="form-group" style="--index: 3;">
+                        <label for="phone" class="form-label required">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="Enter your phone number" required>
+                    </div>
+
+                    <div class="form-group" style="--index: 4;">
+                        <label for="organization" class="form-label">Organization/Company</label>
+                        <input type="text" id="organization" name="organization" class="form-input" placeholder="Enter your organization name (if applicable)">
+                    </div>
+
+                    <!-- Service Information -->
+                    <h3 style="margin-top: var(--space-8);">
+                        <i class="fas fa-cog"></i>
+                        Service Information
+                    </h3>
+                    <div class="form-group" style="--index: 5;">
+                        <label for="serviceType" class="form-label required">Service Type</label>
+                        <select id="serviceType" name="serviceType" class="form-select" required>
+                            <option value="" selected disabled>Select a service</option>
+                            <option value="certificate">Certificate Verification</option>
+                            <option value="egovernment">e-Government Services</option>
+                            <option value="business">Business Registration</option>
+                            <option value="document">Document Certification</option>
+                            <option value="marketing">Digital Marketing & SEO</option>
+                            <option value="cybersecurity">Cybersecurity Solutions</option>
+                            <option value="other">Other Services</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="otherServiceGroup" style="display: none; --index: 6;">
+                        <label for="otherService" class="form-label required">Specify Other Service</label>
+                        <input type="text" id="otherService" name="otherService" class="form-input" placeholder="Please specify the service you need">
+                    </div>
+
+                    <div class="form-group" style="--index: 7;">
+                        <label for="requirements" class="form-label required">Service Requirements</label>
+                        <textarea id="requirements" name="requirements" class="form-input form-textarea" placeholder="Please describe your service requirements in detail" required></textarea>
+                    </div>
+
+                    <div class="form-group" style="--index: 8;">
+                        <label for="timeline" class="form-label">Timeline</label>
+                        <select id="timeline" name="timeline" class="form-select">
+                            <option value="" selected disabled>When do you need this service?</option>
+                            <option value="urgent">Urgent (Within 24-48 hours)</option>
+                            <option value="soon">Soon (Within 1 week)</option>
+                            <option value="standard">Standard (Within 2 weeks)</option>
+                            <option value="flexible">Flexible (No rush)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="--index: 9;">
+                        <label for="budget" class="form-label">Budget Range</label>
+                        <select id="budget" name="budget" class="form-select">
+                            <option value="" selected disabled>Select your budget range</option>
+                            <option value="enterprise">Enterprise (Sh. 10k - Sh. 50k)</option>
+                            <option value="premium">Premium (Sh. 5k - Sh. 10k)</option>
+                            <option value="standard">Standard (Sh. 1k - Sh. 5k)</option>
+                            <option value="basic">Basic (Sh. 500)</option>
+                            <option value="discuss">To be discussed</option>
+                        </select>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <h3 style="margin-top: var(--space-8);">
+                        <i class="fas fa-info-circle"></i>
+                        Additional Information
+                    </h3>
+                    <div class="form-group" style="--index: 10;">
+                        <label for="additionalInfo" class="form-label">Additional Comments</label>
+                        <textarea id="additionalInfo" name="additionalInfo" class="form-input form-textarea" placeholder="Any additional information that might be helpful"></textarea>
+                    </div>
+
+                    <div class="form-group" style="--index: 11;">
+                        <label class="form-label">How did you hear about us?</label>
+                        <div class="form-checkbox-group">
+                            <input type="checkbox" id="source1" name="source" value="search" class="form-checkbox">
+                            <label for="source1" class="form-checkbox-label">Search Engine</label>
+                        </div>
+                        <div class="form-checkbox-group">
+                            <input type="checkbox" id="source2" name="source" value="social" class="form-checkbox">
+                            <label for="source2" class="form-checkbox-label">Social Media</label>
+                        </div>
+                        <div class="form-checkbox-group">
+                            <input type="checkbox" id="source3" name="source" value="referral" class="form-checkbox">
+                            <label for="source3" class="form-checkbox-label">Referral</label>
+                        </div>
+                        <div class="form-checkbox-group">
+                            <input type="checkbox" id="source4" name="source" value="other" class="form-checkbox">
+                            <label for="source4" class="form-checkbox-label">Other</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="--index: 12;">
+                        <div class="form-checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" class="form-checkbox" required>
+                            <label for="terms" class="form-checkbox-label required">I agree to the Terms of Service and Privacy Policy</label>
+                        </div>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-outline" onclick="resetForm()">
+                            <i class="fas fa-undo"></i>
+                            Reset Form
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Application
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Service Highlights -->
+            <div class="service-highlights">
+                <h3>
+                    <i class="fas fa-star"></i>
+                    Why Choose Our Services
+                </h3>
+                <div class="highlights-grid">
+                    <!-- Highlight 1 -->
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="highlight-title">Top-Tier Security</h4>
+                        <p class="highlight-text">All our services implement bank-grade encryption and follow the highest security standards to protect your data.</p>
+                    </div>
+
+                    <!-- Highlight 2 -->
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4 class="highlight-title">24/7 Support</h4>
+                        <p class="highlight-text">Our dedicated support team is available around the clock to assist you with any questions or concerns.</p>
+                    </div>
+
+                    <!-- Highlight 3 -->
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4 class="highlight-title">Fast Processing</h4>
+                        <p class="highlight-text">Experience quick turnaround times for all our services with our efficient processing systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Column 1 -->
+                <div class="footer-column">
+                    <h4>
+                        <i class="fas fa-shield-alt"></i>
+                        DAN TECH
+                    </h4>
+                    <p>Providing innovative digital solutions to enhance your online experience and accelerate business growth.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div class="footer-column">
+                    <h4>
+                        <i class="fas fa-cog"></i>
+                        Our Services
+                    </h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-certificate"></i> Certificate Verification</a></li>
+                        <li><a href="#"><i class="fas fa-landmark"></i> e-Government Services</a></li>
+                        <li><a href="#"><i class="fas fa-building"></i> Business Registration</a></li>
+                        <li><a href="#"><i class="fas fa-file-signature"></i> Document Certification</a></li>
+                        <li><a href="#"><i class="fas fa-chart-line"></i> Digital Marketing & SEO</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div class="footer-column">
+                    <h4>
+                        <i class="fas fa-link"></i>
+                        Quick Links
+                    </h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
+                        <li><a href="#"><i class="fas fa-lock"></i> Privacy Policy</a></li>
+                        <li><a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div class="footer-column">
+                    <h4>
+                        <i class="fas fa-address-card"></i>
+                        Contact Information
+                    </h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 DAN TECH Plaza, Thika</li>
+                        <li><i class="fas fa-phone"></i> 0113996609</li>
+                        <li><i class="fas fa-envelope"></i> DAN TECHkenya@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 DAN TECH Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Form Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Cache DOM elements
+            const header = document.querySelector('header');
+            const scrollProgress = document.querySelector('.scroll-progress');
+            const formGroups = document.querySelectorAll('.form-group');
+            const highlightCards = document.querySelectorAll('.highlight-card');
+            const serviceType = document.getElementById('serviceType');
+            const otherServiceGroup = document.getElementById('otherServiceGroup');
+            const otherService = document.getElementById('otherService');
+
+            // Scroll variables
+            let lastScroll = 0;
+            let scrollTimeout;
+            const scrollThreshold = 50;
+
+            // Intersection Observer options
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            // Create observers
+            const elementObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        requestAnimationFrame(() => {
+                            entry.target.classList.add('visible');
+                        });
+                        elementObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements
+            formGroups.forEach(group => elementObserver.observe(group));
+            highlightCards.forEach(card => elementObserver.observe(card));
+
+            // Handle scroll events
+            function handleScroll() {
+                // Update scroll progress
+                const scrolled = window.pageYOffset;
+                const height = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = scrolled / height;
+                
+                requestAnimationFrame(() => {
+                    scrollProgress.style.transform = `scaleX(${progress})`;
+                });
+
+                // Handle header visibility
+                if (Math.abs(scrolled - lastScroll) > scrollThreshold) {
+                    header.classList.toggle('header-hidden', scrolled > lastScroll && scrolled > 100);
+                    lastScroll = scrolled;
+                }
+
+                // Clear previous timeout
+                clearTimeout(scrollTimeout);
+
+                // Set new timeout
+                scrollTimeout = setTimeout(() => {
+                    lastScroll = scrolled;
+                }, 150);
+            }
+
+            // Throttled scroll handler
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        handleScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            // Handle service type changes
+            serviceType.addEventListener('change', () => {
+                const isOther = serviceType.value === 'other';
+                otherServiceGroup.style.display = isOther ? 'block' : 'none';
+                
+                if (isOther) {
+                    requestAnimationFrame(() => {
+                        otherServiceGroup.classList.add('visible');
+                        otherService.setAttribute('required', 'required');
+                    });
+                } else {
+                    otherService.removeAttribute('required');
+                }
+            });
+
+            // Enhanced form reset
+            window.resetForm = () => {
+                const form = document.getElementById('applicationForm');
+                form.reset();
+                otherServiceGroup.style.display = 'none';
+                otherService.removeAttribute('required');
+
+                // Animate form groups after reset
+                formGroups.forEach((group, index) => {
+                    group.classList.remove('visible');
+                    setTimeout(() => {
+                        requestAnimationFrame(() => {
+                            group.classList.add('visible');
+                        });
+                    }, index * 50);
+                });
+            };
+
+            // Smooth scroll to form sections
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = document.querySelector(anchor.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Initialize form animations
+            formGroups.forEach((group, index) => {
+                group.style.transitionDelay = `${index * 0.1}s`;
+            });
+
+            // Add parallax effect to background
+            let parallaxTimeout;
+            window.addEventListener('scroll', () => {
+                if (!parallaxTimeout) {
+                    parallaxTimeout = requestAnimationFrame(() => {
+                        const scrolled = window.pageYOffset;
+                        document.body.style.backgroundPositionY = `${scrolled * 0.5}px`;
+                        parallaxTimeout = null;
+                    });
+                }
+            }, { passive: true });
+
+            // Optimize performance with ResizeObserver
+            const resizeObserver = new ResizeObserver(entries => {
+                entries.forEach(() => {
+                    if (!ticking) {
+                        requestAnimationFrame(() => {
+                            handleScroll();
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                });
+            });
+
+            resizeObserver.observe(document.body);
+
+            // Clean up on page unload
+            window.addEventListener('unload', () => {
+                resizeObserver.disconnect();
+                elementObserver.disconnect();
+            });
+
+            // Add smooth scroll behavior
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Add parallax effect to tech glow
+            document.addEventListener('mousemove', (e) => {
+                const glow = document.querySelector('.tech-glow');
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                glow.style.transform = `translate(${x * 20}px, ${y * 20}px)`;
+            });
+
+            // Add header scroll effect
+            let lastScrollHeader = 0;
+            
+            window.addEventListener('scroll', () => {
+                const currentScrollHeader = window.pageYOffset;
+                
+                if (currentScrollHeader <= 0) {
+                    header.classList.remove('header-hidden');
+                    return;
+                }
+                
+                if (currentScrollHeader > lastScrollHeader && !header.classList.contains('header-hidden')) {
+                    header.classList.add('header-hidden');
+                } else if (currentScrollHeader < lastScrollHeader && header.classList.contains('header-hidden')) {
+                    header.classList.remove('header-hidden');
+                }
+                
+                lastScrollHeader = currentScrollHeader;
+            });
+        });
+    </script>
+    <script src="update-styles.js"></script>
+</body>
+</html>
+

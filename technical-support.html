@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DAN TECH - Technical Support</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #f5f7fa;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0056b3;
+      color: white;
+      padding: 15px;
+    }
+    nav a {
+      color: white;
+      margin-right: 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-size: 28px;
+      color: #003366;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+    form input, form textarea, form button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    form button {
+      background: #0056b3;
+      color: white;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form button:hover {
+      background: #003366;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body class="performance-mode">
+
+<header>
+  <div class="nav-container">
+    <div class="logo">DAN TECH Dashboard</div>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="index.html">Home</a>
+      <a href="index.html#staff-login">Logout</a> <!-- Logout link -->
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <h1>Technical Support</h1>
+  <p>Experiencing a technical issue? Submit your request and we'll assist you promptly.</p>
+
+  <form id="supportForm">
+    <input type="text" id="issueTitle" placeholder="Issue Title" required>
+    <textarea id="issueDescription" placeholder="Describe the Issue..." rows="5" required></textarea>
+    <button type="submit">Request Support via WhatsApp</button>
+  </form>
+</div>
+
+<footer>
+  <p>&copy; 2025 DAN TECH. All Rights Reserved.</p>
+</footer>
+
+<script>
+  document.getElementById('supportForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const title = document.getElementById('issueTitle').value;
+    const desc = document.getElementById('issueDescription').value;
+    const message = `Hello DAN TECH, I need technical support.\n\nIssue: ${title}\nDetails: ${desc}`;
+    const url = `https://wa.me/254113996609?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  });
+</script>
+
+    <script src="update-styles.js"></script>
+</body>
+</html>
+

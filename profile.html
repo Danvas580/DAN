@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Profile - DAN TECH</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0056b3;
+      --primary-light: #007bff;
+      --secondary: #6c757d;
+      --success: #28a745;
+      --danger: #dc3545;
+      --light: #f8f9fa;
+      --dark: #343a40;
+      --white: #ffffff;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: #f4f9ff;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .logo {
+      max-width: 180px;
+      margin-bottom: 20px;
+    }
+    
+    h1 {
+      color: var(--primary);
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    
+    .subtitle {
+      color: var(--secondary);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+    
+    .card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+    }
+    
+    .form-section {
+      margin-bottom: 25px;
+    }
+    
+    .section-title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    
+    .section-title i {
+      margin-right: 10px;
+      font-size: 1.3rem;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: var(--dark);
+    }
+    
+    .required:after {
+      content: "*";
+      color: var(--danger);
+      margin-left: 3px;
+    }
+    
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 16px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    }
+    
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    
+    .form-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .form-row .form-group {
+      flex: 1;
+      margin-bottom: 0;
+    }
+    
+    .help-text {
+      font-size: 0.85rem;
+      color: var(--secondary);
+      margin-top: 5px;
+    }
+    
+    .avatar-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .avatar-preview {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #e9ecef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px;
+      overflow: hidden;
+    }
+    
+    .avatar-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .avatar-placeholder {
+      color: var(--secondary);
+      font-size: 2rem;
+    }
+    
+    .avatar-upload {
+      flex: 1;
+    }
+    
+    .avatar-upload label {
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: var(--primary-light);
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .avatar-upload label:hover {
+      background-color: var(--primary);
+    }
+    
+    .avatar-upload input[type="file"] {
+      display: none;
+    }
+    
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+    
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-light);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      border: 1px solid var(--secondary);
+      color: var(--secondary);
+    }
+    
+    .btn-outline:hover {
+      background-color: #f1f3f5;
+    }
+    
+    .password-input-wrapper {
+      position: relative;
+    }
+    
+    .toggle-password {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: var(--secondary);
+    }
+    
+    .password-strength {
+      height: 5px;
+      margin-top: 10px;
+      border-radius: 3px;
+      background-color: #e9ecef;
+    }
+    
+    .password-strength div {
+      height: 100%;
+      border-radius: 3px;
+      width: 0%;
+      transition: width 0.3s;
+    }
+    
+    .footer {
+      text-align: center;
+      color: var(--secondary);
+      margin-top: 30px;
+      font-size: 0.9rem;
+    }
+    
+    .validation-error {
+      color: var(--danger);
+      font-size: 0.85rem;
+      margin-top: 5px;
+      display: none;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px 10px;
+      }
+      
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .avatar-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .avatar-preview {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+      
+      .buttons {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="performance-mode">
+  <div class="container">
+    <header>
+      <div class="logo-container">
+        <img src="/api/placeholder/180/60" alt="DAN TECH Logo" class="logo">
+      </div>
+      <h1>Staff Profile</h1>
+      <p class="subtitle">Update your personal and professional information</p>
+    </header>
+    
+    <form id="staffProfileForm">
+      <!-- Personal Information Section -->
+      <div class="card form-section">
+        <div class="section-title">
+          <i class="fas fa-user"></i>
+          <h2>Personal Information</h2>
+        </div>
+        
+        <div class="avatar-container">
+          <div class="avatar-preview">
+            <div class="avatar-placeholder">
+              <i class="fas fa-user"></i>
+            </div>
+          </div>
+          <div class="avatar-upload">
+            <label for="avatar">Upload Profile Picture</label>
+            <input type="file" id="avatar" accept="image/*">
+            <p class="help-text">Recommended size: 400x400 pixels (Max: 2MB)</p>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName" class="required">First Name</label>
+            <input type="text" id="firstName" required>
+            <div class="validation-error" id="firstNameError">Please enter your first name</div>
+          </div>
+          <div class="form-group">
+            <label for="lastName" class="required">Last Name</label>
+            <input type="text" id="lastName" required>
+            <div class="validation-error" id="lastNameError">Please enter your last name</div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="email" class="required">Email Address</label>
+          <input type="email" id="email" required>
+          <div class="validation-error" id="emailError">Please enter a valid email address</div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone">
+          </div>
+          <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob">
+          </div>
+        </div>
+      </div>
+      
+      <!-- Professional Information Section -->
+      <div class="card form-section">
+        <div class="section-title">
+          <i class="fas fa-briefcase"></i>
+          <h2>Professional Information</h2>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="department" class="required">Department</label>
+            <select id="department" required>
+              <option value="">Select Department</option>
+              <option value="administration">Administration</option>
+              <option value="engineering">Engineering</option>
+              <option value="marketing">Marketing</option>
+              <option value="finance">Finance</option>
+              <option value="hr">Human Resources</option>
+              <option value="it">Information Technology</option>
+              <option value="other">Other</option>
+            </select>
+            <div class="validation-error" id="departmentError">Please select your department</div>
+          </div>
+          <div class="form-group">
+            <label for="position" class="required">Position</label>
+            <input type="text" id="position" required>
+            <div class="validation-error" id="positionError">Please enter your position</div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="employeeId" class="required">Employee ID</label>
+          <input type="text" id="employeeId" required>
+          <div class="validation-error" id="employeeIdError">Please enter your employee ID</div>
+        </div>
+        
+        <div class="form-group">
+          <label for="bio">Professional Bio</label>
+          <textarea id="bio" placeholder="Share a brief description of your professional background and expertise"></textarea>
+        </div>
+      </div>
+      
+      <!-- Account Security Section -->
+      <div class="card form-section">
+        <div class="section-title">
+          <i class="fas fa-lock"></i>
+          <h2>Account Security</h2>
+        </div>
+        
+        <div class="form-group">
+          <label for="currentPassword">Current Password</label>
+          <div class="password-input-wrapper">
+            <input type="password" id="currentPassword">
+            <span class="toggle-password" data-target="currentPassword">
+              <i class="fas fa-eye"></i>
+            </span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="newPassword">New Password</label>
+          <div class="password-input-wrapper">
+            <input type="password" id="newPassword">
+            <span class="toggle-password" data-target="newPassword">
+              <i class="fas fa-eye"></i>
+            </span>
+          </div>
+          <div class="password-strength">
+            <div id="passwordStrengthBar"></div>
+          </div>
+          <p class="help-text">Password must be at least 8 characters long and include uppercase, lowercase, numbers, and special characters</p>
+        </div>
+        
+        <div class="form-group">
+          <label for="confirmPassword">Confirm New Password</label>
+          <div class="password-input-wrapper">
+            <input type="password" id="confirmPassword">
+            <span class="toggle-password" data-target="confirmPassword">
+              <i class="fas fa-eye"></i>
+            </span>
+          </div>
+          <div class="validation-error" id="passwordMatchError">Passwords do not match</div>
+        </div>
+      </div>
+      
+      <div class="buttons">
+        <button type="button" class="btn btn-outline">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </div>
+    </form>
+    
+    <div class="footer">
+      <p>DAN TECH Staff Portal &copy; 2025. All rights reserved.</p>
+    </div>
+  </div>
+
+  <script>
+    // Handle file upload preview
+    document.getElementById('avatar').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const avatarPreview = document.querySelector('.avatar-preview');
+          avatarPreview.innerHTML = `<img src="${event.target.result}" alt="Profile Picture">`;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+    
+    // Toggle password visibility
+    document.querySelectorAll('.toggle-password').forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const targetId = this.getAttribute('data-target');
+        const passwordInput = document.getElementById(targetId);
+        const icon = this.querySelector('i');
+        
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          icon.classList.remove('fa-eye');
+          icon.classList.add('fa-eye-slash');
+        } else {
+          passwordInput.type = 'password';
+          icon.classList.remove('fa-eye-slash');
+          icon.classList.add('fa-eye');
+        }
+      });
+    });
+    
+    // Password strength meter
+    document.getElementById('newPassword').addEventListener('input', function() {
+      const password = this.value;
+      const strengthBar = document.getElementById('passwordStrengthBar');
+      
+      // Simple password strength calculation
+      let strength = 0;
+      if (password.length >= 8) strength += 25;
+      if (password.match(/[A-Z]/)) strength += 25;
+      if (password.match(/[0-9]/)) strength += 25;
+      if (password.match(/[^A-Za-z0-9]/)) strength += 25;
+      
+      strengthBar.style.width = strength + '%';
+      
+      if (strength <= 25) {
+        strengthBar.style.backgroundColor = '#dc3545'; // weak
+      } else if (strength <= 50) {
+        strengthBar.style.backgroundColor = '#ffc107'; // medium
+      } else if (strength <= 75) {
+        strengthBar.style.backgroundColor = '#17a2b8'; // good
+      } else {
+        strengthBar.style.backgroundColor = '#28a745'; // strong
+      }
+    });
+    
+    // Form validation
+    document.getElementById('staffProfileForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      let isValid = true;
+      
+      // Validate required fields
+      const requiredFields = ['firstName', 'lastName', 'email', 'department', 'position', 'employeeId'];
+      requiredFields.forEach(field => {
+        const input = document.getElementById(field);
+        const error = document.getElementById(field + 'Error');
+        
+        if (!input.value.trim()) {
+          error.style.display = 'block';
+          isValid = false;
+        } else {
+          error.style.display = 'none';
+        }
+      });
+      
+      // Validate email format
+      const email = document.getElementById('email');
+      const emailError = document.getElementById('emailError');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email.value && !emailRegex.test(email.value)) {
+        emailError.style.display = 'block';
+        isValid = false;
+      }
+      
+      // Validate password confirmation
+      const newPassword = document.getElementById('newPassword').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const passwordMatchError = document.getElementById('passwordMatchError');
+      
+      if (newPassword || confirmPassword) {
+        if (newPassword !== confirmPassword) {
+          passwordMatchError.style.display = 'block';
+          isValid = false;
+        } else {
+          passwordMatchError.style.display = 'none';
+        }
+      }
+      
+      // Submit the form if valid
+      if (isValid) {
+        // Here you would typically send the data to your server
+        alert('Profile updated successfully!');
+        // In a real application, you would use fetch or another method to submit the form data
+      }
+    });
+  </script>
+    <script src="update-styles.js"></script>
+</body>
+</html>
+

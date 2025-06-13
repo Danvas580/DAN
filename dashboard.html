@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="DAN TECH Staff Dashboard - Professional management system for staff"/>
+  <meta name="theme-color" content="#1a1a1a">
+  
+  <!-- Preload critical resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      /* Classic Color Palette */
+      --primary: #2c3e50;
+      --primary-dark: #1a2634;
+      --primary-light: #34495e;
+      --secondary: #7f8c8d;
+      --accent: #c0392b;
+      --accent-dark: #962d22;
+      
+      /* Status Colors */
+      --success: #27ae60;
+      --success-dark: #219a52;
+      --warning: #f39c12;
+      --warning-dark: #d68910;
+      --danger: #e74c3c;
+      --danger-dark: #c0392b;
+      --info: #3498db;
+      --info-dark: #2980b9;
+      
+      /* Neutral Colors */
+      --dark: #1a1a1a;
+      --darker: #0f0f0f;
+      --dark-surface: #2a2a2a;
+      --dark-surface-lighter: #3a3a3a;
+      --light: #f5f5f5;
+      --white: #ffffff;
+      
+      /* Text Colors */
+      --text-primary: #f8f9fa;
+      --text-secondary: #adb5bd;
+      --text-muted: #6c757d;
+      
+      /* Border Colors */
+      --border-light: rgba(255, 255, 255, 0.08);
+      --border-primary: rgba(44, 62, 80, 0.2);
+      
+      /* Background Colors */
+      --bg-card: rgba(42, 42, 42, 0.95);
+      --bg-hover: rgba(255, 255, 255, 0.05);
+      
+      /* Effects */
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+      --shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+      --glow-primary: 0 0 20px rgba(44, 62, 80, 0.2);
+      --glow-success: 0 0 20px rgba(39, 174, 96, 0.2);
+      --glow-warning: 0 0 20px rgba(243, 156, 18, 0.2);
+      --glow-danger: 0 0 20px rgba(231, 76, 60, 0.2);
+      
+      /* Gradients */
+      --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      --gradient-success: linear-gradient(135deg, var(--success), var(--success-dark));
+      --gradient-warning: linear-gradient(135deg, var(--warning), var(--warning-dark));
+      --gradient-danger: linear-gradient(135deg, var(--danger), var(--danger-dark));
+      --gradient-dark: linear-gradient(135deg, var(--dark), var(--darker));
+      --gradient-surface: linear-gradient(135deg, var(--dark-surface), var(--dark-surface-lighter));
+      
+      /* Transitions */
+      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      /* Border Radius */
+      --radius-sm: 4px;
+      --radius: 6px;
+      --radius-lg: 8px;
+      --radius-full: 9999px;
+      
+      /* Typography */
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Source Sans Pro', system-ui, -apple-system, sans-serif;
+      --line-height-tight: 1.2;
+      --line-height-normal: 1.5;
+      --line-height-relaxed: 1.75;
+    }
+    
+    /* Reset & Base Styles */
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      background: var(--gradient-dark);
+      color: var(--text-primary);
+      line-height: var(--line-height-normal);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      background-attachment: fixed;
+      letter-spacing: 0.01em;
+    }
+    
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      line-height: var(--line-height-tight);
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+    
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.75rem; }
+    h4 { font-size: 1.5rem; }
+    h5 { font-size: 1.25rem; }
+    h6 { font-size: 1rem; }
+    
+    p {
+      margin-bottom: 1rem;
+      line-height: var(--line-height-relaxed);
+    }
+    
+    /* Header & Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(26, 26, 26, 0.98);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-light);
+      z-index: 1000;
+      padding: 1rem 2rem;
+    }
+    
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+    
+    .logo i {
+      color: var(--accent);
+      font-size: 1.75rem;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+    }
+    
+    .nav-links a:hover {
+      background: var(--bg-hover);
+      color: var(--accent);
+    }
+    
+    .nav-links a i {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover i {
+      color: var(--accent);
+    }
+    
+    /* User Profile */
+    .user-profile {
+      position: relative;
+    }
+    
+    .profile-trigger {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.5rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .profile-trigger:hover {
+      background: var(--bg-hover);
+    }
+    
+    .avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: var(--radius-full);
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 1rem;
+      border: 2px solid var(--border-light);
+    }
+    
+    .profile-info {
+      display: none;
+    }
+    
+    .user-dropdown {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      right: 0;
+      width: 240px;
+      background: var(--dark-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: var(--transition);
+    }
+    
+    .user-dropdown.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .dropdown-header {
+      padding: 1.25rem;
+      border-bottom: 1px solid var(--border-light);
+      text-align: center;
+    }
+    
+    .dropdown-header h4 {
+      font-family: var(--font-heading);
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    
+    .dropdown-header p {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      margin: 0;
+    }
+    
+    .dropdown-links {
+      padding: 0.75rem;
+    }
+    
+    .dropdown-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.875rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      letter-spacing: 0.01em;
+    }
+    
+    .dropdown-links a:hover {
+      background: var(--bg-hover);
+    }
+    
+    .dropdown-links a i {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      width: 1.5rem;
+      text-align: center;
+    }
+    
+    .dropdown-links .logout {
+      color: var(--danger);
+    }
+    
+    .dropdown-links .logout i {
+      color: var(--danger);
+    }
+    
+    /* Main Content */
+    main {
+      margin-top: 5rem;
+      flex: 1;
+      padding: 2.5rem;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Dashboard Grid */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .stats-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .stats-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: var(--transition);
+    }
+    
+    .stats-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-primary);
+      box-shadow: var(--shadow);
+    }
+    
+    .stats-card:hover::before {
+      opacity: 0.05;
+    }
+    
+    .stats-icon {
+      flex-shrink: 0;
+      width: 3.5rem;
+      height: 3.5rem;
+      background: var(--gradient-primary);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--white);
+      position: relative;
+      z-index: 1;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .stats-info {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .stats-info h3 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+    
+    .stats-info p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin: 0;
+      letter-spacing: 0.01em;
+    }
+
+    /* Sections */
+    .section {
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      transition: var(--transition);
+    }
+    
+    .section:hover {
+      border-color: var(--border-primary);
+      box-shadow: var(--shadow);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+    
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--text-primary);
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    
+    .section-title i {
+      color: var(--accent);
+      font-size: 1.25rem;
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      outline: none;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    
+    .btn-primary {
+      background: var(--gradient-primary);
+      color: var(--white);
+    }
+    
+    .btn-success {
+      background: var(--gradient-success);
+      color: var(--white);
+    }
+    
+    .btn-warning {
+      background: var(--gradient-warning);
+      color: var(--white);
+    }
+    
+    .btn-danger {
+      background: var(--gradient-danger);
+      color: var(--white);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    /* Forms */
+    .form-group {
+      margin-bottom: 1.75rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.875rem 1.25rem;
+      background: var(--dark-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      transition: var(--transition);
+      letter-spacing: 0.01em;
+    }
+    
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: var(--glow-primary);
+      outline: none;
+    }
+    
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-light);
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 1.25rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-light);
+    }
+    
+    th {
+      background: var(--dark-surface);
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    td {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    
+    tr:hover td {
+      background: var(--bg-hover);
+    }
+    
+    /* Status Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.375rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .badge-success {
+      background: rgba(39, 174, 96, 0.1);
+      color: var(--success);
+    }
+    
+    .badge-warning {
+      background: rgba(243, 156, 18, 0.1);
+      color: var(--warning);
+    }
+    
+    .badge-danger {
+      background: rgba(231, 76, 60, 0.1);
+      color: var(--danger);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .profile-info {
+        display: none;
+      }
+      
+      main {
+        padding: 1.5rem;
+      }
+      
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      
+      .stats-card {
+        padding: 1.5rem;
+      }
+      
+      .section {
+        padding: 1.5rem;
+      }
+      
+      .section-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+      opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.02);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    .pulse {
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--dark-surface);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary-light);
+      border-radius: var(--radius-full);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
+
+    /* Tools Section Styles */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.tool-category {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  border: 1px solid var(--border-light);
+}
+
+.tool-category:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.category-header i {
+  font-size: 1.5rem;
+  color: var(--accent);
+  background: var(--dark-surface-lighter);
+  padding: 1rem;
+  border-radius: var(--radius-full);
+  box-shadow: var(--glow-primary);
+}
+
+.category-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.tool-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tool-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--dark-surface);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: all var(--transition);
+  border: 1px solid var(--border-light);
+}
+
+.tool-card:hover {
+  background: var(--gradient-primary);
+  border-color: var(--primary-light);
+  transform: translateX(5px);
+  box-shadow: var(--glow-primary);
+}
+
+.tool-icon {
+  background: var(--dark-surface-lighter);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+
+.tool-icon i {
+  font-size: 1.2rem;
+  color: var(--accent);
+  transition: color var(--transition);
+}
+
+.tool-card:hover .tool-icon {
+  background: var(--primary-light);
+}
+
+.tool-card:hover .tool-icon i {
+  color: var(--white);
+}
+
+.tool-info {
+  flex: 1;
+}
+
+.tool-info h4 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.tool-info p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: var(--line-height-normal);
+}
+
+.tool-card:hover .tool-info h4,
+.tool-card:hover .tool-info p {
+  color: var(--white);
+}
+
+.tool-card i.fa-chevron-right {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  transition: transform var(--transition), color var(--transition);
+}
+
+.tool-card:hover i.fa-chevron-right {
+  color: var(--white);
+  transform: translateX(5px);
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-body);
+  letter-spacing: 0.01em;
+  line-height: var(--line-height-relaxed);
+}
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0.5rem;
+      }
+      
+      .tool-category {
+        padding: 1rem;
+      }
+      
+      .category-header {
+        margin-bottom: 1rem;
+      }
+      
+      .category-header i {
+        font-size: 1.25rem;
+        padding: 0.75rem;
+      }
+      
+      .category-header h3 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+    <div class="header-content">
+      <a href="index.html" class="logo">
+        <i class="fas fa-university"></i>
+    DAN TECH
+      </a>
+      
+  <nav>
+        <ul class="nav-links">
+          <li><a href="#dashboard"><i class="fas fa-chart-line"></i>Dashboard</a></li>
+          <li><a href="#tasks"><i class="fas fa-tasks"></i>Tasks</a></li>
+          <li><a href="#schedule"><i class="fas fa-calendar-alt"></i>Schedule</a></li>
+          <li><a href="#reports"><i class="fas fa-file-alt"></i>Reports</a></li>
+        </ul>
+        
+        <div class="user-profile">
+          <div class="profile-trigger" id="profileTrigger">
+      <div class="avatar">
+        <i class="fas fa-user"></i>
+      </div>
+            <div class="profile-info">
+              <h4>John Doe</h4>
+              <p>Administrator</p>
+    </div>
+    </div>
+          
+          <div class="user-dropdown" id="userDropdown">
+            <div class="dropdown-header">
+              <h4>John Doe</h4>
+              <p>john.doe@dantech.com</p>
+      </div>
+            <div class="dropdown-links">
+              <a href="#profile"><i class="fas fa-user-circle"></i>Profile Settings</a>
+              <a href="#preferences"><i class="fas fa-cog"></i>Preferences</a>
+              <a href="#notifications"><i class="fas fa-bell"></i>Notifications</a>
+              <a href="#help"><i class="fas fa-question-circle"></i>Help Center</a>
+              <a href="#logout" class="logout"><i class="fas fa-sign-out-alt"></i>Sign Out</a>
+    </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+    
+  <main>
+    <div class="container">
+    <div class="dashboard-grid">
+        <div class="stats-card" data-important="true">
+        <div class="stats-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="stats-info">
+            <h3>2,459</h3>
+          <p>Active Students</p>
+        </div>
+      </div>
+      <div class="stats-card">
+          <div class="stats-icon">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="stats-info">
+            <h3>156</h3>
+          <p>Active Courses</p>
+        </div>
+      </div>
+      <div class="stats-card">
+          <div class="stats-icon">
+            <i class="fas fa-tasks"></i>
+        </div>
+        <div class="stats-info">
+            <h3>24</h3>
+          <p>Pending Tasks</p>
+        </div>
+      </div>
+        <div class="stats-card">
+          <div class="stats-icon">
+            <i class="fas fa-ticket-alt"></i>
+    </div>
+          <div class="stats-info">
+            <h3>18</h3>
+            <p>Support Tickets</p>
+      </div>
+          </div>
+        </div>
+
+  <section class="section" id="shift-log">
+    <div class="section-header">
+          <h2 class="section-title"><i class="fas fa-clock"></i>Shift & Attendance Log</h2>
+      <div class="btn-group">
+        <button class="btn btn-success" id="startShiftBtn" onclick="startShift()">
+          <i class="fas fa-play"></i> Start Shift
+        </button>
+        <button class="btn btn-danger" id="endShiftBtn" onclick="endShift()">
+          <i class="fas fa-stop"></i> End Shift
+        </button>
+      </div>
+    </div>
+    
+    <div class="shift-status">
+      <p id="currentShiftStatus">Not currently on shift</p>
+      <div id="shiftTimer" style="display: none;">
+        <span>Current shift duration: </span>
+        <span id="shiftHours">00</span>:<span id="shiftMinutes">00</span>:<span id="shiftSeconds">00</span>
+      </div>
+    </div>
+    
+        <h3 style="margin: 1.5rem 0 1rem 0;">Recent Shifts</h3>
+    <ul id="shiftHistory" style="list-style: none;"></ul>
+  </section>
+
+  <section class="section" id="tasks">
+    <div class="section-header">
+          <h2 class="section-title"><i class="fas fa-tasks"></i>Staff Task Manager</h2>
+          <button class="btn btn-primary" onclick="openTaskModal()">
+        <i class="fas fa-plus"></i> Add New Task
+      </button>
+    </div>
+    
+        <div class="task-filters">
+      <button class="btn btn-ghost active" onclick="filterTasks('all')">All</button>
+      <button class="btn btn-ghost" onclick="filterTasks('pending')">Pending</button>
+      <button class="btn btn-ghost" onclick="filterTasks('completed')">Completed</button>
+    </div>
+    
+    <ul id="taskList" style="list-style: none;"></ul>
+  </section>
+
+  <section class="section" id="chat">
+    <div class="section-header">
+          <h2 class="section-title"><i class="fas fa-comments"></i>Internal Staff Chat</h2>
+      <div class="btn-group">
+        <button class="btn btn-ghost" onclick="clearChat()">
+          <i class="fas fa-eraser"></i> Clear
+        </button>
+            <button class="btn btn-primary" onclick="refreshChat()">
+          <i class="fas fa-sync-alt"></i> Refresh
+        </button>
+      </div>
+    </div>
+    
+    <div id="chat-box" aria-live="polite"></div>
+    <form id="chat-form">
+      <div style="display: flex; gap: 0.75rem; width: 100%;">
+            <input type="text" id="chat-message" class="form-control" placeholder="Type your message..." required />
+            <button type="submit" class="btn btn-primary">
+          <i class="fas fa-paper-plane"></i> Send
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <section class="section" id="calendar">
+    <div class="section-header">
+          <h2 class="section-title"><i class="fas fa-calendar-alt"></i>Staff Calendar</h2>
+      <div class="btn-group">
+        <button class="btn btn-ghost" onclick="prevMonth()">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <span id="currentMonth" style="margin: 0 1rem; font-weight: 500;">May 2025</span>
+        <button class="btn btn-ghost" onclick="nextMonth()">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+    
+    <table class="calendar">
+      <thead>
+        <tr>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+      </thead>
+      <tbody id="calendarBody"></tbody>
+    </table>
+  </section>
+
+  <section class="section" id="tools">
+    <div class="section-header">
+      <h2 class="section-title">
+        <i class="fas fa-toolbox"></i>
+        Enterprise Tools & Resources
+      </h2>
+      <p class="section-subtitle">Access powerful tools and resources to enhance your productivity</p>
+    </div>
+    
+    <div class="tools-grid">
+      <!-- Academic Management -->
+      <div class="tool-category">
+        <div class="category-header">
+          <i class="fas fa-graduation-cap"></i>
+          <h3>Academic Management</h3>
+        </div>
+        <div class="tool-list">
+          <a href="manage-courses.html" class="tool-card">
+            <div class="tool-icon"><i class="fas fa-book"></i></div>
+            <div class="tool-info">
+              <h4>Course Management</h4>
+              <p>Create and organize course content efficiently</p>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+          </a>
+          <a href="view-enrollments.html" class="tool-card">
+            <div class="tool-icon"><i class="fas fa-user-graduate"></i></div>
+            <div class="tool-info">
+              <h4>Student Enrollments</h4>
+              <p>Track and manage student registrations</p>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Technical Services -->
+      <div class="tool-category">
+        <div class="category-header">
+          <i class="fas fa-cogs"></i>
+          <h3>Technical Services</h3>
+        </div>
+        <div class="tool-list">
+          <a href="manage-services.html" class="tool-card">
+            <div class="tool-icon"><i class="fas fa-server"></i></div>
+            <div class="tool-info">
+              <h4>Service Management</h4>
+              <p>Configure and monitor technical services</p>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+          </a>
+          <a href="technical-support.html" class="tool-card">
+            <div class="tool-icon"><i class="fas fa-headset"></i></div>
+            <div class="tool-info">
+              <h4>Support Center</h4>
+              <p>Access help desk and knowledge base</p>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Analytics & Reports -->
+      <div class="tool-category">
+        <div class="category-header">
+          <i class="fas fa-chart-line"></i>
+          <h3>Analytics & Reports</h3>
+        </div>
+        <div class="tool-list">
+          <a href="reports.html" class="tool-card">
+            <div class="tool-icon"><i class="fas fa-chart-bar"></i></div>
+            <div class="tool-info">
+              <h4>Performance Analytics</h4>
+              <p>Generate detailed reports and insights</p>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+          </a>
+          <a href="documents.html" class="tool-card">
+            <div class="tool-icon"><i class="fas fa-file-alt"></i></div>
+            <div class="tool-info">
+              <h4>Document Center</h4>
+              <p>Access and manage important files</p>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Communication -->
+      <div class="tool-category">
+        <div class="category-header">
+          <i class="fas fa-comments"></i>
+          <h3>Communication</h3>
+        </div>
+        <div class="tool-list">
+          <a href="announcements.html" class="tool-card">
+            <div class="tool-icon"><i class="fas fa-bullhorn"></i></div>
+            <div class="tool-info">
+              <h4>Announcements</h4>
+              <p>Post and view important updates</p>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+          </a>
+          <a href="admin-login.html" class="tool-card">
+            <div class="tool-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="tool-info">
+              <h4>Admin Controls</h4>
+              <p>Access administrative settings</p>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+  </main>
+
+  <footer class="dashboard-footer">
+    <div class="footer-content">
+      <div class="copyright">
+        © 2025 DAN TECH Education | All Rights Reserved
+      </div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="help.html">Help Center</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Add footer styles -->
+  <style>
+    .dashboard-footer {
+      margin-top: auto;
+      padding: 1.5rem 2rem;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-light);
+    }
+
+    .dashboard-footer .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .dashboard-footer .copyright {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      letter-spacing: 0.02em;
+    }
+
+    .dashboard-footer .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .dashboard-footer .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color var(--transition);
+      letter-spacing: 0.02em;
+    }
+
+    .dashboard-footer .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .dashboard-footer .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      .dashboard-footer .footer-links {
+        justify-content: center;
+        gap: 1rem;
+      }
+    }
+  </style>
+
+<!-- Modals -->
+<div class="modal-overlay" id="taskModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title">Add New Task</h3>
+      <button class="modal-close" onclick="closeTaskModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form id="newTaskForm">
+        <div class="form-group">
+          <label class="form-label" for="taskTitle">Task Title</label>
+            <input type="text" id="taskTitle" class="form-control" placeholder="Enter task title..." required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="taskDescription">Description (Optional)</label>
+            <textarea id="taskDescription" class="form-control" rows="3" placeholder="Enter task description..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="taskDueDate">Due Date</label>
+            <input type="date" id="taskDueDate" class="form-control">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="taskPriority">Priority</label>
+            <select id="taskPriority" class="form-control">
+            <option value="normal">Normal</option>
+            <option value="important">Important</option>
+            <option value="urgent">Urgent</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeTaskModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="addNewTask()">Add Task</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast notifications container -->
+<div class="toast-container" id="toastContainer"></div>
+
+  <!-- Loading overlay -->
+  <div class="loading-overlay">
+    <div class="loader"></div>
+  </div>
+
+<script>
+  // Show loading overlay
+  function showLoading() {
+    document.querySelector('.loading-overlay').classList.add('show');
+  }
+  
+  function hideLoading() {
+    document.querySelector('.loading-overlay').classList.remove('show');
+  }
+  
+  // Simulate initial loading
+  window.addEventListener('load', function() {
+    showLoading();
+    setTimeout(function() {
+      hideLoading();
+      showToast('Welcome!', 'Welcome to your DAN TECH staff dashboard.', 'success');
+    }, 800);
+  });
+  
+  // Task Management
+  let tasks = [
+    { id: 1, title: 'Update student enrollment records', dueDate: '2025-05-12', priority: 'urgent', completed: false },
+    { id: 2, title: 'Prepare technical documentation', dueDate: '2025-05-20', priority: 'important', completed: false },
+    { id: 3, title: 'Email department heads', dueDate: '2025-05-09', priority: 'normal', completed: true }
+  ];
+  
+  function addNewTask() {
+    const title = document.getElementById('taskTitle').value.trim();
+    if (!title) {
+      alert('Task title is required!');
+      return;
+    }
+    
+    const task = {
+      id: Date.now(),
+      title: title,
+      dueDate: document.getElementById('taskDueDate').value,
+      priority: document.getElementById('taskPriority').value,
+      completed: false
+    };
+    
+    tasks.push(task);
+    renderTasks();
+    closeTaskModal();
+  }
+  
+  function renderTasks() {
+    const taskList = document.getElementById('taskList');
+    taskList.innerHTML = '';
+    
+    tasks.forEach(task => {
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <div class="task-content">
+          <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''} 
+            onchange="toggleTaskComplete(${task.id})">
+          <div>
+            ${task.title}
+            ${task.dueDate ? `<span class="task-due"><i class="fas fa-calendar-day"></i> ${task.dueDate}</span>` : ''}
+            ${task.priority !== 'normal' ? `<span class="badge badge-${task.priority}">${task.priority}</span>` : ''}
+          </div>
+        </div>
+        <div class="task-actions">
+          <button class="btn btn-danger" onclick="deleteTask(${task.id})">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      `;
+      if (task.completed) {
+        li.classList.add('task-complete');
+      }
+      taskList.appendChild(li);
+    });
+  }
+  
+  function toggleTaskComplete(taskId) {
+    const task = tasks.find(t => t.id === taskId);
+    if (task) {
+      task.completed = !task.completed;
+      renderTasks();
+    }
+  }
+  
+  function deleteTask(taskId) {
+    if (confirm('Delete this task?')) {
+      tasks = tasks.filter(task => task.id !== taskId);
+      renderTasks();
+    }
+  }
+  
+  function openTaskModal() {
+    document.getElementById('taskModal').classList.add('show');
+  }
+  
+  function closeTaskModal() {
+    document.getElementById('taskModal').classList.remove('show');
+    document.getElementById('newTaskForm').reset();
+  }
+  
+  // Shift Management
+  let shiftStartTime = null;
+  let shiftTimer = null;
+  
+  function startShift() {
+    if (shiftStartTime) {
+      showToast('Warning', 'You are already on shift!', 'warning');
+      return;
+    }
+    
+    shiftStartTime = new Date();
+    document.getElementById('currentShiftStatus').textContent = 'Currently on shift';
+    document.getElementById('shiftTimer').style.display = 'block';
+    document.getElementById('startShiftBtn').disabled = true;
+    document.getElementById('endShiftBtn').disabled = false;
+    
+    // Start timer
+    shiftTimer = setInterval(updateShiftTimer, 1000);
+    
+    showToast('Success', 'Shift started successfully!', 'success');
+  }
+  
+  function updateShiftTimer() {
+    if (!shiftStartTime) return;
+    
+    const now = new Date();
+    const diff = Math.floor((now - shiftStartTime) / 1000); // seconds
+    
+    const hours = Math.floor(diff / 3600).toString().padStart(2, '0');
+    const minutes = Math.floor((diff % 3600) / 60).toString().padStart(2, '0');
+    const seconds = Math.floor(diff % 60).toString().padStart(2, '0');
+    
+    document.getElementById('shiftHours').textContent = hours;
+    document.getElementById('shiftMinutes').textContent = minutes;
+    document.getElementById('shiftSeconds').textContent = seconds;
+  }
+  
+  function endShift() {
+    if (!shiftStartTime) {
+      showToast('Warning', 'No active shift to end!', 'warning');
+      return;
+    }
+    
+    const shiftEndTime = new Date();
+    clearInterval(shiftTimer);
+    
+    // Format the shift record
+    const startFormatted = formatDateTime(shiftStartTime);
+    const endFormatted = formatDateTime(shiftEndTime);
+    const duration = calculateDuration(shiftStartTime, shiftEndTime);
+    
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <div>
+        <div><i class="fas fa-calendar-check"></i> <strong>${formatDate(shiftStartTime)}</strong></div>
+          <div style="color: var(--text-secondary); font-size: 0.9rem;">
+          <i class="fas fa-clock"></i> ${startFormatted} - ${endFormatted} (${duration})
+        </div>
+      </div>
+        <span class="badge badge-success">
+        <i class="fas fa-check"></i> Completed
+      </span>
+    `;
+    
+    document.getElementById('shiftHistory').prepend(li);
+    
+    // Reset shift status
+    shiftStartTime = null;
+    document.getElementById('currentShiftStatus').textContent = 'Not currently on shift';
+    document.getElementById('shiftTimer').style.display = 'none';
+    document.getElementById('startShiftBtn').disabled = false;
+    document.getElementById('endShiftBtn').disabled = true;
+    
+    showToast('Success', 'Shift ended successfully!', 'success');
+  }
+  
+  // Chat functionality
+  const chatForm = document.getElementById('chat-form');
+  const chatBox = document.getElementById('chat-box');
+  let chatMessages = [
+    { user: 'System', message: 'Welcome to the internal staff chat!', time: new Date(Date.now() - 3600000) },
+    { user: 'Sarah K.', message: 'Hi team! Is anyone available to help with the new enrollment system?', time: new Date(Date.now() - 1800000) },
+    { user: 'Mark T.', message: 'I can help. What specific issue are you having?', time: new Date(Date.now() - 1700000) }
+  ];
+  
+  function renderChat() {
+    chatBox.innerHTML = '';
+    
+    chatMessages.forEach(msg => {
+      const messageDiv = document.createElement('div');
+      
+      if (msg.user === 'You') {
+        messageDiv.className = 'chat-message chat-sent';
+      } else if (msg.user === 'System') {
+        messageDiv.className = 'chat-message';
+          messageDiv.style.background = 'var(--dark-surface-lighter)';
+        messageDiv.style.borderLeft = '3px solid var(--primary)';
+          messageDiv.style.color = 'var(--text-primary)';
+        messageDiv.style.textAlign = 'center';
+      } else {
+        messageDiv.className = 'chat-message chat-received';
+      }
+      
+      const content = document.createElement('div');
+      if (msg.user !== 'System') {
+        content.innerHTML = `<strong>${msg.user}:</strong> ${msg.message}`;
+      } else {
+        content.innerHTML = `<i class="fas fa-info-circle"></i> ${msg.message}`;
+      }
+      
+      const meta = document.createElement('div');
+      meta.className = 'chat-meta';
+      meta.innerHTML = `<span>${formatTime(msg.time)}</span>`;
+      
+      messageDiv.appendChild(content);
+      messageDiv.appendChild(meta);
+      chatBox.appendChild(messageDiv);
+    });
+    
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }
+  
+  chatForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const messageInput = document.getElementById('chat-message');
+    const msg = messageInput.value.trim();
+    
+    if (msg !== '') {
+      chatMessages.push({ user: 'You', message: msg, time: new Date() });
+      renderChat();
+      messageInput.value = '';
+      
+      // Simulate response
+      setTimeout(() => {
+        chatMessages.push({ 
+          user: 'AI Assistant', 
+          message: 'Thanks for your message! A team member will respond shortly.', 
+          time: new Date() 
+        });
+        renderChat();
+      }, 1000);
+    }
+  });
+  
+  function clearChat() {
+    if (confirm('Are you sure you want to clear the chat history?')) {
+      chatMessages = [{ user: 'System', message: 'Chat history cleared.', time: new Date() }];
+      renderChat();
+    }
+  }
+  
+  function refreshChat() {
+    showLoading();
+    setTimeout(() => {
+      renderChat();
+      hideLoading();
+      showToast('Info', 'Chat refreshed successfully', 'info');
+    }, 500);
+  }
+  
+  // Calendar functionality
+  function generateCalendar() {
+    const today = new Date();
+    const month = today.getMonth();
+    const year = today.getFullYear();
+    
+    const firstDay = new Date(year, month, 1);
+    const lastDay = new Date(year, month + 1, 0);
+    
+    const daysInMonth = lastDay.getDate();
+    const startingDay = firstDay.getDay();
+    
+    document.getElementById('currentMonth').textContent = 
+      firstDay.toLocaleString('default', { month: 'long' }) + ' ' + year;
+    
+    const calendarBody = document.getElementById('calendarBody');
+    calendarBody.innerHTML = '';
+    
+    let date = 1;
+    
+    for (let i = 0; i < 6; i++) {
+      if (date > daysInMonth) break;
+      
+      const row = document.createElement('tr');
+      
+      for (let j = 0; j < 7; j++) {
+        const cell = document.createElement('td');
+        
+        if (i === 0 && j < startingDay) {
+          cell.textContent = '';
+        } else if (date > daysInMonth) {
+          cell.textContent = '';
+        } else {
+          cell.textContent = date;
+          
+          if (date === today.getDate() && 
+              month === today.getMonth() && 
+              year === today.getFullYear()) {
+            cell.classList.add('today');
+          }
+          
+          // Add sample events
+          if (date === 5 || date === 15 || date === 25) {
+            cell.classList.add('event');
+            cell.title = 'Event scheduled';
+          }
+          
+          date++;
+        }
+        
+        row.appendChild(cell);
+      }
+      
+      calendarBody.appendChild(row);
+    }
+  }
+  
+  function prevMonth() {
+    const currentDate = new Date(document.getElementById('currentMonth').textContent);
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    generateCalendar(currentDate);
+  }
+  
+  function nextMonth() {
+    const currentDate = new Date(document.getElementById('currentMonth').textContent);
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    generateCalendar(currentDate);
+  }
+  
+    // Profile Dropdown
+    const profileTrigger = document.getElementById('profileTrigger');
+    const userDropdown = document.getElementById('userDropdown');
+    
+    profileTrigger?.addEventListener('click', () => {
+      userDropdown.classList.toggle('show');
+    });
+    
+    document.addEventListener('click', (e) => {
+      if (!profileTrigger.contains(e.target)) {
+        userDropdown.classList.remove('show');
+    }
+  });
+  
+  // Toast notifications
+  function showToast(title, message, type = 'info') {
+    const toastContainer = document.getElementById('toastContainer');
+    
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    
+    let iconClass = 'fas fa-info-circle';
+    if (type === 'success') iconClass = 'fas fa-check-circle';
+    if (type === 'error') iconClass = 'fas fa-exclamation-circle';
+    if (type === 'warning') iconClass = 'fas fa-exclamation-triangle';
+    
+    toast.innerHTML = `
+      <div class="toast-icon">
+        <i class="${iconClass}"></i>
+      </div>
+      <div class="toast-content">
+        <div class="toast-title">${title}</div>
+        <div class="toast-message">${message}</div>
+      </div>
+      <button class="toast-close" onclick="this.parentElement.remove()">&times;</button>
+    `;
+    
+    toastContainer.appendChild(toast);
+    
+    // Wait a bit to add the show class for animation
+    setTimeout(() => {
+      toast.classList.add('show');
+    }, 10);
+    
+    // Remove after 5 seconds
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => {
+        toast.remove();
+      }, 300);
+    }, 5000);
+  }
+  
+  // Dashboard stats
+  function updateDashboardStats() {
+    // In a real app, this would fetch data from the server
+    // For demo, we'll just update the pending tasks count
+    const pendingTasks = tasks.filter(task => !task.completed).length;
+    const statsCards = document.querySelectorAll('.stats-card');
+    if (statsCards.length >= 3) {
+      const taskCard = statsCards[2];
+      taskCard.querySelector('h3').textContent = pendingTasks;
+    }
+  }
+  
+  // Helper functions
+  function formatDate(date) {
+    if (!date) return '';
+    const d = new Date(date);
+    return d.toLocaleDateString();
+  }
+  
+  function formatTime(date) {
+    if (!date) return '';
+    const d = new Date(date);
+    return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+  
+  function formatDateTime(date) {
+    if (!date) return '';
+    const d = new Date(date);
+    return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+  
+  function calculateDuration(start, end) {
+    const diff = Math.floor((end - start) / 1000); // seconds
+    const hours = Math.floor(diff / 3600);
+    const minutes = Math.floor((diff % 3600) / 60);
+    
+    if (hours > 0) {
+      return `${hours}h ${minutes}m`;
+    } else {
+      return `${minutes}m`;
+    }
+  }
+  
+  // Initialize the app
+  window.addEventListener('DOMContentLoaded', function() {
+    // Load tasks from localStorage
+    const savedTasks = localStorage.getItem('tasks');
+    if (savedTasks) {
+      tasks = JSON.parse(savedTasks);
+    } else {
+      // Add sample tasks if no saved tasks exist
+      tasks = [
+        { id: 1, title: 'Update student enrollment records', description: '', dueDate: '2025-05-12', priority: 'urgent', completed: false, createdAt: new Date().toISOString() },
+        { id: 2, title: 'Prepare technical documentation for new system', description: '', dueDate: '2025-05-20', priority: 'important', completed: false, createdAt: new Date().toISOString() },
+        { id: 3, title: 'Email department heads about system maintenance', description: '', dueDate: '2025-05-09', priority: 'normal', completed: true, createdAt: new Date().toISOString() }
+      ];
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+    
+    // Initialize UI
+    renderTasks();
+    renderChat();
+    generateCalendar();
+    document.getElementById('endShiftBtn').disabled = true;
+    
+    // Add sample shift history
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    
+    const shiftHistoryItem = document.createElement('li');
+    shiftHistoryItem.innerHTML = `
+      <div>
+        <div><i class="fas fa-calendar-check"></i> <strong>${formatDate(yesterday)}</strong></div>
+          <div style="color: var(--text-secondary); font-size: 0.9rem;">
+          <i class="fas fa-clock"></i> 9:00 AM - 5:00 PM (8h 0m)
+        </div>
+      </div>
+        <span class="badge badge-success">
+        <i class="fas fa-check"></i> Completed
+      </span>
+    `;
+    
+    document.getElementById('shiftHistory').appendChild(shiftHistoryItem);
+      
+      // Add fade-in animation to sections
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.add('fade-in');
+      });
+      
+      // Add pulse animation to important stats
+      document.querySelectorAll('.stats-card').forEach(card => {
+        if (card.dataset.important === 'true') {
+          card.classList.add('pulse');
+        }
+      });
+    });
+
+  // User Profile and Authentication
+  function signOut() {
+    if (confirm('Are you sure you want to sign out?')) {
+      // Show loading state
+      showToast('Signing Out', 'Please wait...', 'info');
+      
+      // Clear any stored data
+      localStorage.removeItem('tasks');
+      localStorage.removeItem('user');
+      localStorage.removeItem('staffAuth');
+      
+      // Add a small delay for the toast to be visible
+      setTimeout(() => {
+        window.location.href = 'index.html#staff-login';
+      }, 1000);
+    }
+  }
+
+  // Add click handler for logout link
+  document.querySelector('a[href="#logout"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    signOut();
+  });
+</script>
+</body>
+</html>

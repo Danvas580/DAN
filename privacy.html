@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy | DAN TECH</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --gradient-start: #0d1117;
+      --gradient-mid: #161b22;
+      --gradient-end: #1a1f29;
+      --primary: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --text-primary: #e6e6e6;
+      --text-secondary: #94a3b8;
+      --card-bg: rgba(26, 26, 46, 0.8);
+      --border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+      background-attachment: fixed;
+      color: var(--text-primary);
+      line-height: 1.7;
+      /* Performance optimization */
+      will-change: transform;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 25%),
+        radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 25%);
+      pointer-events: none;
+      z-index: -1;
+      /* Performance optimization */
+      will-change: opacity;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 40px;
+      margin: 40px 0;
+      /* Performance optimization */
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    h1 {
+      color: var(--text-primary);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem;
+      font-weight: 600;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      color: var(--text-secondary);
+      margin: 1rem 0 1rem 2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-top: 2rem;
+      transition: all 0.2s ease;
+      /* Performance optimization */
+      will-change: transform;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+    }
+
+    /* Header Optimization */
+    header {
+      background: rgba(26, 26, 46, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      /* Performance optimization */
+      will-change: transform;
+    }
+
+    /* Footer Optimization */
+    footer {
+      background: var(--gradient-start);
+      color: var(--text-secondary);
+      padding: 20px 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Responsive Optimizations */
+    @media (max-width: 768px) {
+      .card {
+        padding: 25px;
+        margin: 20px 0;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 20px;
+        margin: 15px 0;
+      }
+
+      h1 {
+        font-size: 1.75rem;
+      }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Enhanced Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--gradient-start);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-dark);
+    }
+  </style>
+</head>
+<body class="performance-mode">
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo">DAN TECH</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="mobile-menu" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>Privacy Policy</h1>
+      <p>Last Updated: May 2025</p>
+
+      <h2>1. Introduction</h2>
+      <p>DAN TECH ("we", "our", "us") respects your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services. Please read this policy carefully.</p>
+
+      <h2>2. Information We Collect</h2>
+      <ul>
+        <li><strong>Personal Information:</strong> Name, email address, phone number, billing information, etc.</li>
+        <li><strong>Non-Personal Information:</strong> Browser type, device type, IP address, pages visited, and usage patterns.</li>
+      </ul>
+
+      <h2>3. How We Use Your Information</h2>
+      <ul>
+        <li>To provide and maintain our services</li>
+        <li>To notify you about changes to our services</li>
+        <li>To provide customer support</li>
+        <li>To gather analysis or valuable information</li>
+      </ul>
+
+      <h2>4. Data Security</h2>
+      <p>We implement appropriate security measures to protect your personal information. However, no method of transmission over the internet is 100% secure.</p>
+
+      <h2>5. Third-Party Links</h2>
+      <p>Our website may contain links to third-party sites. We are not responsible for the privacy practices or content of those sites.</p>
+
+      <h2>6. Children's Privacy</h2>
+      <p>Our services are not intended for individuals under the age of 13. We do not knowingly collect personal data from children.</p>
+
+      <h2>7. Changes to This Privacy Policy</h2>
+      <p>We may update our Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+
+      <h2>8. Contact Us</h2>
+      <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+      <p>Email: <a href="mailto:support@dantech.ke">support@dantech.ke</a></p>
+
+      <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 DAN TECH | Protecting Your Privacy</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const navLinks = document.querySelector('.nav-links');
+      
+      mobileMenu?.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    });
+  </script>
+    <script src="update-styles.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="DAN TECH Admin Dashboard - Manage KRA Returns and Company Analytics"/>
+  <title>DAN TECH Admin Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <style>
+    :root {
+      /* Modern Tech Color Palette */
+      --primary: #0ea5e9;
+      --primary-dark: #0369a1;
+      --primary-glow: rgba(14, 165, 233, 0.15);
+      --secondary: #6366f1;
+      --secondary-dark: #4338ca;
+      --accent: #10b981;
+      --danger: #ef4444;
+      --danger-dark: #dc2626;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      
+      /* Neutral Colors */
+      --light: #f8fafc;
+      --dark: #0f172a;
+      --dark-blue: #1e293b;
+      
+      /* Glass Effect Colors */
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.05);
+      
+      /* Gradients */
+      --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      --gradient-dark: linear-gradient(135deg, var(--dark-blue) 0%, var(--dark) 100%);
+      
+      /* Effects */
+      --glow-primary: 0 0 20px var(--primary-glow);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+      --shadow-glow: 0 0 20px var(--primary-glow);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--light);
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Tech Grid Background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(90deg, var(--glass-border) 1px, transparent 1px),
+        linear-gradient(0deg, var(--glass-border) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.1;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Ambient Light Effect */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 0%, 
+        var(--primary-glow) 0%, 
+        transparent 50%);
+      opacity: 0.4;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 250px 1fr;
+      min-height: 100vh;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-right: 1px solid var(--glass-border);
+      padding: 1.5rem;
+      position: fixed;
+      height: 100%;
+      width: 250px;
+      z-index: 10;
+      transition: var(--transition);
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .sidebar-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-left: 0.75rem;
+      text-shadow: var(--glow-primary);
+    }
+
+    .sidebar-nav {
+      margin-top: 2rem;
+    }
+
+    .nav-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      color: var(--light);
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: var(--transition);
+      border: 1px solid transparent;
+      background: transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 0;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+      opacity: 0.1;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .nav-link i {
+      margin-right: 0.75rem;
+      font-size: 1.25rem;
+      width: 1.5rem;
+      text-align: center;
+      color: var(--primary);
+      position: relative;
+      z-index: 1;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover i,
+    .nav-link.active i {
+      color: var(--secondary);
+      transform: translateY(-2px);
+    }
+
+    .nav-link span {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Main Content Styles */
+    .main-content {
+      grid-column: 2;
+      padding: 2rem;
+      position: relative;
+    }
+
+    /* Header Styles */
+    header {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      transition: var(--transition);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .menu-toggle {
+      display: none;
+      margin-right: 1rem;
+      background: none;
+      border: none;
+      color: var(--light);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .header-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .notification-btn {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--light);
+      font-size: 1.25rem;
+      cursor: pointer;
+      position: relative;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .notification-btn:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .notification-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: var(--gradient-primary);
+      color: white;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      transition: var(--transition);
+    }
+
+    .user-profile:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: var(--light);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .user-info {
+      display: none;
+    }
+
+    .logout-btn {
+      background: var(--glass-bg);
+      color: var(--danger);
+      border: 1px solid var(--danger);
+      border-radius: 0.5rem;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .logout-btn:hover {
+      background: var(--danger);
+      color: var(--light);
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
+    }
+
+    /* Card Styling */
+    .card {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 0;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .card:hover::before {
+      opacity: 0.05;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Section Headers */
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 50%;
+      height: 2px;
+      background: var(--gradient-primary);
+      border-radius: 2px;
+    }
+
+    /* Dashboard Grid Layout */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .dashboard-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .dashboard-card {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dashboard-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 0;
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: var(--glow-primary);
+    }
+
+    .dashboard-card:hover::before {
+      opacity: 0.05;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--glow-primary);
+      transform: translateY(-3px);
+    }
+
+    .stat-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 0 10px var(--primary-glow));
+    }
+
+    .stat-value {
+      font-size: 1.75rem;
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--light);
+      font-size: 0.875rem;
+      opacity: 0.8;
+    }
+
+    /* Activity Feed */
+    .activity-feed {
+      max-height: 400px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    .activity-feed::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .activity-feed::-webkit-scrollbar-track {
+      background: var(--glass-bg);
+      border-radius: 2px;
+    }
+
+    .activity-feed::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      border-bottom: 1px solid var(--glass-border);
+      transition: var(--transition);
+    }
+
+    .activity-item:hover {
+      background: var(--glass-bg);
+      border-radius: 0.5rem;
+    }
+
+    .activity-icon {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--glass-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .activity-content {
+      flex: 1;
+    }
+
+    .activity-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .activity-time {
+      font-size: 0.75rem;
+      color: var(--light);
+      opacity: 0.6;
+    }
+
+    /* Charts Section */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .chart-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: var(--transition);
+      height: 300px;
+    }
+
+    .chart-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--glow-primary);
+    }
+
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .chart-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .chart-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .chart-btn {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--light);
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .chart-btn:hover {
+      border-color: var(--primary);
+      box-shadow: var(--glow-primary);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .charts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        transform: translateX(-100%);
+      }
+
+      .sidebar.active {
+        transform: translateX(0);
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .main-content {
+        grid-column: 1;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
+  </style>
+  
+  <!-- Chart.js for analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Custom Scripts -->
+  <script>
+    // Toggle sidebar
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      document.querySelector('.sidebar').classList.toggle('active');
+    });
+
+    // Initialize charts
+    const initCharts = () => {
+      // Monthly Revenue Chart
+      const revenueCtx = document.createElement('canvas');
+      document.querySelector('.chart-card:first-child .chart-content').appendChild(revenueCtx);
+      
+      new Chart(revenueCtx, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+          datasets: [{
+            label: 'Revenue',
+            data: [3000, 3500, 4200, 4800, 5100, 5800],
+            borderColor: '#0ea5e9',
+            backgroundColor: 'rgba(14, 165, 233, 0.1)',
+            tension: 0.4,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              },
+              ticks: {
+                color: '#f8fafc'
+              }
+            },
+            x: {
+              grid: {
+                color: 'rgba(255, 255, 255, 0.1)'
+              },
+              ticks: {
+                color: '#f8fafc'
+              }
+            }
+          }
+        }
+      });
+
+      // Service Distribution Chart
+      const serviceCtx = document.createElement('canvas');
+      document.querySelector('.chart-card:last-child .chart-content').appendChild(serviceCtx);
+      
+      new Chart(serviceCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['KRA Returns', 'KUCCPS', 'HELB', 'Other'],
+          datasets: [{
+            data: [856, 342, 198, 145],
+            backgroundColor: [
+              '#0ea5e9',
+              '#6366f1',
+              '#10b981',
+              '#f59e0b'
+            ],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                color: '#f8fafc',
+                padding: 20
+              }
+            }
+          }
+        }
+      });
+    };
+
+    // Initialize charts when DOM is loaded
+    document.addEventListener('DOMContentLoaded', initCharts);
+  </script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body onload="checkLogin(); initDashboard();" class="performance-mode">
+
+<!-- Toast Notifications Container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- Sidebar -->
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <i class="fa-solid fa-shield-halved"></i>
+      <div class="sidebar-logo">DAN TECH Admin</div>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <div class="nav-item">
+        <a href="#" class="nav-link active">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Dashboard</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="fa-solid fa-file-invoice"></i>
+          <span>KRA Returns</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="fa-solid fa-users"></i>
+          <span>Staff Management</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span>Schedule</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="fa-solid fa-message"></i>
+          <span>Messages</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Reports</span>
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="nav-link">
+          <i class="fa-solid fa-gear"></i>
+          <span>Settings</span>
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header>
+      <div class="header-left">
+        <button class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <h1 class="header-title">Dashboard Overview</h1>
+      </div>
+      <div class="header-right">
+        <button class="notification-btn">
+          <i class="fas fa-bell"></i>
+          <span class="notification-badge">3</span>
+        </button>
+        <div class="user-profile">
+          <div class="user-avatar">DT</div>
+          <div class="user-info">
+            <h3>Dan Tech</h3>
+            <p>Administrator</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-grid">
+      <!-- Stats Section -->
+      <section class="dashboard-section">
+        <div class="section-header">
+          <h2 class="section-title">Key Metrics</h2>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <i class="fas fa-users stat-icon"></i>
+            <div class="stat-value">1,234</div>
+            <div class="stat-label">Total Users</div>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-file-invoice stat-icon"></i>
+            <div class="stat-value">856</div>
+            <div class="stat-label">KRA Returns</div>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-graduation-cap stat-icon"></i>
+            <div class="stat-value">342</div>
+            <div class="stat-label">KUCCPS Applications</div>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-money-bill-wave stat-icon"></i>
+            <div class="stat-value">198</div>
+            <div class="stat-label">HELB Applications</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Charts Section -->
+      <section class="dashboard-section">
+        <div class="section-header">
+          <h2 class="section-title">Analytics</h2>
+        </div>
+        <div class="charts-grid">
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3 class="chart-title">Monthly Revenue</h3>
+              <div class="chart-actions">
+                <button class="chart-btn"><i class="fas fa-download"></i></button>
+                <button class="chart-btn"><i class="fas fa-expand"></i></button>
+              </div>
+            </div>
+            <div class="chart-content">
+              <!-- Chart will be rendered here -->
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-header">
+              <h3 class="chart-title">Service Distribution</h3>
+              <div class="chart-actions">
+                <button class="chart-btn"><i class="fas fa-download"></i></button>
+                <button class="chart-btn"><i class="fas fa-expand"></i></button>
+              </div>
+            </div>
+            <div class="chart-content">
+              <!-- Chart will be rendered here -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Activity -->
+      <section class="dashboard-section">
+        <div class="section-header">
+          <h2 class="section-title">Recent Activity</h2>
+        </div>
+        <div class="dashboard-card">
+          <div class="activity-feed">
+            <div class="activity-item">
+              <div class="activity-icon">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <div class="activity-content">
+                <div class="activity-title">New KRA Return Filed</div>
+                <div class="activity-time">5 minutes ago</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <div class="activity-content">
+                <div class="activity-title">KUCCPS Application Submitted</div>
+                <div class="activity-time">2 hours ago</div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon">
+                <i class="fas fa-money-check"></i>
+              </div>
+              <div class="activity-content">
+                <div class="activity-title">HELB Application Processed</div>
+                <div class="activity-time">4 hours ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- Add/Edit Form Modal -->
+<div class="modal" id="addFormModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title">Add New KRA Return Form</h3>
+      <button class="modal-close" onclick="closeModal('addFormModal')">×</button>
+    </div>
+    <div class="modal-body">
+      <form id="kraForm">
+        <div class="form-group">
+          <label class="form-label" for="fullName">Full Name*</label>
+          <input type="text" id="fullName" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address*</label>
+          <input type="email" id="email" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="phone">Phone Number*</label>
+          <input type="tel" id="phone" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="kraPin">KRA PIN*</label>
+          <input type="text" id="kraPin" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="idNumber">ID Number*</label>
+          <input type="text" id="idNumber" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="status">Status</label>
+          <select id="status" class="form-input">
+            <option value="pending">Pending</option>
+            <option value="verified">Verified</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="notes">Notes</label>
+          <textarea id="notes" class="form-input form-textarea"></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('addFormModal')">Cancel</button>
+      <button class="btn btn-primary" onclick="saveForm()">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- View Details Modal -->
+<div class="modal" id="viewDetailsModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title">KRA Return Details</h3>
+      <button class="modal-close" onclick="closeModal('viewDetailsModal')">×</button>
+    </div>
+    <div class="modal-body" id="detailsContent">
+      <!-- Content will be populated dynamically -->
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('viewDetailsModal')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal" id="deleteConfirmModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title">Confirm Deletion</h3>
+      <button class="modal-close" onclick="closeModal('deleteConfirmModal')">×</button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to delete this KRA return form? This action cannot be undone.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('deleteConfirmModal')">Cancel</button>
+      <button class="btn logout-btn" onclick="deleteForm()">Delete</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Global variables
+  let currentPage = 1;
+  let itemsPerPage = 10;
+  let allData = [];
+  let currentDeleteId = null;
+
+ // Check if user is logged in and handle login form submission
+const loginForm = document.getElementById('login-form');
+
+if (loginForm) {  // Only attach if on login page
+  loginForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const username = loginForm.username.value.trim();
+    const password = loginForm.password.value.trim();
+
+    if (username === "admin" && password === "yourpassword") {
+      localStorage.setItem("isAdmin", "true"); // Set login flag
+      showToast("Login Successful", "Redirecting to dashboard...", "success");
+      setTimeout(() => {
+        window.location.href = "admin-dashboard.html";
+      }, 1500);
+    } else {
+      showToast("Login Failed", "Invalid username or password.", "error");
+    }
+  });
+}
+
+// Check if user is authorized on dashboard or protected pages
+function checkLogin() {
+  if (localStorage.getItem("isAdmin") !== "true") {
+    showToast("Access Denied", "Unauthorized access. Redirecting...", "error");
+    setTimeout(() => {
+      window.location.href = "admin-login.html";
+    }, 2000);
+  }
+}
+
+// Logout function
+function logout() {
+  localStorage.removeItem("isAdmin");
+  showToast("Logout Successful", "You have been logged out successfully.", "success");
+  setTimeout(() => {
+    window.location.href = "admin-login.html";
+  }, 1500);
+}
+
+// Initialize dashboard functionality
+function initDashboard() {
+  // Toggle sidebar on mobile
+  const menuToggle = document.getElementById('menuToggle');
+  const sidebar = document.getElementById('sidebar');
+
+  if (menuToggle && sidebar) {
+    menuToggle.addEventListener('click', function() {
+      sidebar.classList.toggle('active');
+    });
+  }
+}
+
+// Example: if you are on dashboard.html, run these
+if (window.location.pathname.includes('admin-dashboard.html')) {
+  checkLogin();
+  initDashboard();
+}
+
+
+    // Fetch KRA forms data
+    fetchForms();
+
+    // Add responsiveness for window resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 1024) {
+        document.getElementById('sidebar').classList.remove('active');
+      }
+    });
+  }
+
+  // Fetch KRA forms data
+  function fetchForms() {
+    // For demo purposes, let's create sample data
+    // In a real application, you would fetch this from your server
+    const sampleData = [
+      {
+        id: 1,
+        full_name: "John Doe",
+        email: "john.doe@example.com",
+        phone: "+254 712 345 678",
+        kra_pin: "A012345678B",
+        id_number: "12345678",
+        status: "verified",
+        notes: "All documents verified and approved.",
+        date: "2025-05-07"
+      },
+      {
+        id: 2,
+        full_name: "Jane Smith",
+        email: "jane.smith@example.com",
+        phone: "+254 723 456 789",
+        kra_pin: "A987654321C",
+        id_number: "87654321",
+        status: "pending",
+        notes: "Waiting for address verification.",
+        date: "2025-05-08"
+      },
+      {
+        id: 3,
+        full_name: "Robert Johnson",
+        email: "robert.j@example.com",
+        phone: "+254 734 567 890",
+        kra_pin: "B123456789D",
+        id_number: "23456789",
+        status: "rejected",
+        notes: "Invalid identification documents provided.",
+        date: "2025-05-06"
+      },
+      {
+        id: 4,
+        full_name: "Mary Williams",
+        email: "mary.w@example.com",
+        phone: "+254 745 678 901",
+        kra_pin: "C234567890E",
+        id_number: "34567890",
+        status: "verified",
+        notes: "Complete and accurate submission.",
+        date: "2025-05-05"
+      },
+      {
+        id: 5,
+        full_name: "Michael Brown",
+        email: "michael.b@example.com",
+        phone: "+254 756 789 012",
+        kra_pin: "D345678901F",
+        id_number: "45678901",
+        status: "pending",
+        notes: "Need additional business registration documents.",
+        date: "2025-05-07"
+      }
+    ];
+
+    // Simulate API delay
+    setTimeout(() => {
+      allData = sampleData;
+      displayData(allData);
+      updatePagination();
+      showToast("Data Loaded", "KRA return forms loaded successfully.", "success");
+    }, 1000);
+
+    // In a real implementation, you would use fetch:
+    /*
+    fetch("admin/kra-log.php")
+      .then(res => res.json())
+      .then(data => {
+        allData = data;
+        displayData(allData);
+        updatePagination();
+      })
+      .catch(err => {
+        console.error("Error loading submissions:", err);
+        const tbody = document.getElementById("kraBody");
+        tbody.innerHTML = `<tr><td colspan="8">Error loading data. Please try again.</td></tr>`;
+        showToast("Error", "Failed to load KRA return forms. Please try again.", "error");
+      });
+    */
+  }
+
+  // Display data in table
+  function displayData(data) {
+    const tbody = document.getElementById("kraBody");
+    tbody.innerHTML = "";
+
+    if (!data || data.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="8" style="text-align: center;">No submissions found.</td></tr>`;
+      return;
+    }
+
+    // Calculate pagination
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const paginatedData = data.slice(start, end);
+
+    paginatedData.forEach(entry => {
+      const row = document.createElement("tr");
+      
+      // Define status badge class
+      let statusBadgeClass = "badge-warning";
+      if (entry.status === "verified") statusBadgeClass = "badge-success";
+      if (entry.status === "rejected") statusBadgeClass = "badge-danger";
+      
+      row.innerHTML = `
+        <td>${entry.full_name}</td>
+        <td>${entry.email}</td>
+        <td>${entry.phone}</td>
+        <td>${entry.kra_pin}</td>
+        <td>${entry.id_number}</td>
+        <td><span class="status-badge ${statusBadgeClass}">${entry.status}</span></td>
+        <td>${formatDate(entry.date)}</td>
+        <td>
+          <div class="table-actions">
+            <button class="action-btn view-btn" title="View Details" onclick="viewDetails(${entry.id})">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+            <button class="action-btn edit-btn" title="Edit" onclick="editForm(${entry.id})">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+            <button class="action-btn delete-btn" title="Delete" onclick="confirmDelete(${entry.id})">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </td>
+      `;
+      tbody.appendChild(row);
+    });
+  }
+
+  // Format date for display
+  function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString('en-US', options);
+  }
+
+  // Filter table based on search input and filters
+  function filterTable() {
+    const input = document.getElementById("searchInput").value.toLowerCase();
+    const statusFilter = document.getElementById("statusFilter").value;
+    const dateFilter = document.getElementById("dateFilter").value;
+    
+    // Reset to first page when filtering
+    currentPage = 1;
+    
+    let filteredData = allData.filter(entry => {
+      // Text search
+      const textMatch = entry.full_name.toLowerCase().includes(input) || 
+                       entry.email.toLowerCase().includes(input) || 
+                       entry.kra_pin.toLowerCase().includes(input);
+      
+      // Status filter
+      const statusMatch = statusFilter === 'all' || entry.status === statusFilter;
+      
+      // Date filter
+      let dateMatch = true;
+      if (dateFilter !== 'all') {
+        const entryDate = new Date(entry.date);
+        const today = new Date();
+        const todayStart = new Date(today.setHours(0, 0, 0, 0));
+        
+        if (dateFilter === 'today') {
+          dateMatch = entryDate >= todayStart && entryDate < new Date(todayStart.getTime() + 86400000);
+        } else if (dateFilter === 'week') {
+          const weekStart = new Date(today);
+          weekStart.setDate(today.getDate() - today.getDay());
+          weekStart.setHours(0, 0, 0, 0);
+          dateMatch = entryDate >= weekStart;
+        } else if (dateFilter === 'month') {
+          const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
+          dateMatch = entryDate >= monthStart;
+        }
+      }
+      
+      return textMatch && statusMatch && dateMatch;
+    });
+    
+    displayData(filteredData);
+    updatePagination(filteredData.length);
+  }
+
+  // Update pagination controls
+  function updatePagination(totalItems = allData.length) {
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    const startRange = Math.min((currentPage - 1) * itemsPerPage + 1, totalItems);
+    const endRange = Math.min(startRange + itemsPerPage - 1, totalItems);
+    
+    document.getElementById('startRange').textContent = totalItems > 0 ? startRange : 0;
+    document.getElementById('endRange').textContent = endRange;
+    document.getElementById('totalEntries').textContent = totalItems;
+    
+    // Update prev/next buttons
+    document.getElementById('prevBtn').classList.toggle('disabled', currentPage <= 1);
+    document.getElementById('nextBtn').classList.toggle('disabled', currentPage >= totalPages);
+    
+    // In a more complete implementation, you would dynamically generate all page buttons
+  }
+
+  // Change page
+  function changePage(direction) {
+    if (direction === 'prev' && currentPage > 1) {
+      currentPage--;
+    } else if (direction === 'next' && currentPage * itemsPerPage < allData.length) {
+      currentPage++;
+    } else {
+      return; // Don't do anything if can't move in that direction
+    }
+    
+    filterTable(); // This will re-apply current filters
+  }
+
+  // View details modal
+  function viewDetails(id) {
+    const entry = allData.find(item => item.id === id);
+    if (!entry) return;
+    
+    const detailsContent = document.getElementById('detailsContent');
+    detailsContent.innerHTML = `
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <div style="padding: 0.75rem; background: #f8fafc; border-radius: 0.5rem;">${entry.full_name}</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <div style="padding: 0.75rem; background: #f8fafc; border-radius: 0.5rem;">${entry.email}</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone</label>
+          <div style="padding: 0.75rem; background: #f8fafc; border-radius: 0.5rem;">${entry.phone}</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">KRA PIN</label>
+          <div style="padding: 0.75rem; background: #f8fafc; border-radius: 0.5rem;">${entry.kra_pin}</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">ID Number</label>
+          <div style="padding: 0.75rem; background: #f8fafc; border-radius: 0.5rem;">${entry.id_number}</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Status</label>
+          <div style="padding: 0.75rem; background: #f8fafc; border-radius: 0.5rem;">
+            <span class="status-badge ${entry.status === 'verified' ? 'badge-success' : entry.status === 'rejected' ? 'badge-danger' : 'badge-warning'}">
+              ${entry.status}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Notes</label>
+        <div style="padding: 0.75rem; background: #f8fafc; border-radius: 0.5rem; min-height: 100px;">${entry.notes || 'No notes available.'}</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Submission Date</label>
+        <div style="padding: 0.75rem; background: #f8fafc; border-radius: 0.5rem;">${formatDate(entry.date)}</div>
+      </div>
+    `;
+    
+    openModal('viewDetailsModal');
+  }
+
+  // Edit form
+  function editForm(id) {
+    const entry = allData.find(item => item.id === id);
+    if (!entry) return;
+    
+    // Populate form
+    document.getElementById('fullName').value = entry.full_name;
+    document.getElementById('email').value = entry.email;
+    document.getElementById('phone').value = entry.phone;
+    document.getElementById('kraPin').value = entry.kra_pin;
+    document.getElementById('idNumber').value = entry.id_number;
+    document.getElementById('status').value = entry.status;
+    document.getElementById('notes').value = entry.notes || '';
+    
+    // Change modal title
+    document.querySelector('#addFormModal .modal-title').textContent = 'Edit KRA Return Form';
+    
+    // Store ID for saving
+    document.getElementById('kraForm').dataset.id = id;
+    
+    openModal('addFormModal');
+  }
+
+  // Confirm delete
+  function confirmDelete(id) {
+    currentDeleteId = id;
+    openModal('deleteConfirmModal');
+  }
+
+  // Delete form
+  function deleteForm() {
+    if (currentDeleteId === null) return;
+    
+    // In a real application, you would send a delete request to your server
+    // Here we'll just update our local data
+    allData = allData.filter(item => item.id !== currentDeleteId);
+    
+    closeModal('deleteConfirmModal');
+    filterTable(); // Refresh table with updated data
+    showToast("Deleted", "KRA return form has been deleted successfully.", "success");
+    
+    currentDeleteId = null;
+  }
+
+  // Save form (new or edit)
+  function saveForm() {
+    const form = document.getElementById('kraForm');
+    const id = form.dataset.id ? parseInt(form.dataset.id) : allData.length + 1;
+    const isEdit = form.dataset.id ? true : false;
+    
+    // Form validation
+    const fullName = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const kraPin = document.getElementById('kraPin').value.trim();
+    const idNumber = document.getElementById('idNumber').value.trim();
+    
+    if (!fullName || !email || !phone || !kraPin || !idNumber) {
+      showToast("Validation Error", "Please fill in all required fields.", "error");
+      return;
+    }
+    
+    // Create entry object
+    const entry = {
+      id: id,
+      full_name: fullName,
+      email: email,
+      phone: phone,
+      kra_pin: kraPin,
+      id_number: idNumber,
+      status: document.getElementById('status').value,
+      notes: document.getElementById('notes').value,
+      date: new Date().toISOString().split('T')[0]
+    };
+    
+    // Update or add to data array
+    if (isEdit) {
+      const index = allData.findIndex(item => item.id === id);
+      if (index !== -1) {
+        allData[index] = entry;
+      }
+    } else {
+      allData.push(entry);
+    }
+    
+    // Reset form and close modal
+    form.reset();
+    delete form.dataset.id;
+    closeModal('addFormModal');
+    
+    // Refresh table and show success message
+    filterTable();
+    showToast(isEdit ? "Updated" : "Added", `KRA return form has been ${isEdit ? 'updated' : 'added'} successfully.`, "success");
+  }
+
+  // Export data function
+  function exportData() {
+    showToast("Export Started", "Preparing data for export...", "success");
+    // In a real application, you would implement actual export functionality here
+    setTimeout(() => {
+      showToast("Export Complete", "Data has been exported successfully.", "success");
+    }, 1500);
+  }
+
+  // Open modal
+  function openModal(modalId) {
+    document.getElementById(modalId).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Close modal
+  function closeModal(modalId) {
+    document.getElementById(modalId).classList.remove('active');
+    document.body.style.overflow = '';
+    
+    // Reset form if closing the form modal
+    if (modalId === 'addFormModal') {
+      document.getElementById('kraForm').reset();
+      delete document.getElementById('kraForm').dataset.id;
+      document.querySelector('#addFormModal .modal-title').textContent = 'Add New KRA Return Form';
+    }
+  }
+
+  // Show toast notification
+  function showToast(title, message, type = "success") {
+    const toastContainer = document.getElementById('toastContainer');
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    
+    let iconClass = 'fa-check-circle';
+    if (type === 'error') iconClass = 'fa-exclamation-circle';
+    if (type === 'warning') iconClass = 'fa-exclamation-triangle';
+    
+    toast.innerHTML = `
+      <div class="toast-icon">
+        <i class="fa-solid ${iconClass}"></i>
+      </div>
+      <div class="toast-content">
+        <div class="toast-title">${title}</div>
+        <div class="toast-message">${message}</div>
+      </div>
+      <button class="toast-close" onclick="this.parentElement.remove()">
+        <i class="fa-solid fa-times"></i>
+      </button>
+    `;
+    
+    toastContainer.appendChild(toast);
+    
+    // Remove toast after 3 seconds
+    setTimeout(() => {
+      toast.remove();
+    }, 3000);
+  }
+</script>
+
+    <script src="update-styles.js"></script>
+</body>
+</html>
+

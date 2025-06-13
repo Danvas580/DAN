@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Courses - DAN TECH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --primary-light: #818cf8;
+            --secondary: #9ca3af;
+            --success: #10b981;
+            --info: #3b82f6;
+            --dark: #121212;
+            --light: #1f2937;
+            --white: #ffffff;
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            --transition: all 0.3s ease;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--dark), #1a1a1a);
+            color: var(--white);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1001;
+        }
+
+        .scroll-progress-bar {
+            height: 100%;
+            background: var(--primary);
+            width: 0%;
+            transition: width 0.2s ease-out;
+        }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            color: var(--primary);
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 6rem;
+            padding-bottom: 3rem;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary-light), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-title p {
+            color: var(--secondary);
+        }
+
+        /* Course Management Form */
+        .course-form {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.25);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .btn:active::after {
+            width: 300px;
+            height: 300px;
+            opacity: 0;
+        }
+
+        /* Loading Animation */
+        .loading-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-animation.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-logo {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--primary);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Touch Optimization */
+        @media (pointer: coarse) {
+            .btn:hover {
+                transform: none;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+            text-align: center;
+            color: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- Loading Animation -->
+    <div class="loading-animation">
+        <div class="loading-logo"></div>
+    </div>
+
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">DAN TECH</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="page-title">
+            <h1>Manage Courses</h1>
+            <p>Create and manage course content for DAN TECH's learning platform</p>
+        </div>
+
+        <form class="course-form" action="mailto:DAN TECHkenya@gmail.com?subject=New Course Request" method="POST" enctype="text/plain">
+            <div class="form-group">
+                <label for="courseName">Course Name</label>
+                <input type="text" id="courseName" name="Course Name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="courseDescription">Course Description</label>
+                <textarea id="courseDescription" name="Course Description" class="form-control" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Course Request</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 DAN TECH. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll Progress
+            const scrollProgress = document.querySelector('.scroll-progress-bar');
+            window.addEventListener('scroll', () => {
+                const winScroll = document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                scrollProgress.style.width = `${scrolled}%`;
+            }, { passive: true });
+
+            // Loading Animation
+            setTimeout(() => {
+                document.querySelector('.loading-animation').classList.add('loaded');
+            }, 500);
+
+            // Memory Management
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+                }, 250);
+            }, { passive: true });
+
+            // Form Validation Enhancement
+            const form = document.querySelector('form');
+            const inputs = form.querySelectorAll('input, textarea');
+
+            inputs.forEach(input => {
+                input.addEventListener('invalid', (e) => {
+                    e.preventDefault();
+                    input.classList.add('error');
+                });
+
+                input.addEventListener('input', () => {
+                    if (input.validity.valid) {
+                        input.classList.remove('error');
+                    }
+                });
+            });
+
+            form.addEventListener('submit', (e) => {
+                const submitBtn = form.querySelector('[type="submit"]');
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Digital Business Solutions - DANTECH</title>
+  <meta name="description" content="DANTECH's Digital Business Solutions: POS Systems, Business Software, Digital Marketing, and more." />
+  <meta name="author" content="DANTECH" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    :root {
+      /* Font Families */
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-subheading: 'Inter', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      
+      /* Font Weights */
+      --weight-regular: 400;
+      --weight-medium: 500;
+      --weight-semibold: 600;
+      --weight-bold: 700;
+
+      /* Enhanced Tech Color Palette */
+      --primary: #00ff88;
+      --primary-dark: #00cc6a;
+      --primary-glow: rgba(0, 255, 136, 0.15);
+      --secondary: #0ef;
+      --secondary-dark: #00b3cc;
+      --accent: #f0f;
+      --danger: #ff2957;
+      
+      /* Text Colors */
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.85);
+      --text-muted: rgba(255, 255, 255, 0.6);
+      
+      /* Dark Theme Colors */
+      --dark-bg: #030711;
+      --dark-surface: #0a0f1a;
+      --dark-elevated: #111827;
+      
+      /* Gradient Colors */
+      --gradient-dark-1: #030711;
+      --gradient-dark-2: #0a1628;
+      --gradient-dark-3: #1a1f35;
+      
+      /* Neon Effects */
+      --neon-primary: 0 0 10px rgba(0, 255, 136, 0.5),
+                      0 0 20px rgba(0, 255, 136, 0.3),
+                      0 0 30px rgba(0, 255, 136, 0.1);
+      --neon-secondary: 0 0 10px rgba(0, 238, 255, 0.5),
+                        0 0 20px rgba(0, 238, 255, 0.3),
+                        0 0 30px rgba(0, 238, 255, 0.1);
+    }
+
+    /* Typography Base Styles */
+    body {
+      font-family: var(--font-body);
+      font-weight: var(--weight-regular);
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: linear-gradient(135deg, 
+        var(--gradient-dark-1) 0%,
+        var(--gradient-dark-2) 50%,
+        var(--gradient-dark-3) 100%);
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: var(--weight-bold);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    /* Main Heading Styles */
+    .hero h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: var(--weight-bold);
+      margin-bottom: 1rem;
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: var(--neon-primary);
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: var(--weight-bold);
+      text-align: center;
+      margin-bottom: 3rem;
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: var(--neon-primary);
+      letter-spacing: -0.02em;
+    }
+
+    /* Sub-headings */
+    .solution-title,
+    .feature-item h3,
+    .pricing-card h3,
+    .testimonial-author h4,
+    .faq-question h3 {
+      font-family: var(--font-subheading);
+      font-weight: var(--weight-semibold);
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+    }
+
+    /* Card Titles */
+    .solution-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .feature-item h3 {
+      font-size: 1.25rem;
+      margin: 1rem 0;
+      color: var(--primary);
+    }
+
+    /* Pricing Headers */
+    .pricing-card h3 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .price {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: var(--weight-bold);
+      line-height: 1;
+      color: var(--primary);
+      text-shadow: var(--neon-primary);
+    }
+
+    .price .currency,
+    .price .period {
+      font-size: 1rem;
+      font-weight: var(--weight-medium);
+      opacity: 0.8;
+    }
+
+    /* Testimonial Typography */
+    .testimonial-content p {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .testimonial-author h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+      color: var(--primary);
+    }
+
+    .testimonial-author p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* FAQ Typography */
+    .faq-question h3 {
+      font-size: 1.1rem;
+      color: var(--text-primary);
+    }
+
+    .faq-answer p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+    }
+
+    /* Button Typography */
+    .primary-btn,
+    .secondary-btn,
+    .pricing-cta {
+      font-family: var(--font-subheading);
+      font-weight: var(--weight-semibold);
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* Navigation Typography */
+    .floating-nav a::before {
+      font-family: var(--font-subheading);
+      font-weight: var(--weight-medium);
+      font-size: 0.875rem;
+    }
+
+    /* Responsive Typography */
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .solution-title {
+        font-size: 1.25rem;
+      }
+
+      .price {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* Tech Grid Background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(90deg, rgba(0, 255, 136, 0.02) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(0, 255, 136, 0.02) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Ambient Background Effect */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(
+        circle at 50% 50%,
+        rgba(0, 255, 136, 0.03) 0%,
+        transparent 50%
+      );
+      pointer-events: none;
+      z-index: -1;
+      animation: pulseGlow 8s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    header {
+      background: rgba(10, 11, 14, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: var(--neon-primary);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, 
+        rgba(10, 22, 40, 0.95) 0%,
+        rgba(3, 7, 17, 0.98) 100%);
+      padding: 6rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .solution-card {
+      background: linear-gradient(165deg,
+        rgba(10, 15, 26, 0.95) 0%,
+        rgba(17, 24, 39, 0.98) 100%);
+      border-radius: 15px;
+      padding: 2rem;
+      border: 1px solid rgba(0, 255, 136, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .solution-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, 
+        rgba(0, 255, 136, 0.1),
+        rgba(0, 238, 255, 0.1));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .solution-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
+    }
+
+    .solution-card:hover::before {
+      opacity: 1;
+    }
+
+    .solution-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      color: var(--dark-bg);
+      box-shadow: var(--neon-primary);
+    }
+
+    .solution-description {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .solution-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+    }
+
+    .solution-features li {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .solution-features li i {
+      color: var(--primary);
+      text-shadow: var(--neon-primary);
+    }
+
+    .solution-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: var(--dark-bg);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .solution-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--neon-primary);
+    }
+
+    .contact-section {
+      background: var(--dark-surface);
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg,
+        rgba(0, 255, 136, 0.05),
+        rgba(0, 238, 255, 0.05));
+      pointer-events: none;
+    }
+
+    .contact-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: var(--neon-primary);
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-btn {
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn.primary {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: var(--dark-bg);
+    }
+
+    .contact-btn.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--neon-primary);
+    }
+
+    .contact-btn.secondary {
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .contact-btn.secondary:hover {
+      background: rgba(0, 255, 136, 0.1);
+      transform: translateY(-2px);
+      box-shadow: var(--neon-primary);
+    }
+
+    /* Modal Styles */
+    .modal {
+      background: rgba(3, 7, 17, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .modal-content {
+      background: linear-gradient(165deg,
+        rgba(10, 15, 26, 0.95) 0%,
+        rgba(17, 24, 39, 0.98) 100%);
+      border: 1px solid rgba(0, 255, 136, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
+    }
+
+    #modal-title {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: var(--neon-primary);
+    }
+
+    .form-input {
+      background: var(--dark-bg);
+      border: 1px solid rgba(0, 255, 136, 0.2);
+      color: #fff;
+    }
+
+    .form-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.1);
+    }
+
+    .submit-btn {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: var(--dark-bg);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--neon-primary);
+    }
+
+    /* Additional Styles */
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .primary-btn, .secondary-btn {
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .primary-btn {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: var(--dark-bg);
+    }
+
+    .secondary-btn {
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+    }
+
+    .primary-btn:hover, .secondary-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--neon-primary);
+    }
+
+    .features-showcase {
+      padding: 6rem 2rem;
+      background: var(--dark-surface);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 2rem;
+      background: var(--dark-elevated);
+      border-radius: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--neon-primary);
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--dark-bg);
+    }
+
+    .pricing-section {
+      padding: 6rem 2rem;
+      background: var(--dark-bg);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: var(--dark-surface);
+      border-radius: 15px;
+      padding: 2rem;
+      border: 1px solid rgba(0, 255, 136, 0.1);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .pricing-card.professional {
+      transform: scale(1.05);
+      border-color: var(--primary);
+      box-shadow: var(--neon-primary);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: var(--dark-bg);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem 0;
+    }
+
+    .pricing-features li {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pricing-features i {
+      color: var(--primary);
+    }
+
+    .testimonials-section {
+      padding: 6rem 2rem;
+      background: var(--dark-surface);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: var(--dark-elevated);
+      border-radius: 15px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--neon-primary);
+    }
+
+    .testimonial-content {
+      margin-bottom: 2rem;
+    }
+
+    .testimonial-content i {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .author-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid var(--primary);
+    }
+
+    .author-info h4 {
+      margin: 0;
+      color: var(--primary);
+    }
+
+    .author-info p {
+      margin: 0;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .faq-section {
+      padding: 6rem 2rem;
+      background: var(--dark-bg);
+    }
+
+    .faq-grid {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--dark-surface);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: var(--dark-elevated);
+    }
+
+    .faq-question i {
+      transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    .faq-item.active .faq-answer {
+      padding: 1.5rem;
+      max-height: 1000px;
+    }
+
+    /* Add floating navigation */
+    .floating-nav {
+      position: fixed;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(165deg,
+        rgba(10, 15, 26, 0.95) 0%,
+        rgba(17, 24, 39, 0.98) 100%);
+      padding: 1rem 0.5rem;
+      border-radius: 30px;
+      border: 1px solid rgba(0, 255, 136, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 100;
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
+    }
+
+    .floating-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .floating-nav a {
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .floating-nav a:hover,
+    .floating-nav a.active {
+      background: var(--primary);
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    .floating-nav a::before {
+      content: attr(data-tooltip);
+      position: absolute;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-right: 1rem;
+      padding: 0.5rem 1rem;
+      background: linear-gradient(165deg,
+        rgba(10, 15, 26, 0.95) 0%,
+        rgba(17, 24, 39, 0.98) 100%);
+      border-radius: 20px;
+      font-size: 0.875rem;
+      color: #fff;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      border: 1px solid rgba(0, 255, 136, 0.1);
+    }
+
+    .floating-nav a:hover::before {
+      opacity: 1;
+      transform: translateY(-50%) translateX(-10px);
+    }
+
+    /* Progress bar */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(0, 255, 136, 0.1);
+      z-index: 1000;
+    }
+
+    .progress-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: var(--scroll-width, 0%);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      box-shadow: 0 0 10px var(--primary-glow);
+      transition: width 0.1s ease;
+    }
+
+    /* Particle effect */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0.5;
+      animation: float 6s infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(-100px) translateX(50px);
+        opacity: 0;
+      }
+    }
+
+    /* Enhanced hero section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .hero-scroll-indicator i {
+      color: var(--primary);
+      font-size: 2rem;
+      text-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-20px);
+      }
+      60% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Enhanced section transitions */
+    .section-fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .section-fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .floating-nav {
+        display: none;
+      }
+    }
+
+    /* Add Back Button Styles */
+    .back-btn {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      color: var(--text-primary);
+      font-family: var(--font-subheading);
+      font-weight: var(--weight-medium);
+      font-size: 0.9rem;
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateX(-5px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .back-btn i {
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .back-btn:hover i {
+      transform: translateX(-3px);
+    }
+
+    @media (max-width: 768px) {
+      .back-btn {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body class="performance-mode">
+
+<a href="index.html" class="back-btn">
+  <i class="fas fa-arrow-left"></i>
+  Back to Home
+</a>
+
+<header>
+  <h1><i class="fa fa-globe"></i> DANTECH Digital Solutions</h1>
+  <button class="book-btn" onclick="openModal()">Get Started</button>
+</header>
+
+<div class="progress-bar"></div>
+
+<nav class="floating-nav">
+  <ul>
+    <li><a href="#hero" data-tooltip="Home" class="active"></a></li>
+    <li><a href="#solutions" data-tooltip="Solutions"></a></li>
+    <li><a href="#features" data-tooltip="Features"></a></li>
+    <li><a href="#pricing" data-tooltip="Pricing"></a></li>
+    <li><a href="#testimonials" data-tooltip="Testimonials"></a></li>
+    <li><a href="#faq" data-tooltip="FAQ"></a></li>
+    <li><a href="#contact" data-tooltip="Contact"></a></li>
+  </ul>
+</nav>
+
+<section id="hero" class="hero">
+  <div class="particles"></div>
+  <div class="hero-content">
+    <div class="typing-container">
+      <h2>Transform Your Business</h2>
+      <div class="typing-text" aria-live="polite">with Digital Solutions</div>
+    </div>
+    <p>Comprehensive digital solutions to streamline your business operations and drive growth</p>
+    <div class="hero-cta">
+      <a href="#solutions" class="primary-btn">Explore Solutions</a>
+      <a href="#contact" class="secondary-btn">Contact Us</a>
+    </div>
+  </div>
+  <div class="hero-scroll-indicator">
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<section id="solutions" class="solutions-grid">
+  <div class="solution-card">
+    <div class="solution-icon">
+      <i class="fas fa-cash-register"></i>
+    </div>
+    <h3 class="solution-title">POS Systems</h3>
+    <p class="solution-description">Modern point of sale solutions for retail and hospitality businesses.</p>
+    <ul class="solution-features">
+      <li><i class="fas fa-check"></i> Inventory Management</li>
+      <li><i class="fas fa-check"></i> Sales Analytics</li>
+      <li><i class="fas fa-check"></i> Customer Management</li>
+      <li><i class="fas fa-check"></i> Payment Integration</li>
+    </ul>
+    <a href="#" class="solution-cta" onclick="openModal()">
+      <i class="fas fa-arrow-right"></i>
+      Learn More
+    </a>
+  </div>
+
+  <div class="solution-card">
+    <div class="solution-icon">
+      <i class="fas fa-laptop-code"></i>
+    </div>
+    <h3 class="solution-title">Business Software</h3>
+    <p class="solution-description">Custom software solutions tailored to your business needs.</p>
+    <ul class="solution-features">
+      <li><i class="fas fa-check"></i> Accounting Systems</li>
+      <li><i class="fas fa-check"></i> HR Management</li>
+      <li><i class="fas fa-check"></i> CRM Solutions</li>
+      <li><i class="fas fa-check"></i> Cloud Integration</li>
+    </ul>
+    <a href="#" class="solution-cta" onclick="openModal()">
+      <i class="fas fa-arrow-right"></i>
+      Learn More
+    </a>
+  </div>
+
+  <div class="solution-card">
+    <div class="solution-icon">
+      <i class="fas fa-chart-line"></i>
+    </div>
+    <h3 class="solution-title">Digital Marketing</h3>
+    <p class="solution-description">Comprehensive digital marketing services to grow your business.</p>
+    <ul class="solution-features">
+      <li><i class="fas fa-check"></i> SEO Optimization</li>
+      <li><i class="fas fa-check"></i> Social Media Management</li>
+      <li><i class="fas fa-check"></i> Content Marketing</li>
+      <li><i class="fas fa-check"></i> Analytics & Reporting</li>
+    </ul>
+    <a href="#" class="solution-cta" onclick="openModal()">
+      <i class="fas fa-arrow-right"></i>
+      Learn More
+    </a>
+  </div>
+
+  <div class="solution-card">
+    <div class="solution-icon">
+      <i class="fas fa-shield-alt"></i>
+    </div>
+    <h3 class="solution-title">Cybersecurity</h3>
+    <p class="solution-description">Protect your business with advanced security solutions.</p>
+    <ul class="solution-features">
+      <li><i class="fas fa-check"></i> Network Security</li>
+      <li><i class="fas fa-check"></i> Data Protection</li>
+      <li><i class="fas fa-check"></i> Security Audits</li>
+      <li><i class="fas fa-check"></i> Employee Training</li>
+    </ul>
+    <a href="#" class="solution-cta" onclick="openModal()">
+      <i class="fas fa-arrow-right"></i>
+      Learn More
+    </a>
+  </div>
+</section>
+
+<section class="features-showcase">
+  <h2 class="section-title">Why Choose Our Solutions</h2>
+  <div class="features-grid">
+    <div class="feature-item">
+      <div class="feature-icon">
+        <i class="fas fa-rocket"></i>
+      </div>
+      <h3>Fast Implementation</h3>
+      <p>Quick setup and deployment to get your business running efficiently</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">
+        <i class="fas fa-lock"></i>
+      </div>
+      <h3>Secure & Reliable</h3>
+      <p>Enterprise-grade security with 99.9% uptime guarantee</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">
+        <i class="fas fa-headset"></i>
+      </div>
+      <h3>24/7 Support</h3>
+      <p>Round-the-clock technical support and assistance</p>
+    </div>
+    <div class="feature-item">
+      <div class="feature-icon">
+        <i class="fas fa-sync"></i>
+      </div>
+      <h3>Regular Updates</h3>
+      <p>Continuous improvements and feature updates</p>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section">
+  <h2 class="section-title">Flexible Pricing Plans</h2>
+  <div class="pricing-grid">
+    <div class="pricing-card starter">
+      <div class="pricing-header">
+        <h3>Starter</h3>
+        <div class="price">
+          <span class="currency">KES</span>
+          <span class="amount">15,000</span>
+          <span class="period">/month</span>
+        </div>
+      </div>
+      <ul class="pricing-features">
+        <li><i class="fas fa-check"></i> Basic POS System</li>
+        <li><i class="fas fa-check"></i> 2 User Accounts</li>
+        <li><i class="fas fa-check"></i> Basic Reports</li>
+        <li><i class="fas fa-check"></i> Email Support</li>
+      </ul>
+      <button class="pricing-cta" onclick="openModal('starter')">Get Started</button>
+    </div>
+
+    <div class="pricing-card professional">
+      <div class="popular-tag">Most Popular</div>
+      <div class="pricing-header">
+        <h3>Professional</h3>
+        <div class="price">
+          <span class="currency">KES</span>
+          <span class="amount">25,000</span>
+          <span class="period">/month</span>
+        </div>
+      </div>
+      <ul class="pricing-features">
+        <li><i class="fas fa-check"></i> Advanced POS System</li>
+        <li><i class="fas fa-check"></i> 5 User Accounts</li>
+        <li><i class="fas fa-check"></i> Advanced Analytics</li>
+        <li><i class="fas fa-check"></i> 24/7 Support</li>
+        <li><i class="fas fa-check"></i> Inventory Management</li>
+      </ul>
+      <button class="pricing-cta featured" onclick="openModal('professional')">Get Started</button>
+    </div>
+
+    <div class="pricing-card enterprise">
+      <div class="pricing-header">
+        <h3>Enterprise</h3>
+        <div class="price">
+          <span class="currency">KES</span>
+          <span class="amount">45,000</span>
+          <span class="period">/month</span>
+        </div>
+      </div>
+      <ul class="pricing-features">
+        <li><i class="fas fa-check"></i> Full Suite Access</li>
+        <li><i class="fas fa-check"></i> Unlimited Users</li>
+        <li><i class="fas fa-check"></i> Custom Reports</li>
+        <li><i class="fas fa-check"></i> Priority Support</li>
+        <li><i class="fas fa-check"></i> API Access</li>
+        <li><i class="fas fa-check"></i> Custom Integration</li>
+      </ul>
+      <button class="pricing-cta" onclick="openModal('enterprise')">Contact Sales</button>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials-section">
+  <h2 class="section-title">What Our Clients Say</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-content">
+        <i class="fas fa-quote-left"></i>
+        <p>"The POS system has revolutionized how we handle our daily operations. The support team is exceptional!"</p>
+      </div>
+      <div class="testimonial-author">
+        <img src="https://ui-avatars.com/api/?name=John+Doe&background=random" alt="John Doe" class="author-image">
+        <div class="author-info">
+          <h4>John Doe</h4>
+          <p>Restaurant Owner</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-content">
+        <i class="fas fa-quote-left"></i>
+        <p>"The digital marketing solutions helped us increase our online presence significantly. Highly recommended!"</p>
+      </div>
+      <div class="testimonial-author">
+        <img src="https://ui-avatars.com/api/?name=Jane+Smith&background=random" alt="Jane Smith" class="author-image">
+        <div class="author-info">
+          <h4>Jane Smith</h4>
+          <p>E-commerce Manager</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>How long does implementation take?</h3>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>Implementation typically takes 1-2 weeks depending on the complexity of your business needs. Our team will guide you through the entire process.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>Do you provide training?</h3>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>Yes, we provide comprehensive training for all our solutions. This includes both online and in-person training sessions for your team.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <h3>What kind of support do you offer?</h3>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="faq-answer">
+        <p>We offer 24/7 technical support through multiple channels including phone, email, and live chat. Enterprise clients get priority support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <h2 class="contact-title">Ready to Transform Your Business?</h2>
+  <div class="contact-buttons">
+    <a href="#" class="contact-btn primary" onclick="openModal()">
+      <i class="fas fa-rocket"></i>
+      Get Started
+    </a>
+    <a href="tel:+254700000000" class="contact-btn secondary">
+      <i class="fas fa-phone"></i>
+      Call Us
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-social">
+    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+  </div>
+  <p>&copy; 2025 DANTECH. All rights reserved.</p>
+</footer>
+
+<!-- Modal -->
+<div id="applicationModal" class="modal">
+  <div class="modal-content">
+    <h3 id="modal-title">Request Digital Solution</h3>
+    <div class="form-group">
+      <label class="form-label" for="name">Full Name</label>
+      <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="email">Email Address</label>
+      <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="business">Business Name</label>
+      <input type="text" id="business" class="form-input" placeholder="Enter your business name" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="service">Service Interest</label>
+      <select id="service" class="form-input" required>
+        <option value="">Select a service</option>
+        <option value="pos">POS System</option>
+        <option value="software">Business Software</option>
+        <option value="marketing">Digital Marketing</option>
+        <option value="security">Cybersecurity</option>
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button class="close-btn" onclick="closeModal()">Cancel</button>
+      <button class="submit-btn" onclick="submitForm()">Submit Request</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Modal functionality
+  function openModal() {
+    document.getElementById('applicationModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('applicationModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function submitForm() {
+    // Get form values
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const business = document.getElementById('business').value;
+    const service = document.getElementById('service').value;
+
+    // Validate form
+    if (!name || !email || !business || !service) {
+      alert('Please fill in all fields');
+      return;
+    }
+
+    // Here you would typically send this data to your server
+    alert('Thank you for your interest! We will contact you shortly.');
+    closeModal();
+  }
+
+  // Close modal on outside click
+  document.getElementById('applicationModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // Close modal on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Add hover effects to solution cards
+  document.querySelectorAll('.solution-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-10px)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0)';
+    });
+  });
+
+  // Typing effect
+  const typingText = document.querySelector('.typing-text');
+  const phrases = [
+    "with Digital Solutions",
+    "with Smart Technology",
+    "with Innovation",
+    "with Excellence"
+  ];
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function type() {
+    const currentPhrase = phrases[phraseIndex];
+    
+    if (isDeleting) {
+      typingText.textContent = currentPhrase.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      typingText.textContent = currentPhrase.substring(0, charIndex + 1);
+      charIndex++;
+    }
+
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      isDeleting = true;
+      setTimeout(type, 2000);
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+      setTimeout(type, 500);
+    } else {
+      setTimeout(type, isDeleting ? 50 : 100);
+    }
+  }
+
+  // Start typing effect
+  type();
+
+  // FAQ Toggle
+  function toggleFaq(element) {
+    const faqItem = element.parentElement;
+    faqItem.classList.toggle('active');
+  }
+
+  // Enhanced Modal
+  function openModal(plan) {
+    const modal = document.getElementById('applicationModal');
+    const serviceSelect = document.getElementById('service');
+    
+    if (plan) {
+      serviceSelect.value = plan;
+    }
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Particle effect
+  function createParticles() {
+    const particles = document.querySelector('.particles');
+    const particleCount = 20;
+
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 5 + 's';
+      particles.appendChild(particle);
+    }
+  }
+
+  // Progress bar
+  function updateProgressBar() {
+    const scrolled = window.scrollY;
+    const height = document.documentElement.scrollHeight - window.innerHeight;
+    const width = (scrolled / height) * 100;
+    document.querySelector('.progress-bar').style.setProperty('--scroll-width', width + '%');
+  }
+
+  // Section visibility
+  function handleSectionVisibility() {
+    const sections = document.querySelectorAll('.section-fade-in');
+    const navLinks = document.querySelectorAll('.floating-nav a');
+    
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const isVisible = rect.top <= window.innerHeight * 0.75;
+      
+      if (isVisible) {
+        section.classList.add('visible');
+      }
+    });
+
+    // Update active nav link
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+    
+    navLinks.forEach(link => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        const rect = target.getBoundingClientRect();
+        const isActive = rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
+        link.classList.toggle('active', isActive);
+      }
+    });
+  }
+
+  // Initialize
+  window.addEventListener('load', () => {
+    createParticles();
+    handleSectionVisibility();
+    
+    // Add fade-in class to sections
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.add('section-fade-in');
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    updateProgressBar();
+    handleSectionVisibility();
+  });
+</script>
+</body>
+</html>
+
