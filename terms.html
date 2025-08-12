@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms of Service | DAN TECH</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --gradient-start: #0d1117;
+      --gradient-mid: #161b22;
+      --gradient-end: #1a1f29;
+      --primary: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --text-primary: #e6e6e6;
+      --text-secondary: #94a3b8;
+      --card-bg: rgba(26, 26, 46, 0.8);
+      --border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+      background-attachment: fixed;
+      color: var(--text-primary);
+      line-height: 1.7;
+      /* Performance optimization */
+      will-change: transform;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 25%),
+        radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 25%);
+      pointer-events: none;
+      z-index: -1;
+      /* Performance optimization */
+      will-change: opacity;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 40px;
+      margin: 40px 0;
+      /* Performance optimization */
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    h1 {
+      color: var(--text-primary);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem;
+      font-weight: 600;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      color: var(--text-secondary);
+      margin: 1rem 0 1rem 2rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--primary-dark);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-top: 2rem;
+      transition: all 0.2s ease;
+      /* Performance optimization */
+      will-change: transform;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+    }
+
+    /* Header Optimization */
+    header {
+      background: rgba(26, 26, 46, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      /* Performance optimization */
+      will-change: transform;
+    }
+
+    /* Footer Optimization */
+    footer {
+      background: var(--gradient-start);
+      color: var(--text-secondary);
+      padding: 20px 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Responsive Optimizations */
+    @media (max-width: 768px) {
+      .card {
+        padding: 25px;
+        margin: 20px 0;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 20px;
+        margin: 15px 0;
+      }
+
+      h1 {
+        font-size: 1.75rem;
+      }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Enhanced Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--gradient-start);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-dark);
+    }
+  </style>
+</head>
+<body class="performance-mode">
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo">DAN TECH</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="mobile-menu" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>Terms of Service</h1>
+      <p>Last Updated: May 2025</p>
+
+      <h2>1. Introduction</h2>
+      <p>Welcome to DAN TECH! These Terms of Service ("Terms") govern your access to and use of our website, applications, and services ("Services"). Please read them carefully. By accessing or using our Services, you agree to be bound by these Terms.</p>
+
+      <h2>2. Eligibility</h2>
+      <p>You must be at least 13 years old to use our Services. If you are under 18, you may use DAN TECH only with involvement of a parent or guardian.</p>
+
+      <h2>3. User Accounts</h2>
+      <p>When you create an account with us, you must provide accurate and complete information. You are solely responsible for the activity that occurs on your account.</p>
+
+      <h2>4. Privacy</h2>
+      <p>Your privacy is important to us. Please review our Privacy Policy to understand how we collect, use, and share your information.</p>
+
+      <h2>5. Intellectual Property</h2>
+      <p>The content, features, and functionality of our Services are owned by DAN TECH and are protected by copyright, trademark, and other intellectual property laws.</p>
+
+      <h2>6. User Content</h2>
+      <p>You retain ownership of any content you submit through our Services. By submitting content, you grant us a license to use, modify, and display that content.</p>
+
+      <h2>7. Prohibited Conduct</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Violate any applicable laws or regulations</li>
+        <li>Infringe on others' intellectual property rights</li>
+        <li>Interfere with the operation of our Services</li>
+        <li>Attempt to gain unauthorized access to our systems</li>
+      </ul>
+
+      <h2>8. Termination</h2>
+      <p>We reserve the right to suspend or terminate your access to our Services at any time for any reason, without notice.</p>
+
+      <h2>9. Disclaimer</h2>
+      <p>Our Services are provided "as is" without any warranties, express or implied.</p>
+
+      <h2>10. Indemnification</h2>
+      <p>You agree to indemnify and hold harmless DAN TECH from any claims arising out of your use of the Services or violation of these Terms.</p>
+
+      <h2>11. Changes to Terms</h2>
+      <p>We reserve the right to modify these Terms at any time. When we do, we will revise the "Last Updated" date at the top.</p>
+
+      <h2>12. Contact Us</h2>
+      <p>If you have any questions about these Terms, please contact us at <a href="mailto:support@dantech.ke">support@dantech.ke</a>.</p>
+
+      <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 DAN TECH | Empowering Digital Futures</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const navLinks = document.querySelector('.nav-links');
+      
+      mobileMenu?.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    });
+  </script>
+    <script src="update-styles.js"></script>
+</body>
+</html>
+

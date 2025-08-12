@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Cyber Services - DAN TECH</title>
+  <meta name="description" content="Access KUCCPS, KRA, HELB and more government services online with our secure and efficient platform." />
+  <meta name="author" content="DAN TECH" />
+  <link rel="icon" type="image/png" href="dan-tech-logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="professional-styles.css">
+  <style>
+    .hero {
+      background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid var(--gray-200);
+      text-align: center;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--border-radius);
+      margin-bottom: 1.5rem;
+      object-fit: contain;
+      background: var(--gray-100);
+      padding: 1rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: var(--gray-600);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .features-section {
+      background: var(--gray-50);
+      padding: 4rem 0;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .feature-item i {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .feature-item h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 1rem;
+    }
+
+    .feature-item p {
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    /* Modal Styles */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      width: 90%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .booking-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-selector {
+      background: var(--gray-50);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--gray-200);
+    }
+
+    .service-options {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .service-option {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .service-option:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow);
+    }
+
+    .service-option.selected {
+      border-color: var(--primary);
+      background: #eff6ff;
+      box-shadow: var(--shadow);
+    }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--border-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      background: var(--primary);
+    }
+
+    .service-info {
+      flex: 1;
+    }
+
+    .service-name {
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 0.25rem;
+    }
+
+    .service-description {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+    }
+
+    .payment-summary {
+      background: var(--gray-50);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      border: 1px solid var(--gray-200);
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .summary-item:last-child {
+      border-bottom: none;
+    }
+
+    .booking-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .booking-actions button {
+      flex: 1;
+    }
+
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="navbar">
+        <a href="index.html" class="logo">
+          <img src="ceo photo.jpg" alt="DAN TECH Logo" />
+          <span>DAN TECH</span>
+        </a>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="staff-login.html" class="nav-cta">Staff Login</a></li>
+          </ul>
+        </nav>
+        <button class="mobile-menu" aria-label="Toggle Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h1 class="glow-text">Online Cyber Services</h1>
+          <p class="subtitle fade-in stagger-1">
+            Access government services online with our secure and efficient platform. 
+            Apply for KUCCPS, KRA, HELB and more from the comfort of your home.
+          </p>
+          <div class="cta-buttons fade-in stagger-2">
+            <button class="btn btn-primary" onclick="openModal()">Book Appointment</button>
+            <a href="#services" class="btn btn-secondary">View Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="glow-text">Available Services</h2>
+          <p>Comprehensive online services for all your government application needs.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card scale-in stagger-1">
+            <img src="kuccps.png" alt="KUCCPS Services" />
+            <h3 class="glow-text">KUCCPS Applications</h3>
+            <p>Apply for university and college placements online. Submit your applications and track your status easily.</p>
+            <div>
+              <a href="kuccps-details.html" class="btn btn-primary" style="margin-right: 0.5rem;">View Details</a>
+              <a href="request-application-kuccps.html" class="btn btn-secondary">Request</a>
+            </div>
+          </div>
+          <div class="service-card scale-in stagger-2">
+            <img src="kra.png" alt="KRA Services" />
+            <h3 class="glow-text">KRA Services</h3>
+            <p>File your tax returns, apply for PIN, and access all KRA services through our secure platform.</p>
+            <div>
+              <a href="kra-details.html" class="btn btn-primary" style="margin-right: 0.5rem;">View Details</a>
+              <a href="file-kra-returns.html" class="btn btn-secondary" style="margin-right: 0.5rem;">File Returns</a>
+              <a href="request-application-kra.html" class="btn btn-secondary">Request New PIN</a>
+            </div>
+          </div>
+          <div class="service-card scale-in stagger-3">
+            <img src="helb.png" alt="HELB Services" />
+            <h3 class="glow-text">HELB Applications</h3>
+            <p>Apply for student loans, check loan status, and manage your HELB account online.</p>
+            <div>
+              <a href="helb-details.html" class="btn btn-primary" style="margin-right: 0.5rem;">View Details</a>
+              <a href="request-application-helb.html" class="btn btn-secondary">Request</a>
+            </div>
+          </div>
+          <div class="service-card scale-in stagger-4">
+            <img src="other-services.png" alt="Other Services" />
+            <h3 class="glow-text">Other Government Services</h3>
+            <p>Access various other government services and applications through our comprehensive platform.</p>
+            <div>
+              <a href="other-services-details.html" class="btn btn-primary" style="margin-right: 0.5rem;">View Details</a>
+              <a href="request-application-other-services.html" class="btn btn-secondary">Request</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="glow-text">Why Choose Our Platform?</h2>
+          <p>Experience the benefits of our secure and user-friendly online services.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-item fade-in stagger-1">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Secure & Safe</h3>
+            <p>Your data is protected with industry-standard encryption and security measures.</p>
+          </div>
+          <div class="feature-item fade-in stagger-2">
+            <i class="fas fa-bolt"></i>
+            <h3>Fast Processing</h3>
+            <p>Quick application processing and real-time status updates for all services.</p>
+          </div>
+          <div class="feature-item fade-in stagger-3">
+            <i class="fas fa-clock"></i>
+            <h3>24/7 Availability</h3>
+            <p>Access our services anytime, anywhere with our always-available platform.</p>
+          </div>
+          <div class="feature-item fade-in stagger-4">
+            <i class="fas fa-headset"></i>
+            <h3>Expert Support</h3>
+            <p>Get help from our experienced team whenever you need assistance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="glow-text">Contact Us</h2>
+          <p>Get in touch with us for any inquiries about our online services.</p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info slide-in-left">
+            <h3 class="glow-text">Get In Touch</h3>
+            <div class="contact-item fade-in stagger-1">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:danvasm5@gmail.com">danvasm5@gmail.com</a>
+            </div>
+            <div class="contact-item fade-in stagger-2">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+254788065983">+254 788 065 983</a>
+            </div>
+            <div class="contact-item fade-in stagger-3">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+254798691303">+254 798 691 303</a>
+            </div>
+            <div class="contact-item fade-in stagger-4">
+              <i class="fas fa-globe"></i>
+              <a href="https://dan techplus.com" target="_blank">www.dan techplus.com</a>
+            </div>
+            <div class="contact-item fade-in stagger-4">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Nairobi, Kenya</span>
+            </div>
+          </div>
+          <form class="contact-form slide-in-right" action="send.php" method="POST">
+            <div class="form-group fade-in stagger-1">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group fade-in stagger-2">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group fade-in stagger-3">
+              <label for="service">Service Interest</label>
+              <select id="service" name="service" required>
+                <option value="">Select a service</option>
+                <option value="kuccps">KUCCPS Applications</option>
+                <option value="kra">KRA Services</option>
+                <option value="helb">HELB Applications</option>
+                <option value="other">Other Services</option>
+              </select>
+            </div>
+            <div class="form-group fade-in stagger-4">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary fade-in stagger-4" style="width: 100%;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>DAN TECH</h3>
+          <p>Empowering individuals and businesses through technology and innovation.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="online-cyber.html">Online Cyber Services</a></li>
+            <li><a href="computer-learning-hub.html">Computer Learning Hub</a></li>
+            <li><a href="digital-business-solutions.html">Digital Business Solutions</a></li>
+            <li><a href="tech-repair.html">Tech Repair & Maintenance</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <ul>
+            <li><a href="tel:+254788065983">+254 788 065 983</a></li>
+            <li><a href="mailto:danvasm5@gmail.com">danvasm5@gmail.com</a></li>
+            <li>Nairobi, Kenya</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 DAN TECH. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Paystack Modal -->
+  <div id="applicationModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <h2 id="modal-title" class="booking-title">Book an Application</h2>
+      
+      <div class="form-group">
+        <label class="form-label" for="modalName">Full Name</label>
+        <input type="text" id="modalName" class="form-input" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="service-selector">
+        <h3>Select Service</h3>
+        <div class="service-options">
+          <div class="service-option" data-service="helb" onclick="selectService(this, 'HELB')">
+            <div class="service-icon" style="background:#3b82f6;"><i class="fas fa-graduation-cap"></i></div>
+            <div class="service-info">
+              <div class="service-name">HELB Loan Application</div>
+              <div class="service-description">Higher Education Loans Board application processing</div>
+            </div>
+          </div>
+          <div class="service-option" data-service="kra" onclick="selectService(this, 'KRA')">
+            <div class="service-icon" style="background:#10b981;"><i class="fas fa-receipt"></i></div>
+            <div class="service-info">
+              <div class="service-name">KRA PIN Registration</div>
+              <div class="service-description">Kenya Revenue Authority PIN application</div>
+            </div>
+          </div>
+          <div class="service-option" data-service="kuccps" onclick="selectService(this, 'KUCCPS')">
+            <div class="service-icon" style="background:#f59e0b;"><i class="fas fa-university"></i></div>
+            <div class="service-info">
+              <div class="service-name">KUCCPS Application</div>
+              <div class="service-description">University/College placement application</div>
+            </div>
+          </div>
+          <div class="service-option" data-service="nemis" onclick="selectService(this, 'NEMIS')">
+            <div class="service-icon" style="background:#6366f1;"><i class="fas fa-id-card"></i></div>
+            <div class="service-info">
+              <div class="service-name">NEMIS Registration</div>
+              <div class="service-description">National Education Management System</div>
+            </div>
+          </div>
+          <div class="service-option" data-service="other" onclick="selectService(this, 'Other Service')">
+            <div class="service-icon" style="background: linear-gradient(135deg, #ff4757, #1d4ed8);"><i class="fas fa-ellipsis-h"></i></div>
+            <div class="service-info">
+              <div class="service-name">Other Service</div>
+              <div class="service-description">Specify a different service you need</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" id="otherServiceGroup" style="display: none;">
+        <label class="form-label" for="otherService">Please specify the service</label>
+        <input type="text" id="otherService" class="form-input" placeholder="Describe the service you need">
+        <label class="form-label" for="otherAmount" style="margin-top:0.5rem;">Enter Amount (KES)</label>
+        <input type="number" id="otherAmount" class="form-input" placeholder="Enter amount" min="1" style="display:none;">
+      </div>
+
+      <div class="payment-summary">
+        <div class="summary-item"><span>Name</span><span id="summaryName">-</span></div>
+        <div class="summary-item"><span>Service</span><span id="summaryService">-</span></div>
+        <div class="summary-item"><span>Amount</span><span id="summaryAmount">KES 500</span></div>
+      </div>
+
+      <div class="booking-actions">
+        <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-primary" id="payButton" onclick="proceedToPayment()">Proceed to Payment</button>
+      </div>
+      <input type="hidden" id="modalService" name="modalService">
+    </div>
+  </div>
+
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="professional-animations.js"></script>
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const nav = document.querySelector('nav ul');
+      if (mobileMenu && nav) {
+        mobileMenu.addEventListener('click', function() {
+          nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+      }
+    });
+
+    function openModal() {
+      const modal = document.getElementById('applicationModal');
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      setTimeout(() => document.getElementById('modalName').focus(), 150);
+      const btn = document.getElementById('payButton');
+      btn.disabled = false; btn.innerHTML = 'Proceed to Payment';
+    }
+    
+    function closeModal() {
+      const modal = document.getElementById('applicationModal');
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.getElementById('modalName').value = '';
+      document.getElementById('summaryName').textContent = '-';
+      document.getElementById('summaryService').textContent = '-';
+      document.getElementById('summaryAmount').textContent = 'KES 500';
+      const otherGroup = document.getElementById('otherServiceGroup');
+      otherGroup.style.display = 'none';
+    }
+    
+    document.getElementById('applicationModal').addEventListener('click', (e)=>{ 
+      if(e.target.id==='applicationModal') closeModal(); 
+    });
+    document.addEventListener('keydown', (e)=>{ 
+      if(e.key==='Escape') closeModal(); 
+    });
+
+    function selectService(el, serviceName) {
+      document.querySelectorAll('.service-option').forEach(opt => opt.classList.remove('selected'));
+      el.classList.add('selected');
+      const name = document.getElementById('modalName').value || '-';
+      document.getElementById('summaryName').textContent = name;
+      document.getElementById('summaryService').textContent = serviceName;
+      document.getElementById('modalService').value = serviceName;
+      const otherGroup = document.getElementById('otherServiceGroup');
+      const otherAmount = document.getElementById('otherAmount');
+      let amount = 500;
+      if (serviceName === 'HELB') amount = 400;
+      else if (serviceName === 'KRA') amount = 100;
+      else if (serviceName === 'KUCCPS') amount = 300;
+      else if (serviceName === 'Other Service') { 
+        otherGroup.style.display = 'block'; 
+        otherAmount.style.display = 'block'; 
+        amount = ''; 
+      } else { 
+        otherGroup.style.display = 'none'; 
+        if(otherAmount) otherAmount.style.display = 'none'; 
+      }
+      document.getElementById('summaryAmount').textContent = amount ? `KES ${amount}` : 'KES -';
+      if (otherAmount) otherAmount.addEventListener('input', function() {
+        document.getElementById('summaryAmount').textContent = this.value ? `KES ${this.value}` : 'KES -';
+      });
+    }
+
+    document.getElementById('modalName').addEventListener('input', function(){
+      document.getElementById('summaryName').textContent = this.value || '-';
+    });
+
+    function proceedToPayment() {
+      const name = document.getElementById('modalName').value.trim();
+      const service = document.getElementById('modalService').value;
+      let amount = 500;
+      if (service === 'HELB') amount = 400; 
+      else if (service === 'KRA') amount = 100; 
+      else if (service === 'KUCCPS') amount = 300; 
+      else if (service === 'Other Service') amount = parseInt(document.getElementById('otherAmount').value, 10);
+      if (!name || !service || !amount || amount < 1) { 
+        alert('Please enter your name, select a service and valid amount.'); 
+        return; 
+      }
+      const btn = document.getElementById('payButton');
+      btn.disabled = true; btn.innerHTML = 'Processing...';
+      try {
+        const handler = PaystackPop.setup({
+          key: 'pk_live_103b93a6c53f52ff3eff4eff8611d39d330fe834',
+          email: name.replace(/\s/g,'') + '@DanTech.com',
+          amount: amount * 100,
+          currency: 'KES',
+          ref: 'DANTECH_' + Math.floor(Math.random() * 1000000000),
+          metadata: { 
+            custom_fields: [ 
+              { display_name: 'Customer Name', variable_name: 'customer_name', value: name }, 
+              { display_name: 'Service Type', variable_name: 'service_type', value: service } 
+            ] 
+          },
+          callback: function(response) { 
+            alert('Payment successful! Ref: ' + response.reference); 
+            closeModal(); 
+            window.location.href = 'index.html'; 
+          },
+          onClose: function() { 
+            alert('Payment was cancelled'); 
+            btn.disabled = false; 
+            btn.innerHTML = 'Proceed to Payment'; 
+          }
+        });
+        handler.openIframe();
+      } catch (e) { 
+        alert('Failed to initialize payment. Please try again.'); 
+        btn.disabled = false; 
+        btn.innerHTML = 'Proceed to Payment'; 
+      }
+    }
+  </script>
+</body>
+</html>

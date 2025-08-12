@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You - DAN TECH</title>
+  <meta name="description" content="Thank you for contacting DAN TECH" />
+  <meta name="author" content="DAN TECH" />
+  <link rel="icon" type="image/png" href="dan-tech-logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="professional-styles.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .thank-you-container {
+      background: var(--white);
+      border-radius: var(--border-radius-xl);
+      box-shadow: var(--shadow-xl);
+      padding: 3rem;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      border: 1px solid var(--gray-200);
+    }
+
+    .success-icon {
+      font-size: 4rem;
+      color: var(--success);
+      margin-bottom: 1.5rem;
+    }
+
+    .thank-you-container h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 1rem;
+    }
+
+    .thank-you-container p {
+      color: var(--gray-600);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.875rem 2rem;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--gray-700);
+      border: 1px solid var(--gray-300);
+    }
+
+    .btn-secondary:hover {
+      background: var(--gray-50);
+      border-color: var(--gray-400);
+    }
+
+    @media (max-width: 480px) {
+      .thank-you-container {
+        padding: 2rem;
+      }
+
+      .thank-you-container h1 {
+        font-size: 1.5rem;
+      }
+
+      .action-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="thank-you-container fade-in">
+    <div class="success-icon scale-in">
+      <i class="fas fa-check-circle"></i>
+    </div>
+    
+    <h1 class="glow-text">Thank You!</h1>
+    
+    <p class="fade-in stagger-1">
+      Your message has been successfully sent. We appreciate you reaching out to DAN TECH. 
+      Our team will review your inquiry and get back to you as soon as possible.
+    </p>
+    
+    <div class="action-buttons fade-in stagger-2">
+      <a href="index.html" class="btn btn-primary">Back to Home</a>
+      <a href="index.html#services" class="btn btn-secondary">View Services</a>
+    </div>
+  </div>
+
+  <script src="professional-animations.js"></script>
+</body>
+</html>
+

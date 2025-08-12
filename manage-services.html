@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DAN TECH - Manage Services</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #f5f7fa;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0056b3;
+      color: white;
+      padding: 15px;
+    }
+    nav a {
+      color: white;
+      margin-right: 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-size: 28px;
+      color: #003366;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+    form input, form textarea, form button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    form button {
+      background: #0056b3;
+      color: white;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form button:hover {
+      background: #003366;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body class="performance-mode">
+
+<header>
+  <div class="nav-container">
+    <div class="logo">DAN TECH Dashboard</div>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="index.html">Home</a>
+      <a href="index.html#staff-login">Logout</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+  <h1>Manage Services</h1>
+  <p>Request to add, update, or remove a service provided by DAN TECH.</p>
+
+  <form action="mailto:DAN TECHkenya@gmail.com?subject=Manage Service Request" method="POST" enctype="text/plain">
+    <input type="text" name="Service Name" placeholder="Service Name" required>
+    <textarea name="Service Description" placeholder="Service Description..." rows="5" required></textarea>
+    <button type="submit">Send Service Request</button>
+  </form>
+</div>
+
+<footer>
+  <p>&copy; 2025 DAN TECH. All Rights Reserved.</p>
+</footer>
+
+    <script src="update-styles.js"></script>
+</body>
+</html>
+

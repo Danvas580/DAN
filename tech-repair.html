@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech Repair & Maintenance - DAN TECH</title>
+  <meta name="description" content="DAN TECH's Tech Repair & Maintenance Services - Professional repair and maintenance for all your technology devices" />
+  <meta name="author" content="DAN TECH" />
+  <link rel="icon" type="image/png" href="dan-tech-logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="professional-styles.css">
+    <style>
+    .hero {
+      background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+      padding: 4rem 0;
+            text-align: center;
+    }
+
+    .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+      margin-top: 3rem;
+        }
+
+        .service-card {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid var(--gray-200);
+            text-align: center;
+        }
+
+        .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--border-radius);
+      margin-bottom: 1.5rem;
+      object-fit: contain;
+      background: var(--gray-100);
+      padding: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+      color: var(--gray-600);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .features-section {
+      background: var(--gray-50);
+            padding: 4rem 0;
+    }
+
+    .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+      margin-top: 3rem;
+        }
+
+    .feature-item {
+            text-align: center;
+            padding: 2rem;
+    }
+
+    .feature-item i {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .feature-item h3 {
+      font-size: 1.25rem;
+            font-weight: 600;
+      color: var(--gray-900);
+            margin-bottom: 1rem;
+    }
+
+    .feature-item p {
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    .cta-section {
+      background: var(--primary);
+      color: var(--white);
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+            margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.125rem;
+            margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .cta-buttons {
+            display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--primary);
+      padding: 0.875rem 2rem;
+      border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-white:hover {
+      background: var(--gray-100);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+        }
+
+        @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+      .cta-section h2 {
+                font-size: 2rem;
+            }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-white {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+    </style>
+</head>
+<body>
+    <header>
+    <div class="container">
+      <div class="navbar">
+            <a href="index.html" class="logo">
+          <img src="ceo photo.jpg" alt="DAN TECH Logo" />
+          <span>DAN TECH</span>
+        </a>
+        <nav>
+          <ul>
+                <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="staff-login.html" class="nav-cta">Staff Login</a></li>
+            </ul>
+        </nav>
+        <button class="mobile-menu" aria-label="Toggle Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h1 class="glow-text">Tech Repair & Maintenance</h1>
+          <p class="subtitle fade-in stagger-1">
+            Professional repair and maintenance services for all your technology devices. 
+            Fast, reliable, and affordable solutions to keep your tech running smoothly.
+          </p>
+        </div>
+      </div>
+        </section>
+
+    <section class="services">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="glow-text">Our Services</h2>
+          <p>Comprehensive repair and maintenance services for all types of technology devices.</p>
+                </div>
+        <div class="services-grid">
+          <div class="service-card scale-in stagger-1">
+            <img src="computer_packages.png" alt="Computer Repair" />
+            <h3 class="glow-text">Computer Repair</h3>
+            <p>Desktop and laptop repair services including hardware upgrades, software installation, and virus removal.</p>
+            <a href="#contact" class="btn btn-primary">Get Service</a>
+            </div>
+          <div class="service-card scale-in stagger-2">
+            <img src="accessories.png" alt="Mobile Device Repair" />
+            <h3 class="glow-text">Mobile Device Repair</h3>
+            <p>Smartphone and tablet repair services including screen replacement, battery replacement, and software issues.</p>
+            <a href="#contact" class="btn btn-primary">Get Service</a>
+                </div>
+          <div class="service-card scale-in stagger-3">
+            <img src="networking.png" alt="Network Setup" />
+            <h3 class="glow-text">Network Setup & Maintenance</h3>
+            <p>Home and office network installation, configuration, and ongoing maintenance services.</p>
+            <a href="#contact" class="btn btn-primary">Get Service</a>
+            </div>
+          <div class="service-card scale-in stagger-4">
+            <img src="security.png" alt="Security Systems" />
+            <h3 class="glow-text">Security Systems</h3>
+            <p>Installation and maintenance of CCTV cameras, alarm systems, and access control systems.</p>
+            <a href="#contact" class="btn btn-primary">Get Service</a>
+                </div>
+          <div class="service-card scale-in stagger-1">
+            <img src="technical-support.png" alt="Technical Support" />
+            <h3 class="glow-text">Technical Support</h3>
+            <p>Remote and on-site technical support for software issues, troubleshooting, and system optimization.</p>
+            <a href="#contact" class="btn btn-primary">Get Service</a>
+            </div>
+          <div class="service-card scale-in stagger-2">
+            <img src="maintenance.png" alt="Preventive Maintenance" />
+            <h3 class="glow-text">Preventive Maintenance</h3>
+            <p>Regular maintenance services to prevent issues and keep your devices running at optimal performance.</p>
+            <a href="#contact" class="btn btn-primary">Get Service</a>
+            </div>
+                </div>
+            </div>
+        </section>
+
+    <section class="features-section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="glow-text">Why Choose Our Repair Services?</h2>
+          <p>Experience the benefits of our professional and reliable repair services.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-item fade-in stagger-1">
+            <i class="fas fa-tools"></i>
+            <h3>Expert Technicians</h3>
+            <p>Certified and experienced technicians with years of experience in device repair.</p>
+          </div>
+          <div class="feature-item fade-in stagger-2">
+            <i class="fas fa-clock"></i>
+            <h3>Fast Turnaround</h3>
+            <p>Quick repair times with most services completed within 24-48 hours.</p>
+          </div>
+          <div class="feature-item fade-in stagger-3">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Warranty Protection</h3>
+            <p>All repairs come with warranty protection for your peace of mind.</p>
+          </div>
+          <div class="feature-item fade-in stagger-4">
+            <i class="fas fa-dollar-sign"></i>
+            <h3>Competitive Pricing</h3>
+            <p>Affordable repair services with transparent pricing and no hidden fees.</p>
+                </div>
+          <div class="feature-item fade-in stagger-1">
+            <i class="fas fa-home"></i>
+            <h3>On-Site Service</h3>
+            <p>Convenient on-site repair services for businesses and home users.</p>
+                </div>
+          <div class="feature-item fade-in stagger-2">
+            <i class="fas fa-headset"></i>
+            <h3>24/7 Support</h3>
+            <p>Round-the-clock customer support for emergency repair needs.</p>
+                </div>
+                </div>
+            </div>
+        </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="fade-in">
+          <h2 class="glow-text">Need Tech Repair?</h2>
+          <p>Get your devices back to working condition with our professional repair services.</p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn-white">Schedule Repair</a>
+            <a href="index.html#download" class="btn-white">Download App</a>
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="glow-text">Contact Us</h2>
+          <p>Get in touch with us for any repair or maintenance needs.</p>
+                        </div>
+        <div class="contact-content">
+          <div class="contact-info slide-in-left">
+            <h3 class="glow-text">Get In Touch</h3>
+            <div class="contact-item fade-in stagger-1">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:danvasm5@gmail.com">danvasm5@gmail.com</a>
+                    </div>
+            <div class="contact-item fade-in stagger-2">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+254788065983">+254 788 065 983</a>
+                        </div>
+            <div class="contact-item fade-in stagger-3">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+254798691303">+254 798 691 303</a>
+                    </div>
+            <div class="contact-item fade-in stagger-4">
+              <i class="fas fa-globe"></i>
+              <a href="https://dan techplus.com" target="_blank">www.dan techplus.com</a>
+                </div>
+            <div class="contact-item fade-in stagger-4">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Nairobi, Kenya</span>
+                    </div>
+                </div>
+          <form class="contact-form slide-in-right" action="send.php" method="POST">
+            <div class="form-group fade-in stagger-1">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+                    </div>
+            <div class="form-group fade-in stagger-2">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+                </div>
+            <div class="form-group fade-in stagger-3">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service" required>
+                <option value="">Select a service</option>
+                <option value="computer-repair">Computer Repair</option>
+                <option value="mobile-repair">Mobile Device Repair</option>
+                <option value="network-setup">Network Setup</option>
+                <option value="security-systems">Security Systems</option>
+                <option value="technical-support">Technical Support</option>
+                <option value="maintenance">Preventive Maintenance</option>
+                        </select>
+                    </div>
+            <div class="form-group fade-in stagger-4">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary fade-in stagger-4" style="width: 100%;">Send Message</button>
+          </form>
+        </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>DAN TECH</h3>
+          <p>Empowering individuals and businesses through technology and innovation.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="online-cyber.html">Online Cyber Services</a></li>
+            <li><a href="computer-learning-hub.html">Computer Learning Hub</a></li>
+            <li><a href="digital-business-solutions.html">Digital Business Solutions</a></li>
+            <li><a href="tech-repair.html">Tech Repair & Maintenance</a></li>
+          </ul>
+            </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <ul>
+            <li><a href="tel:+254788065983">+254 788 065 983</a></li>
+            <li><a href="mailto:danvasm5@gmail.com">danvasm5@gmail.com</a></li>
+            <li>Nairobi, Kenya</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 DAN TECH. All rights reserved.</p>
+      </div>
+        </div>
+    </footer>
+
+  <script src="professional-animations.js"></script>
+</body>
+</html>
+

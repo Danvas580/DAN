@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Announcements - DAN TECH</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0052cc;
+      --primary-light: #e6f0ff;
+      --secondary: #00a3bf;
+      --dark: #172b4d;
+      --light: #f9fafc;
+      --success: #36b37e;
+      --warning: #ffab00;
+      --danger: #ff5630;
+      --info: #6554c0;
+      --shadow: 0 4px 20px rgba(0, 82, 204, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/api/placeholder/1200/400') center/cover;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    
+    .logo-icon {
+      font-size: 2.5rem;
+      margin-right: 0.75rem;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .header-subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .announcement-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .announcement {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .announcement:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 82, 204, 0.2);
+    }
+    
+    .announcement-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 30px;
+      color: white;
+    }
+    
+    .badge-maintenance {
+      background-color: var(--warning);
+    }
+    
+    .badge-new {
+      background-color: var(--success);
+    }
+    
+    .badge-important {
+      background-color: var(--danger);
+    }
+    
+    .badge-update {
+      background-color: var(--info);
+    }
+    
+    .announcement-icon {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+    
+    .announcement-content {
+      padding: 1.5rem;
+    }
+    
+    .announcement-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--dark);
+    }
+    
+    .announcement-text {
+      color: #5e6c84;
+      margin-bottom: 1rem;
+    }
+    
+    .announcement-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #8993a4;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #f0f0f0;
+    }
+    
+    .announcement-date {
+      display: flex;
+      align-items: center;
+    }
+    
+    .announcement-date i {
+      margin-right: 0.4rem;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    
+    .btn i {
+      margin-left: 0.5rem;
+    }
+    
+    .btn:hover {
+      background-color: #0046ad;
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .notification-bar {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background-color: var(--dark);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      z-index: 100;
+      cursor: pointer;
+      animation: slideIn 0.5s forwards;
+    }
+    
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+    .notification-bar i {
+      margin-right: 0.75rem;
+      font-size: 1.25rem;
+      color: var(--success);
+    }
+    
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      padding: 2rem 0;
+      color: #8993a4;
+      font-size: 0.9rem;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #f0f2f5;
+      color: var(--dark);
+      transition: var(--transition);
+    }
+    
+    .social-link:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 2rem 0;
+      background: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .filter-options {
+      display: flex;
+      gap: 0.75rem;
+    }
+    
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      background-color: #f0f2f5;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: #5e6c84;
+      transition: var(--transition);
+    }
+    
+    .filter-btn.active, .filter-btn:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: #f0f2f5;
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+    }
+    
+    .search-bar input {
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.9rem;
+      color: var(--dark);
+    }
+    
+    .search-bar i {
+      color: #8993a4;
+    }
+    
+    @media (max-width: 768px) {
+      .announcement-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .filter-bar {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .filter-options {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .search-bar {
+        width: 100%;
+      }
+      
+      .container {
+        padding: 1rem;
+      }
+    }
+    
+    /* Modern scroll effect */
+    .scroll-down {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    
+    .scroll-down:hover {
+      opacity: 1;
+    }
+    
+    .scroll-down span {
+      margin-bottom: 0.5rem;
+    }
+    
+    .scroll-down .mouse {
+      width: 30px;
+      height: 50px;
+      border: 2px solid white;
+      border-radius: 20px;
+      position: relative;
+    }
+    
+    .scroll-down .mouse::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 10px;
+      background-color: white;
+      border-radius: 2px;
+      animation: scrollWheel 1.5s infinite;
+    }
+    
+    @keyframes scrollWheel {
+      0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(15px);
+      }
+    }
+  </style>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="performance-mode">
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <i class="fas fa-microchip logo-icon"></i>
+        <h1>DAN TECH</h1>
+      </div>
+      <p class="header-subtitle">Stay updated with the latest company announcements, system updates, and new service offerings</p>
+      
+      <div class="scroll-down">
+        <span>Scroll Down</span>
+        <div class="mouse"></div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="container">
+    <div class="filter-bar">
+      <div class="filter-options">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Maintenance</button>
+        <button class="filter-btn">New Services</button>
+        <button class="filter-btn">Updates</button>
+      </div>
+      
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search announcements...">
+      </div>
+    </div>
+    
+    <div class="announcement-container">
+      <!-- System Maintenance Announcement -->
+      <div class="announcement">
+        <div class="announcement-badge badge-maintenance">Maintenance</div>
+        <div class="announcement-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+        <div class="announcement-content">
+          <h3 class="announcement-title">System Maintenance - May 5th</h3>
+          <p class="announcement-text">The dashboard will be offline from 2 AM to 4 AM for critical updates and performance improvements. Please save your work before this time.</p>
+          <div class="announcement-meta">
+            <div class="announcement-date">
+              <i class="far fa-calendar-alt"></i>
+              May 5, 2025
+            </div>
+            <a href="#" class="btn btn-outline">View Details <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- New Service Announcement -->
+      <div class="announcement">
+        <div class="announcement-badge badge-new">New</div>
+        <div class="announcement-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <div class="announcement-content">
+          <h3 class="announcement-title">New Repair Service Launch</h3>
+          <p class="announcement-text">We're excited to roll out our new onsite hardware diagnostics for businesses. Our certified technicians will come to your location to diagnose and fix issues on the spot.</p>
+          <div class="announcement-meta">
+            <div class="announcement-date">
+              <i class="far fa-calendar-alt"></i>
+              May 10, 2025
+            </div>
+            <a href="#" class="btn">Learn More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Software Update Announcement -->
+      <div class="announcement">
+        <div class="announcement-badge badge-update">Update</div>
+        <div class="announcement-icon">
+          <i class="fas fa-code"></i>
+        </div>
+        <div class="announcement-content">
+          <h3 class="announcement-title">Software Update v2.3</h3>
+          <p class="announcement-text">The latest version includes improved performance, security patches, and several new features requested by our users.</p>
+          <div class="announcement-meta">
+            <div class="announcement-date">
+              <i class="far fa-calendar-alt"></i>
+              May 12, 2025
+            </div>
+            <a href="#" class="btn btn-outline">Release Notes <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Important Announcement -->
+      <div class="announcement">
+        <div class="announcement-badge badge-important">Important</div>
+        <div class="announcement-icon">
+          <i class="fas fa-exclamation-circle"></i>
+        </div>
+        <div class="announcement-content">
+          <h3 class="announcement-title">Office Relocation</h3>
+          <p class="announcement-text">Our main office will be moving to a new location at 123 Tech Boulevard. The move will take place over the weekend of May 20-21.</p>
+          <div class="announcement-meta">
+            <div class="announcement-date">
+              <i class="far fa-calendar-alt"></i>
+              May 15, 2025
+            </div>
+            <a href="#" class="btn">View Map <i class="fas fa-map-marker-alt"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="notification-bar">
+    <i class="fas fa-bell"></i>
+    <span>Subscribe to get updates directly to your inbox</span>
+  </div>
+  
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>© 2025 DAN TECH. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Simple animation when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      const announcements = document.querySelectorAll('.announcement');
+      
+      announcements.forEach((announcement, index) => {
+        announcement.style.opacity = '0';
+        announcement.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+          announcement.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+          announcement.style.opacity = '1';
+          announcement.style.transform = 'translateY(0)';
+        }, 100 * (index + 1));
+      });
+      
+      // Filter functionality
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Here you would add filtering logic
+          // For demonstration purposes only
+          const filter = this.textContent.toLowerCase();
+          
+          if (filter === 'all') {
+            announcements.forEach(ann => ann.style.display = 'block');
+          } else {
+            announcements.forEach(ann => {
+              const badge = ann.querySelector('.announcement-badge');
+              if (badge && badge.textContent.toLowerCase().includes(filter.replace('s', ''))) {
+                ann.style.display = 'block';
+              } else {
+                ann.style.display = 'none';
+              }
+            });
+          }
+        });
+      });
+      
+      // Notification bar
+      const notificationBar = document.querySelector('.notification-bar');
+      
+      notificationBar.addEventListener('click', function() {
+        alert('Subscription feature coming soon!');
+      });
+      
+      // Smooth scroll
+      const scrollDown = document.querySelector('.scroll-down');
+      
+      scrollDown.addEventListener('click', function() {
+        window.scrollTo({
+          top: document.querySelector('.filter-bar').offsetTop - 20,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Search functionality
+      const searchInput = document.querySelector('.search-bar input');
+      
+      searchInput.addEventListener('keyup', function() {
+        const searchTerm = this.value.toLowerCase();
+        
+        announcements.forEach(ann => {
+          const title = ann.querySelector('.announcement-title').textContent.toLowerCase();
+          const text = ann.querySelector('.announcement-text').textContent.toLowerCase();
+          
+          if (title.includes(searchTerm) || text.includes(searchTerm)) {
+            ann.style.display = 'block';
+          } else {
+            ann.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+    <script src="update-styles.js"></script>
+</body>
+</html>
+

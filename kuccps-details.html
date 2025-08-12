@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en" class="dark-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KUCCPS University Placement Details - Check Your University Placement and Course Selection">
+    <title>KUCCPS Details - University Placement Information</title>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+  <style>
+        /* Force dark theme */
+        html.dark-theme {
+            background-color: #030711 !important;
+        }
+
+        html.dark-theme body {
+            background-color: #030711 !important;
+        }
+
+        :root {
+            /* Enhanced color palette with deeper tech colors */
+            --primary: #00ff88;
+            --primary-dark: #00cc6a;
+            --primary-light: #33ff9d;
+            --primary-glow: rgba(0, 255, 136, 0.2);
+            --secondary: #0ef;
+            --secondary-dark: #00b3cc;
+            --secondary-glow: rgba(0, 238, 255, 0.2);
+            --accent: #f0f;
+            --accent-glow: rgba(255, 0, 255, 0.2);
+            --background: #030711;
+            --surface: #0a0f1a;
+            --surface-light: #111827;
+            --surface-dark: #050a14;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.85);
+            --text-muted: rgba(255, 255, 255, 0.6);
+            
+            /* Enhanced UI elements */
+            --card-bg: rgba(10, 15, 26, 0.85);
+            --card-hover: rgba(17, 24, 39, 0.95);
+            --border: rgba(255, 255, 255, 0.1);
+            --border-hover: rgba(255, 255, 255, 0.2);
+            --input-bg: rgba(10, 15, 26, 0.8);
+            --input-border: rgba(255, 255, 255, 0.1);
+            --input-focus: rgba(0, 255, 136, 0.3);
+            
+            /* Enhanced Neon Effects */
+            --neon-primary: 0 0 10px rgba(0, 255, 136, 0.7),
+                            0 0 20px rgba(0, 255, 136, 0.5),
+                            0 0 30px rgba(0, 255, 136, 0.3);
+            --neon-secondary: 0 0 10px rgba(0, 238, 255, 0.7),
+                              0 0 20px rgba(0, 238, 255, 0.5),
+                              0 0 30px rgba(0, 238, 255, 0.3);
+            
+            /* Refined shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.25);
+            --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.35);
+            
+            /* Modern radius scale */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            
+            /* Layout constants */
+            --max-width: 1200px;
+            --content-width: 800px;
+            --header-height: 80px;
+            
+            /* Animation variables */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Spacing scale */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            
+            /* Typography scale */
+            --font-xs: 0.75rem;
+            --font-sm: 0.875rem;
+            --font-base: 1rem;
+            --font-lg: 1.125rem;
+            --font-xl: 1.25rem;
+            --font-2xl: 1.5rem;
+            --font-3xl: 1.875rem;
+            --font-4xl: 2.25rem;
+        }
+
+        /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            height: 100%;
+    }
+    
+    body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--background), var(--surface-dark)) !important;
+      color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100%;
+      overflow-x: hidden;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+            will-change: transform;
+        }
+
+        /* Enhanced Background Effects */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+            right: 0;
+            bottom: 0;
+      background: 
+                radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+      z-index: -1;
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
+    }
+    
+        /* Container */
+    .container {
+            max-width: var(--max-width);
+            margin: var(--space-8) auto;
+            padding: 0 var(--space-4);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(10, 15, 26, 0.95) !important;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: var(--space-12);
+      text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: var(--space-8);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(
+                circle at top right,
+                var(--primary-light) 0%,
+                transparent 70%
+            );
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .header__content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header__title {
+            font-size: clamp(var(--font-3xl), 5vw, var(--font-4xl));
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+            margin-bottom: var(--space-4);
+            line-height: 1.2;
+    }
+    
+        .header__subtitle {
+            font-size: clamp(var(--font-base), 2vw, var(--font-xl));
+      color: var(--text-secondary);
+            max-width: var(--content-width);
+            margin: 0 auto;
+        }
+
+        /* Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+            margin-bottom: var(--space-8);
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-6);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                var(--primary) 0%, 
+                var(--accent) 50%, 
+                var(--secondary) 100%
+            );
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-normal);
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .info-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .info-card__icon {
+            font-size: var(--font-2xl);
+            color: var(--primary);
+            margin-bottom: var(--space-4);
+        }
+
+        .info-card__title {
+            font-size: var(--font-xl);
+            font-weight: 600;
+      color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+
+        .info-card__content {
+            color: var(--text-secondary);
+            font-size: var(--font-base);
+            line-height: 1.6;
+        }
+
+        /* Course Selection Section */
+        .course-section {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-8);
+            margin-bottom: var(--space-8);
+        }
+
+        .course-section__title {
+            font-size: var(--font-2xl);
+            font-weight: 600;
+            color: var(--primary-light);
+            margin-bottom: var(--space-6);
+      display: flex;
+      align-items: center;
+            gap: var(--space-2);
+        }
+
+        .course-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .course-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: var(--space-4);
+            margin-bottom: var(--space-4);
+            transition: all var(--transition-normal);
+        }
+
+        .course-item:hover {
+            transform: translateX(var(--space-2));
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-md);
+        }
+
+        .course-item__title {
+            font-size: var(--font-lg);
+      font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+        }
+
+        .course-item__details {
+            color: var(--text-secondary);
+            font-size: var(--font-sm);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: var(--space-8);
+            margin: var(--space-8) 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--space-6);
+            padding-left: var(--space-6);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -11px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--surface);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+        }
+
+        .timeline-item__title {
+            font-size: var(--font-lg);
+      font-weight: 600;
+            color: var(--primary-light);
+            margin-bottom: var(--space-2);
+        }
+
+        .timeline-item__content {
+            color: var(--text-secondary);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+      display: flex;
+            gap: var(--space-4);
+            margin-top: var(--space-8);
+      flex-wrap: wrap;
+            justify-content: center;
+    }
+    
+    .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-3) var(--space-6);
+            font-size: var(--font-base);
+      font-weight: 600;
+            border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+            transition: all var(--transition-normal);
+            gap: var(--space-2);
+            text-decoration: none;
+      position: relative;
+      overflow: hidden;
+        }
+
+        .btn::before {
+      content: '';
+      position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+
+        .btn:hover::before {
+            opacity: 1;
+        }
+
+        .btn--primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn--primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn--secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn--secondary:hover {
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                margin: var(--space-4);
+                padding: 0;
+            }
+
+            .header {
+                padding: var(--space-6);
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-section {
+                padding: var(--space-4);
+            }
+
+            .action-buttons {
+      flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Course Revision Form Styles */
+        .course-revision-form {
+            margin: 2rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .course-revision-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .form-container {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .form-container:hover {
+            box-shadow: var(--shadow-xl);
+            border-color: var(--border-hover);
+        }
+
+        .form-title {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-label.required::after {
+            content: '*';
+            color: var(--error);
+            margin-left: 0.25rem;
+        }
+
+        .input-icon-wrapper {
+            position: relative;
+            display: flex;
+        align-items: center;
+      }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 0.75rem;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            pointer-events: none;
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+
+        textarea.form-input {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-checkbox {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-top: 0.25rem;
+        }
+
+        .form-checkbox-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .form-checkbox-label a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .form-checkbox-label a:hover {
+            text-decoration: underline;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        @media (max-width: 768px) {
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .form-actions .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="dark-tech-theme">
+    <div class="tech-background"></div>
+    <div class="tech-grid"></div>
+    
+    <div class="container">
+        <header class="header">
+            <div class="header__content">
+                <h1 class="header__title">KUCCPS University Placement</h1>
+                <p class="header__subtitle">Access your university placement details and course selection information. Make informed decisions about your academic future.</p>
+          </div>
+        </header>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-university info-card__icon"></i>
+                <h2 class="info-card__title">University Placement</h2>
+                <p class="info-card__content">Check your university placement status and view the institution you've been placed in.</p>
+        </div>
+        
+            <div class="info-card">
+                <i class="fas fa-graduation-cap info-card__icon"></i>
+                <h2 class="info-card__title">Course Selection</h2>
+                <p class="info-card__content">Review your course selection and explore available programs based on your qualifications.</p>
+        </div>
+        
+            <div class="info-card">
+                <i class="fas fa-calendar-check info-card__icon"></i>
+                <h2 class="info-card__title">Important Dates</h2>
+                <p class="info-card__content">Stay updated with key dates for course revision, acceptance, and university reporting.</p>
+        </div>
+      </div>
+
+        <section class="course-section">
+            <h2 class="course-section__title">
+                <i class="fas fa-list-check"></i>
+                Available Courses
+            </h2>
+            <ul class="course-list">
+                <li class="course-item">
+                    <h3 class="course-item__title">Bachelor of Science in Computer Science</h3>
+                    <p class="course-item__details">
+                        <i class="fas fa-building"></i> University of Thika<br>
+                        <i class="fas fa-clock"></i> Duration: 4 Years<br>
+                        <i class="fas fa-star"></i> Cluster Points: 45.5
+                    </p>
+                </li>
+                <li class="course-item">
+                    <h3 class="course-item__title">Bachelor of Commerce</h3>
+                    <p class="course-item__details">
+                        <i class="fas fa-building"></i> Kenyatta University<br>
+                        <i class="fas fa-clock"></i> Duration: 4 Years<br>
+                        <i class="fas fa-star"></i> Cluster Points: 43.2
+                    </p>
+                </li>
+                <li class="course-item">
+                    <h3 class="course-item__title">Bachelor of Education</h3>
+                    <p class="course-item__details">
+                        <i class="fas fa-building"></i> Moi University<br>
+                        <i class="fas fa-clock"></i> Duration: 4 Years<br>
+                        <i class="fas fa-star"></i> Cluster Points: 40.8
+                    </p>
+                </li>
+        </ul>
+    </section>
+
+        <section class="timeline">
+        <div class="timeline-item">
+                <h3 class="timeline-item__title">Course Selection Opens</h3>
+                <p class="timeline-item__content">First revision window for course selection begins. Review and update your choices.</p>
+          </div>
+        <div class="timeline-item">
+                <h3 class="timeline-item__title">Placement Results</h3>
+                <p class="timeline-item__content">University placement results are announced. Check your placement status.</p>
+          </div>
+        <div class="timeline-item">
+                <h3 class="timeline-item__title">University Reporting</h3>
+                <p class="timeline-item__content">Successful candidates report to their respective universities for admission.</p>
+      </div>
+    </section>
+
+        <section class="course-revision-form" id="courseRevisionForm" style="display: none;">
+            <div class="form-container">
+                <h2 class="form-title">
+                    <i class="fas fa-edit"></i>
+                    Course Revision Application
+</h2>
+                <p class="form-description">Fill out this form to apply for a course revision. Please ensure all information is accurate before submission.</p>
+
+                <form id="revisionForm" class="revision-form" action="https://formspree.io/f/xrbkpajr" method="POST">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="fullName" class="form-label required">Full Name</label>
+                            <div class="input-icon-wrapper">
+                                <input type="text" id="fullName" name="Full Name" class="form-input" placeholder="Enter your full name" required>
+                                <i class="fas fa-user input-icon"></i>
+  </div>
+</div>
+
+                        <div class="form-group">
+                            <label for="kcseIndex" class="form-label required">KCSE Index Number</label>
+                            <div class="input-icon-wrapper">
+                                <input type="text" id="kcseIndex" name="KCSE Index Number" class="form-input" placeholder="Enter your KCSE index number" required>
+                                <i class="fas fa-id-card input-icon"></i>
+  </div>
+  </div>
+</div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="currentCourse" class="form-label required">Current Course</label>
+                            <div class="input-icon-wrapper">
+                                <input type="text" id="currentCourse" name="Current Course" class="form-input" placeholder="Enter your current course" required>
+                                <i class="fas fa-graduation-cap input-icon"></i>
+  </div>
+</div>
+
+                        <div class="form-group">
+                            <label for="currentInstitution" class="form-label required">Current Institution</label>
+                            <div class="input-icon-wrapper">
+                                <input type="text" id="currentInstitution" name="Current Institution" class="form-input" placeholder="Enter your current institution" required>
+                                <i class="fas fa-university input-icon"></i>
+  </div>
+  </div>
+</div>
+
+                    <div class="form-group">
+                        <label for="preferredCourses" class="form-label required">Preferred Courses (in order of preference)</label>
+                        <div class="input-icon-wrapper">
+                            <input type="text" id="preferredCourse1" name="Preferred Course 1" class="form-input" placeholder="1st Choice" required>
+                            <i class="fas fa-star input-icon"></i>
+  </div>
+                        <div class="input-icon-wrapper mt-2">
+                            <input type="text" id="preferredCourse2" name="Preferred Course 2" class="form-input" placeholder="2nd Choice" required>
+                            <i class="fas fa-star-half-alt input-icon"></i>
+  </div>
+                        <div class="input-icon-wrapper mt-2">
+                            <input type="text" id="preferredCourse3" name="Preferred Course 3" class="form-input" placeholder="3rd Choice" required>
+                            <i class="fas fa-star-half input-icon"></i>
+  </div>
+</div>
+
+                    <div class="form-group">
+                        <label for="revisionReason" class="form-label required">Reason for Revision</label>
+                        <div class="input-icon-wrapper">
+                            <textarea id="revisionReason" name="Revision Reason" class="form-input" rows="4" placeholder="Please explain why you want to revise your course" required></textarea>
+                            <i class="fas fa-comment input-icon"></i>
+  </div>
+</div>
+
+                    <div class="form-checkbox-group">
+                        <input type="checkbox" id="declaration" name="declaration" class="form-checkbox" required>
+                        <label for="declaration" class="form-checkbox-label">
+                            I declare that all information provided is true and accurate
+                        </label>
+</div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn--primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Revision Request
+                        </button>
+                        <button type="button" class="btn btn--secondary" onclick="hideRevisionForm()">
+                            <i class="fas fa-times"></i>
+                            Cancel
+                        </button>
+  </div>
+                </form>
+  </div>
+        </section>
+
+        <div class="action-buttons">
+            <button type="button" class="btn btn--primary" id="showRevisionForm">
+                <i class="fas fa-edit"></i>
+                Apply for Course Revision
+            </button>
+            <a href="help.html" class="btn btn--secondary">
+                <i class="fas fa-question-circle"></i>
+                Need Help?
+            </a>
+  </div>
+</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Enhanced scroll animations with performance optimization
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: [0.1, 0.5, 1.0]
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Calculate animation delay based on element position
+                        const delay = entry.target.dataset.animationDelay || 0;
+                        
+                        // Apply animations with hardware acceleration
+                        requestAnimationFrame(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translate3d(0, 0, 0)';
+                            entry.target.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${delay}s`;
+                        });
+                        
+                        // Stop observing after animation
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Initialize animations with performance optimizations
+            function initializeAnimations() {
+                const elements = document.querySelectorAll('.info-card, .course-item, .timeline-item');
+                elements.forEach((el, index) => {
+                    // Set initial state with hardware acceleration
+                    el.style.opacity = '0';
+                    el.style.transform = 'translate3d(0, 20px, 0)';
+                    el.style.willChange = 'transform, opacity';
+                    
+                    // Calculate staggered delay
+                    const delay = Math.min(index * 0.1, 0.5);
+                    el.dataset.animationDelay = delay;
+                    
+                    // Start observing
+                    observer.observe(el);
+                });
+            }
+
+            // Enhanced hover effects with performance optimization
+            function initializeHoverEffects() {
+                const courseItems = document.querySelectorAll('.course-item');
+                const infoCards = document.querySelectorAll('.info-card');
+                
+                // Optimize hover animations
+                function applyHoverEffect(element, transform) {
+                    requestAnimationFrame(() => {
+                        element.style.transform = transform;
+                    });
+                }
+                
+                // Course items hover
+                courseItems.forEach(item => {
+                    item.addEventListener('mouseenter', () => {
+                        applyHoverEffect(item, 'translate3d(0.5rem, 0, 0)');
+                    });
+                    item.addEventListener('mouseleave', () => {
+                        applyHoverEffect(item, 'translate3d(0, 0, 0)');
+                    });
+                });
+                
+                // Info cards hover
+                infoCards.forEach(card => {
+                    card.addEventListener('mouseenter', () => {
+                        applyHoverEffect(card, 'translate3d(0, -4px, 0)');
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        applyHoverEffect(card, 'translate3d(0, 0, 0)');
+                    });
+                });
+            }
+
+            // Timeline animation
+            function initializeTimeline() {
+                const timelineItems = document.querySelectorAll('.timeline-item');
+                timelineItems.forEach((item, index) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translate3d(-20px, 0, 0)';
+                    item.dataset.animationDelay = index * 0.2;
+                    observer.observe(item);
+                });
+            }
+
+            // Scroll progress indicator
+            function initializeScrollProgress() {
+                const progressBar = document.createElement('div');
+                progressBar.className = 'scroll-progress';
+                progressBar.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 0%;
+                    height: 3px;
+                    background: linear-gradient(90deg, var(--primary), var(--accent));
+                    z-index: 1000;
+                    transition: width 0.2s ease;
+                `;
+                document.body.appendChild(progressBar);
+
+                // Update progress bar efficiently
+                let ticking = false;
+                window.addEventListener('scroll', () => {
+                    if (!ticking) {
+                        requestAnimationFrame(() => {
+                            const winScroll = document.documentElement.scrollTop;
+                            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                            const scrolled = (winScroll / height) * 100;
+                            progressBar.style.width = scrolled + '%';
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                });
+            }
+
+            // Enhanced cleanup function
+            function cleanup() {
+                observer.disconnect();
+                
+                // Remove event listeners
+                const elements = document.querySelectorAll('.course-item, .info-card');
+                elements.forEach(el => {
+                    el.removeEventListener('mouseenter', null);
+                    el.removeEventListener('mouseleave', null);
+                });
+                
+                // Reset styles
+                elements.forEach(el => {
+                    el.style.transform = '';
+                    el.style.transition = '';
+                    el.style.willChange = 'auto';
+                });
+            }
+
+            // Initialize all features
+            initializeAnimations();
+            initializeHoverEffects();
+            initializeTimeline();
+            initializeScrollProgress();
+
+            // Course Revision Form Functionality
+            const revisionForm = document.getElementById('courseRevisionForm');
+            const applyButton = document.getElementById('showRevisionForm');
+            const form = document.getElementById('revisionForm');
+
+            // Show form when Apply button is clicked
+            applyButton.addEventListener('click', () => {
+                revisionForm.style.display = 'block';
+                setTimeout(() => {
+                    revisionForm.classList.add('visible');
+                    // Smooth scroll to form
+                    revisionForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 50);
+            });
+
+            // Hide form function
+            window.hideRevisionForm = () => {
+                revisionForm.classList.remove('visible');
+                setTimeout(() => {
+                    revisionForm.style.display = 'none';
+                }, 300);
+            };
+
+            // Form validation and submission
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                // Basic form validation
+                const requiredFields = form.querySelectorAll('[required]');
+                let isValid = true;
+
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.classList.add('invalid');
+                    } else {
+                        field.classList.remove('invalid');
+                    }
+                });
+
+                if (!isValid) {
+                    return;
+                }
+
+                // Disable submit button and show loading state
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        // Show success message
+                        form.reset();
+                        const successMessage = document.createElement('div');
+                        successMessage.className = 'form-success';
+                        successMessage.innerHTML = `
+                            <i class="fas fa-check-circle"></i>
+                            <span>Your course revision request has been submitted successfully!</span>
+                        `;
+                        form.appendChild(successMessage);
+
+                        // Hide form after 3 seconds
+                        setTimeout(() => {
+                            hideRevisionForm();
+                            successMessage.remove();
+                        }, 3000);
+                    } else {
+                        throw new Error('Submission failed');
+                    }
+                } catch (error) {
+                    // Show error message
+                    const errorMessage = document.createElement('div');
+                    errorMessage.className = 'form-error';
+                    errorMessage.innerHTML = `
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span>An error occurred. Please try again later.</span>
+                    `;
+                    form.appendChild(errorMessage);
+
+                    setTimeout(() => {
+                        errorMessage.remove();
+                    }, 3000);
+                } finally {
+                    // Reset submit button
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }
+            });
+
+            // Real-time validation
+            const inputs = form.querySelectorAll('.form-input');
+            inputs.forEach(input => {
+                input.addEventListener('blur', () => {
+                    if (input.hasAttribute('required') && !input.value.trim()) {
+                        input.classList.add('invalid');
+                    } else {
+                        input.classList.remove('invalid');
+                    }
+                });
+
+                input.addEventListener('input', () => {
+                    if (input.classList.contains('invalid')) {
+                        input.classList.remove('invalid');
+                    }
+                });
+            });
+
+            // Handle page visibility and cleanup
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    cleanup();
+                } else {
+                    // Reinitialize when page becomes visible again
+                    initializeAnimations();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

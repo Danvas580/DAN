@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUCCPS Application - DAN TECH</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Enhanced tech theme styles for KUCCPS page */
+        .page-container {
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-primary);
+        }
+
+        .page-container::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(100, 255, 218, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 118, 118, 0.08) 0%, transparent 50%);
+            animation: backgroundPulse 15s ease infinite alternate;
+            z-index: -1;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            background: rgba(17, 34, 64, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(100, 255, 218, 0.1);
+            animation: containerGlow 3s ease-in-out infinite alternate;
+        }
+
+        .form-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+        }
+
+        .form-description {
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-icon-wrapper {
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .input-icon-wrapper:focus-within {
+            transform: translateY(-2px);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 2.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            border-radius: 12px;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-primary);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus + .input-icon {
+            color: var(--accent-secondary);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+            border: none;
+            border-radius: 12px;
+            color: var(--bg-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-submit-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: buttonGlow 2s linear infinite;
+        }
+
+        .form-submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+        }
+
+        .form-checkbox-group {
+            margin: 2rem 0;
+        }
+
+        .form-checkbox {
+            position: relative;
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 2px solid var(--accent-primary);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-checkbox:checked {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .form-checkbox:checked::before {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--bg-primary);
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .form-success {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid #10b981;
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            animation: successGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes backgroundPulse {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes containerGlow {
+            0% { box-shadow: 0 0 20px rgba(100, 255, 218, 0.1); }
+            100% { box-shadow: 0 0 40px rgba(100, 255, 218, 0.2); }
+        }
+
+        @keyframes buttonGlow {
+            0% { transform: rotate(45deg) translateX(-100%); }
+            100% { transform: rotate(45deg) translateX(100%); }
+        }
+
+        @keyframes successGlow {
+            0% { box-shadow: 0 0 10px rgba(16, 185, 129, 0.2); }
+            100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .page-container {
+                padding: 1rem;
+            }
+
+            .form-container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+
+            .form-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="form-container" data-aos="fade-up">
+            <h1 class="form-title">KUCCPS Application</h1>
+            <p class="form-description">Fill out the form below to submit your KUCCPS application request. Our team will process your request within 24 hours.</p>
+            
+            <form id="kuccpsForm" action="https://formspree.io/f/xrbkpajr" method="POST" class="application-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="fullName" class="form-label required">Full Name</label>
+                        <div class="input-icon-wrapper">
+                            <input type="text" id="fullName" name="Full Name" class="form-input" placeholder="Enter your full name" required>
+                            <i class="fas fa-user input-icon"></i>
+                        </div>
+                        <span class="form-error">Please enter your full name</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="form-label required">Phone Number</label>
+                        <div class="input-icon-wrapper">
+                            <input type="tel" id="phone" name="Phone Number" class="form-input" placeholder="+254 XXX XXX XXX" required pattern="^\\+254[0-9]{9}$">
+                            <i class="fas fa-phone input-icon"></i>
+                        </div>
+                        <span class="form-error">Please enter a valid Kenyan phone number</span>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="email" class="form-label required">Email Address</label>
+                        <div class="input-icon-wrapper">
+                            <input type="email" id="email" name="Email Address" class="form-input" placeholder="your.email@example.com" required>
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+                        <span class="form-error">Please enter a valid email address</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="kcseIndex" class="form-label required">KCSE Index Number</label>
+                        <div class="input-icon-wrapper">
+                            <input type="text" id="kcseIndex" name="KCSE Index Number" class="form-input" placeholder="Enter your KCSE index number" required>
+                            <i class="fas fa-id-card input-icon"></i>
+                        </div>
+                        <span class="form-error">Please enter your KCSE index number</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="idNumber" class="form-label">ID Number</label>
+                    <div class="input-icon-wrapper">
+                        <input type="text" id="idNumber" name="ID Number" class="form-input" placeholder="National ID Number (Optional)">
+                        <i class="fas fa-address-card input-icon"></i>
+                    </div>
+                </div>
+
+                <div class="form-checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" class="form-checkbox" required>
+                    <label for="terms" class="form-checkbox-label">
+                        I agree to the <a href="terms.html">Terms & Conditions</a> and <a href="privacy.html">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <input type="hidden" name="_subject" value="New KUCCPS Request Application from DAN TECH">
+                
+                <button type="submit" class="form-submit-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    Submit Application
+                </button>
+            </form>
+
+            <div id="successMessage" class="form-success" style="display: none;">
+                <i class="fas fa-check-circle"></i>
+                <span>Your application has been submitted successfully! We'll contact you shortly.</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="update-styles.js"></script>
+    <script src="dark-theme.js"></script>
+    <script>
+        // Form validation and enhancement
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('kuccpsForm');
+            const successMessage = document.getElementById('successMessage');
+
+            // Phone number formatting
+            const phoneInput = document.getElementById('phone');
+            phoneInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\\D/g, '');
+                if (value.startsWith('254')) {
+                    value = '+' + value;
+                } else if (value.startsWith('0')) {
+                    value = '+254' + value.substring(1);
+                } else if (value.length > 0 && !value.startsWith('254')) {
+                    value = '+254' + value;
+                }
+                e.target.value = value;
+            });
+
+            // Form submission
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Add loading state
+                form.classList.add('form-loading');
+                
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        form.reset();
+                        form.style.display = 'none';
+                        successMessage.style.display = 'flex';
+                    } else {
+                        throw new Error('Submission failed');
+                    }
+                } catch (error) {
+                    alert('There was an error submitting your application. Please try again.');
+                } finally {
+                    form.classList.remove('form-loading');
+                }
+            });
+
+            // Real-time validation feedback
+            const inputs = form.querySelectorAll('.form-input[required]');
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    if (!this.value.trim()) {
+                        this.classList.add('invalid');
+                    } else {
+                        this.classList.remove('invalid');
+                    }
+                });
+
+                input.addEventListener('input', function() {
+                    if (this.classList.contains('invalid')) {
+                        if (this.value.trim()) {
+                            this.classList.remove('invalid');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DAN TECH - Professional Tech Solutions</title>
+  <meta name="description" content="DAN TECH offers professional tech services including logo design, graphic design, online applications, and cyber services." />
+  <meta name="author" content="DAN TECH" />
+  <link rel="icon" type="image/png" href="dan-tech-logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #64748b;
+      --accent: #f59e0b;
+      --success: #10b981;
+      --danger: #ef4444;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-300: #cbd5e1;
+      --gray-400: #94a3b8;
+      --gray-500: #64748b;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-800: #1e293b;
+      --gray-900: #0f172a;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      --border-radius: 8px;
+      --border-radius-lg: 12px;
+      --border-radius-xl: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--gray-800);
+      background-color: var(--white);
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Header */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--gray-900);
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav ul li a {
+      color: var(--gray-600);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      padding: 0.5rem 0;
+    }
+
+    nav ul li a:hover {
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--primary-dark);
+    }
+
+    .mobile-menu {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--gray-600);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero .subtitle {
+      font-size: 1.25rem;
+      color: var(--gray-600);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.875rem 2rem;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--gray-700);
+      border: 1px solid var(--gray-300);
+    }
+
+    .btn-secondary:hover {
+      background: var(--gray-50);
+      border-color: var(--gray-400);
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      font-size: 1.125rem;
+      color: var(--gray-600);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* About Section */
+    .about {
+      background: var(--gray-50);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 1.875rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 1rem;
+    }
+
+    .about-text p {
+      color: var(--gray-600);
+      margin-bottom: 1.5rem;
+      font-size: 1.125rem;
+    }
+
+    .ceo-profile {
+      text-align: center;
+    }
+
+    .ceo-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 4px solid var(--white);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .ceo-name {
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 0.5rem;
+    }
+
+    .ceo-title {
+      color: var(--gray-600);
+      font-size: 0.875rem;
+    }
+
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--border-radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid var(--gray-200);
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-card img {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--border-radius);
+      margin-bottom: 1.5rem;
+      object-fit: contain;
+      background: var(--gray-100);
+      padding: 0.5rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card p {
+      color: var(--gray-600);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .service-card .btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Download Section */
+    .download {
+      background: var(--gray-50);
+      text-align: center;
+    }
+
+    .download-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .download-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--gray-600);
+    }
+
+    .feature-item i {
+      color: var(--success);
+      font-size: 1.25rem;
+    }
+
+    /* Contact Section */
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .contact-info h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      color: var(--gray-600);
+    }
+
+    .contact-item i {
+      color: var(--primary);
+      width: 20px;
+    }
+
+    .contact-item a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-form {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--gray-200);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--gray-700);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--gray-300);
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgb(37 99 235 / 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--gray-900);
+      color: var(--gray-300);
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--white);
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section ul li a {
+      color: var(--gray-400);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-section ul li a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--gray-800);
+      padding-top: 1.5rem;
+      text-align: center;
+      color: var(--gray-400);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu {
+        display: block;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1.125rem;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .download-features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .section-header h2 {
+        font-size: 2rem;
+      }
+
+      .download-features {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 0.75rem;
+      }
+
+      section {
+        padding: 2rem 0;
+      }
+
+      .section-header h2 {
+        font-size: 1.75rem;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1rem;
+      }
+
+      .about-text h3 {
+        font-size: 1.5rem;
+      }
+
+      .service-card {
+        padding: 1.5rem;
+      }
+
+      .contact-form {
+        padding: 1.5rem;
+      }
+
+      .navbar {
+        padding: 0.75rem 0;
+      }
+
+      .logo {
+        font-size: 1.25rem;
+      }
+
+      .logo img {
+        width: 32px;
+        height: 32px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+
+      .section-header h2 {
+        font-size: 1.5rem;
+      }
+
+      .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+      }
+    }
+
+    /* Animation Classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s ease-out;
+    }
+
+    .slide-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease-out;
+    }
+
+    .slide-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.8s ease-out;
+    }
+
+    .scale-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .glow-text {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .glow-text.visible {
+      text-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+    }
+
+    .glow-text.visible:hover {
+      text-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+    }
+
+    /* Stagger animation delays */
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+    <div class="navbar">
+        <a href="index.html" class="logo">
+          <img src="ceo photo.jpg" alt="DAN TECH Logo" />
+          <span>DAN TECH</span>
+      </a>
+      <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+            <li><a href="staff-login.html" class="nav-cta">Staff Login</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+      <div class="hero-content">
+          <h1 class="fade-in glow-text">Professional Tech Solutions</h1>
+          <p class="subtitle fade-in stagger-1">
+            Empowering individuals and businesses through innovative technology, skill-building, and reliable support. 
+            We deliver cutting-edge solutions that transform businesses and empower individuals in the digital age.
+          </p>
+          <div class="cta-buttons fade-in stagger-2">
+            <a href="#services" class="btn btn-primary">Explore Services</a>
+            <a href="#contact" class="btn btn-secondary">Get Started</a>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="glow-text">About DAN TECH</h2>
+          <p>We are dedicated to empowering individuals and businesses through innovative technology solutions and comprehensive support services.</p>
+      </div>
+        <div class="about-content">
+          <div class="about-text slide-in-left">
+            <h3 class="glow-text">Our Mission</h3>
+            <p>
+              DAN TECH is committed to providing cutting-edge technology solutions that drive business growth and personal development. 
+              We combine innovation, expertise, and reliable support to help our clients achieve their goals in the digital landscape.
+            </p>
+            <p>
+              From online services to technical training, we offer comprehensive solutions designed to meet the evolving needs of 
+              modern businesses and individuals seeking to enhance their technological capabilities.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem;">
+              <div style="text-align: center;" class="scale-in stagger-1">
+                <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">1000+</div>
+                <div style="color: var(--gray-600); font-size: 0.875rem;">Clients Served</div>
+      </div>
+              <div style="text-align: center;" class="scale-in stagger-2">
+                <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">5+</div>
+                <div style="color: var(--gray-600); font-size: 0.875rem;">Years Experience</div>
+      </div>
+            </div>
+          </div>
+          <div class="ceo-profile slide-in-right">
+            <img src="ceo photo.jpg" alt="DAN TECH, CEO" class="ceo-photo" />
+            <div class="ceo-name glow-text">DAN TECH</div>
+            <div class="ceo-title">Chief Executive Officer</div>
+            <p style="color: var(--gray-600); margin-top: 1rem; font-size: 0.875rem;">
+              "We don't just do tech - we empower futures. At DAN TECH, we combine innovation, skill-building, and reliable support to fuel your goals in technology, learning, and business transformation."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="glow-text">Our Services</h2>
+          <p>Comprehensive technology solutions designed to meet your business and personal development needs.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card scale-in stagger-1">
+            <img src="cyber.png" alt="Cyber Services" />
+            <h3 class="glow-text">Online Cyber Services</h3>
+            <p>Access KUCCPS, KRA, HELB and more government services online with our secure and efficient platform.</p>
+            <a href="online-cyber.html" class="btn btn-primary">Learn More</a>
+        </div>
+          <div class="service-card scale-in stagger-2">
+            <img src="learning.png" alt="Learning Hub" />
+            <h3 class="glow-text">Computer Learning Hub</h3>
+            <p>Take industry-relevant computer courses and grow your skills with our comprehensive training programs.</p>
+            <a href="computer-learning-hub.html" class="btn btn-primary">View Courses</a>
+        </div>
+          <div class="service-card scale-in stagger-3">
+            <img src="business.png" alt="Business Solutions" />
+            <h3 class="glow-text">Digital Business Solutions</h3>
+            <p>Get modern business tech tools, designs, and strategies to transform your business operations.</p>
+            <a href="digital-business-solutions.html" class="btn btn-primary">Explore Solutions</a>
+        </div>
+          <div class="service-card scale-in stagger-4">
+            <img src="repair.png" alt="Tech Repair" />
+            <h3 class="glow-text">Tech Repair & Maintenance</h3>
+            <p>Professional repair and maintenance services for all your technology devices with expert care.</p>
+            <a href="tech-repair.html" class="btn btn-primary">Get Service</a>
+      </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="download" id="download">
+      <div class="container">
+        <div class="download-content">
+          <div class="section-header fade-in">
+            <h2 class="glow-text">Download Our App</h2>
+            <p>Get instant access to all DAN TECH services with our mobile application.</p>
+          </div>
+          <a href="DanTechApp.apk" class="btn btn-primary scale-in stagger-1" download style="font-size: 1.125rem; padding: 1rem 2rem;">
+            <i class="fas fa-download" style="margin-right: 0.5rem;"></i>
+            Download DAN TECH App
+          </a>
+      <div class="download-features">
+            <div class="feature-item fade-in stagger-1">
+              <i class="fas fa-bolt"></i>
+              <span>Fast & Secure Access</span>
+        </div>
+            <div class="feature-item fade-in stagger-2">
+              <i class="fas fa-user-friends"></i>
+              <span>User-Friendly Interface</span>
+      </div>
+            <div class="feature-item fade-in stagger-3">
+              <i class="fas fa-sync"></i>
+              <span>Regular Updates</span>
+      </div>
+            <div class="feature-item fade-in stagger-4">
+              <i class="fas fa-headset"></i>
+              <span>24/7 Support</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="glow-text">Contact Us</h2>
+          <p>Get in touch with us for any inquiries or to start your project.</p>
+      </div>
+        <div class="contact-content">
+          <div class="contact-info slide-in-left">
+            <h3 class="glow-text">Get In Touch</h3>
+            <div class="contact-item fade-in stagger-1">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:danvasm5@gmail.com">danvasm5@gmail.com</a>
+            </div>
+            <div class="contact-item fade-in stagger-2">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+254788065983">+254 788 065 983</a>
+            </div>
+            <div class="contact-item fade-in stagger-3">
+              <i class="fas fa-phone"></i>
+              <a href="tel:+254798691303">+254 798 691 303</a>
+            </div>
+            <div class="contact-item fade-in stagger-4">
+              <i class="fas fa-globe"></i>
+              <a href="https://dan techplus.com" target="_blank">www.dan techplus.com</a>
+            </div>
+            <div class="contact-item fade-in stagger-4">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Nairobi, Kenya</span>
+            </div>
+          </div>
+          <form class="contact-form slide-in-right" action="send.php" method="POST">
+            <div class="form-group fade-in stagger-1">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group fade-in stagger-2">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group fade-in stagger-3">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary fade-in stagger-4" style="width: 100%;">Send Message</button>
+      </form>
+      </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>DAN TECH</h3>
+          <p>Empowering individuals and businesses through technology and innovation.</p>
+          </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+      </div>
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="online-cyber.html">Online Cyber Services</a></li>
+            <li><a href="computer-learning-hub.html">Computer Learning Hub</a></li>
+            <li><a href="digital-business-solutions.html">Digital Business Solutions</a></li>
+            <li><a href="tech-repair.html">Tech Repair & Maintenance</a></li>
+        </ul>
+      </div>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <ul>
+            <li><a href="tel:+254788065983">+254 788 065 983</a></li>
+            <li><a href="mailto:danvasm5@gmail.com">danvasm5@gmail.com</a></li>
+            <li>Nairobi, Kenya</li>
+        </ul>
+      </div>
+        </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 DAN TECH. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const nav = document.querySelector('nav ul');
+      
+      mobileMenu.addEventListener('click', function() {
+        nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // Contact form handling
+      const contactForm = document.querySelector('.contact-form');
+      if (contactForm) {
+        // Check for success message in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+          // Show success message
+          const successMessage = document.createElement('div');
+          successMessage.className = 'success-message';
+          successMessage.innerHTML = '<i class="fas fa-check-circle"></i> Thank you for your message! We will get back to you soon.';
+          successMessage.style.cssText = 'background: #10b981; color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;';
+          contactForm.parentNode.insertBefore(successMessage, contactForm);
+          
+          // Remove success parameter from URL
+          window.history.replaceState({}, document.title, window.location.pathname);
+        }
+      }
+
+      // Scroll-triggered animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all animated elements
+      const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in, .glow-text');
+      animatedElements.forEach(el => {
+        observer.observe(el);
+      });
+
+      // Trigger initial animations for hero section
+      setTimeout(() => {
+        const heroElements = document.querySelectorAll('.hero .fade-in, .hero .glow-text');
+        heroElements.forEach(el => {
+          el.classList.add('visible');
+        });
+      }, 100);
+
+      // Enhanced mobile menu for better responsive behavior
+      const handleResize = () => {
+        if (window.innerWidth > 768) {
+          nav.style.display = 'flex';
+      } else {
+          nav.style.display = 'none';
+        }
+      };
+
+      window.addEventListener('resize', handleResize);
+      handleResize(); // Initial call
+    });
+
+    // Performance optimization: Throttle scroll events
+    let ticking = false;
+    function updateAnimations() {
+      ticking = false;
+      // Additional scroll-based animations can be added here
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        requestAnimationFrame(updateAnimations);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', requestTick);
+  </script>
+</body>
+</html>
+
+

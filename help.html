@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support - DAN TECH</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+      :root {
+        --gradient-start: #0d1117;
+        --gradient-mid: #161b22;
+        --gradient-end: #1a1f29;
+        --primary: #3b82f6;
+        --primary-dark: #1d4ed8;
+        --text-primary: #e6e6e6;
+        --text-secondary: #94a3b8;
+        --card-bg: rgba(26, 26, 46, 0.8);
+        --border-color: rgba(255, 255, 255, 0.1);
+      }
+
+      body {
+        background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+        background-attachment: fixed;
+        color: var(--text-primary);
+        /* Performance optimization */
+        will-change: transform;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: 
+          radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 25%),
+          radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 25%);
+        pointer-events: none;
+        z-index: -1;
+        /* Performance optimization */
+        will-change: opacity;
+      }
+
+      .faq-item, .support-card {
+        background: var(--card-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* Performance optimization */
+        transform: translateZ(0);
+        will-change: transform;
+      }
+
+      .faq-item:hover, .support-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .faq-item h3, .support-card h3 {
+        color: var(--text-primary);
+        margin-bottom: 15px;
+      }
+
+      .faq-item p, .support-card p {
+        color: var(--text-secondary);
+      }
+
+      .support-card i {
+        color: var(--primary);
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+
+      .btn {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        /* Performance optimization */
+        will-change: transform;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+      }
+
+      /* Header Optimization */
+      header {
+        background: rgba(26, 26, 46, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        /* Performance optimization */
+        will-change: transform;
+      }
+
+      /* Footer Optimization */
+      footer {
+        background: var(--gradient-start);
+        color: var(--text-primary);
+        border-top: 1px solid var(--border-color);
+      }
+
+      .footer-section h3 {
+        color: var(--text-primary);
+      }
+
+      .footer-section p, .footer-section a {
+        color: var(--text-secondary);
+      }
+
+      /* Loading Animation Optimization */
+      .loading-animation {
+        background: var(--gradient-start);
+      }
+
+      /* Responsive Optimizations */
+      @media (max-width: 768px) {
+        .faq-grid, .support-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .faq-item, .support-card {
+          padding: 20px;
+        }
+      }
+
+      /* Reduced Motion */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      /* Enhanced Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--gradient-start);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-dark);
+      }
+    </style>
+</head>
+<body class="performance-mode">
+    <!-- Loading Animation -->
+    <div class="loading-animation">
+        <div class="loading-logo"></div>
+    </div>
+
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">DAN TECH</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="computer-learning-hub.html">Courses</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero" data-aos="fade-up">
+            <h1>Help & Support</h1>
+            <p>Find answers to your questions and get the support you need</p>
+        </section>
+
+        <section class="faq" data-aos="fade-up">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3>How do I enroll in a course?</h3>
+                    <p>Visit our Courses page, select your desired course, and click the "Enroll Now" button. Fill out the enrollment form, and our team will contact you within 24 hours.</p>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3>What are the payment options?</h3>
+                    <p>We accept various payment methods including M-Pesa, bank transfer, and credit/debit cards. Payment plans are also available for select courses.</p>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Are the courses online or in-person?</h3>
+                    <p>We offer both online and in-person learning options. You can choose the format that best suits your schedule and learning style.</p>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Do you provide certificates?</h3>
+                    <p>Yes, upon successful completion of your course, you will receive an industry-recognized certificate from DAN TECH.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="support-options" data-aos="fade-up">
+            <h2>Get Support</h2>
+            <div class="support-grid">
+                <div class="support-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Support</h3>
+                    <p>Send us an email and we'll respond within 24 hours</p>
+                    <a href="mailto:support@dantech.com" class="btn">Email Us</a>
+                </div>
+
+                <div class="support-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone Support</h3>
+                    <p>Call us during business hours for immediate assistance</p>
+                    <a href="tel:+254123456789" class="btn">Call Now</a>
+                </div>
+
+                <div class="support-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-comments"></i>
+                    <h3>Live Chat</h3>
+                    <p>Chat with our support team in real-time</p>
+                    <button class="btn" onclick="openChat()">Start Chat</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@dantech.com</p>
+                <p>Phone: +254 788 065 983</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="computer-learning-hub.html">Courses</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 DAN TECH. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Initialize AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                disable: window.innerWidth < 768
+            });
+
+            // Hide loading animation
+            setTimeout(() => {
+                document.querySelector('.loading-animation').classList.add('loaded');
+            }, 1000);
+
+            // Mobile menu toggle
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenu?.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Header scroll effect
+            const header = document.querySelector('header');
+            let lastScroll = 0;
+
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll > lastScroll && currentScroll > 80) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+                
+                lastScroll = currentScroll;
+            });
+        });
+
+        // Live chat function
+        function openChat() {
+            // Add your live chat implementation here
+            alert('Live chat feature coming soon!');
+        }
+    </script>
+    <script src="update-styles.js"></script>
+</body>
+</html>
+

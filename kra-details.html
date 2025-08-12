@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KRA Services - Tax PIN, Filing & Compliance information portal by DAN TECH">
+    <title>KRA Services - DAN TECH</title>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        /* Modern CSS Reset and Variables */
+        :root {
+            /* Enhanced color palette */
+            --primary: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --primary-light: #60a5fa;
+            --secondary: #6366f1;
+            --accent: #8b5cf6;
+            --background: #0f172a;
+            --surface: #1e293b;
+            --surface-light: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --success: #22c55e;
+            --warning: #eab308;
+            --error: #ef4444;
+            --deadline: #dc2626;
+            
+            /* Enhanced UI elements */
+            --card-bg: rgba(30, 41, 59, 0.8);
+            --card-hover: rgba(51, 65, 85, 0.9);
+            --border: rgba(148, 163, 184, 0.1);
+            --border-hover: rgba(148, 163, 184, 0.2);
+            
+            /* Refined shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+            --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.2);
+            
+            /* Layout constants */
+            --max-width: 1200px;
+            --header-height: 80px;
+            --banner-height: 48px;
+            
+            /* Spacing scale */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-12: 3rem;
+            
+            /* Animation variables */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--background), var(--surface));
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Enhanced Background Effects */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Scrolling Banner */
+        .scrolling-banner {
+            background: linear-gradient(90deg, var(--deadline), var(--error));
+            color: var(--text-primary);
+            height: var(--banner-height);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .scrolling-text {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 var(--space-4);
+            font-weight: 500;
+            white-space: nowrap;
+            animation: scroll-left 30s linear infinite;
+            will-change: transform;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--card-bg), var(--surface-light));
+            margin-top: var(--banner-height);
+            padding: var(--space-12) var(--space-4);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(
+                circle at top right,
+                var(--primary-light) 0%,
+                transparent 70%
+            );
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        header h1 {
+            position: relative;
+            z-index: 1;
+            font-size: clamp(1.5rem, 5vw, 2.25rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: var(--space-4);
+        }
+
+        /* Content */
+        .content {
+            max-width: var(--max-width);
+            margin: var(--space-8) auto;
+            padding: 0 var(--space-4);
+            display: grid;
+            gap: var(--space-6);
+        }
+
+        /* Service Cards */
+        .service-details {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: var(--space-6);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-details::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                var(--primary) 0%, 
+                var(--accent) 50%, 
+                var(--secondary) 100%
+            );
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-normal);
+        }
+
+        .service-details:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-details:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-details h2 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .service-details h2 i {
+            color: var(--primary);
+        }
+
+        .service-details p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-4);
+        }
+
+        .service-details ul {
+            list-style: none;
+            margin-bottom: var(--space-4);
+        }
+
+        .service-details li {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2);
+            padding-left: var(--space-6);
+            position: relative;
+        }
+
+        .service-details li::before {
+            content: '•';
+            color: var(--primary);
+            position: absolute;
+            left: var(--space-2);
+        }
+
+        /* Enhanced Button Styles */
+        .learn-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--text-primary);
+            padding: var(--space-3) var(--space-6);
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all var(--transition-normal);
+            border: 1px solid transparent;
+        }
+
+        .learn-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+
+        .learn-more-btn i {
+            transition: transform var(--transition-normal);
+        }
+
+        .learn-more-btn:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content {
+                margin: var(--space-4);
+            }
+
+            .service-details {
+                padding: var(--space-4);
+            }
+
+            .service-details h2 {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scrolling Countdown Banner -->
+    <div class="scrolling-banner">
+        <div class="scrolling-text" id="scrollText">
+            ⏳ Loading countdown...
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <h1>
+            <i class="fas fa-file-invoice"></i>
+            KRA Services - Tax PIN, Filing & Compliance
+        </h1>
+    </header>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="service-details" data-aos="fade-up">
+            <h2>
+                <i class="fas fa-id-card"></i>
+                Tax Registration and KRA PIN
+            </h2>
+            <p>The Kenya Revenue Authority (KRA) enables you to register for a KRA PIN, essential for employment, business, and financial services. We help you simplify the process from application to confirmation.</p>
+            <a href="request-application-kra.html" class="learn-more-btn">
+                <i class="fas fa-arrow-right"></i>
+                Request KRA PIN
+            </a>
+        </div>
+
+        <div class="service-details" data-aos="fade-up" data-aos-delay="100">
+            <h2>
+                <i class="fas fa-file-alt"></i>
+                File Your KRA Returns
+            </h2>
+            <p>It is mandatory for every registered taxpayer to file returns annually, even if you have no income. The KRA return filing deadline is <strong>30th June 2025</strong>.</p>
+            <ul>
+                <li>Timely compliance avoids penalties</li>
+                <li>We assist in filing both NIL and active returns</li>
+                <li>Filing can be done online via the iTax platform</li>
+            </ul>
+            <a href="file-kra-returns.html" class="learn-more-btn">
+                <i class="fas fa-arrow-right"></i>
+                File My KRA Returns
+            </a>
+        </div>
+
+        <div class="service-details" data-aos="fade-up" data-aos-delay="200">
+            <h2>
+                <i class="fas fa-check-circle"></i>
+                Why File & Stay Compliant?
+            </h2>
+            <ul>
+                <li>Required for job applications, tenders, and government services</li>
+                <li>Proof of financial compliance for loans and grants</li>
+                <li>Avoid hefty fines from late or non-filing</li>
+                <li>Shows tax discipline and builds credit trust</li>
+            </ul>
+            <p>Stay ahead of the KRA deadline to avoid last-minute stress and penalties. Let us assist you in every step of filing and compliance.</p>
+        </div>
+    </div>
+
+    <!-- Optimized Countdown Script -->
+    <script>
+        // Performance optimization: Use requestAnimationFrame for smooth updates
+        let animationFrameId;
+        const scrollText = document.getElementById("scrollText");
+
+        function updateScrollBanner() {
+            const now = new Date();
+            const deadline = new Date("2025-06-30T23:59:59");
+            const diff = deadline - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            let message = "";
+            if (diff <= 0) {
+                message = "⚠️ KRA FILING DEADLINE HAS PASSED! FILE IMMEDIATELY TO AVOID PENALTIES.";
+            } else {
+                message = `⏰ KRA Returns Deadline: 30 June 2025 • Time Left: ${days}d ${hours}h ${minutes}m ${seconds}s • FILE NOW TO AVOID PENALTIES! ✅`;
+            }
+
+            if (scrollText.innerText !== message) {
+                scrollText.innerText = message;
+            }
+
+            animationFrameId = requestAnimationFrame(updateScrollBanner);
+        }
+
+        // Start the countdown
+        updateScrollBanner();
+
+        // Cleanup on page visibility change
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                cancelAnimationFrame(animationFrameId);
+            } else {
+                updateScrollBanner();
+            }
+        });
+
+        // Initialize animations with performance optimizations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        requestAnimationFrame(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.service-details').forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
+
